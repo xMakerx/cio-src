@@ -11,6 +11,6 @@ set RESOURCE_ENCRYPTION=cio-03-06-16_lsphases
 cls
 
 :main
-%CIOENGINE%\python\ppython.exe -B -m src.coginvasion.base.CIStartGlobal
+%OPENCIOENGINE%\python\ppython.exe -B -m src.coginvasion.base.CIStartGlobal
 pause
 goto :main
