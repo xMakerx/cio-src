@@ -150,7 +150,7 @@ class FactorySneakWorld(DirectObject):
             barrel.cleanup()
 
     def loadJellybeanBarrels(self):
-        for i in xrange(len(CGG.JellybeanBarrelPoints)):
+        for i in range(len(CGG.JellybeanBarrelPoints)):
             self.createJellybeanBarrel(i)
 
     def deleteJellybeanBarrels(self):

@@ -17,8 +17,8 @@ from panda3d.core import Vec3, OmniBoundingVolume
 from direct.actor.Actor import Actor
 from direct.interval.IntervalGlobal import Sequence, Func, ActorInterval
 
-from BaseHitscan import BaseHitscan
-from HL2ShotgunShared import HL2ShotgunShared
+from .BaseHitscan import BaseHitscan
+from .HL2ShotgunShared import HL2ShotgunShared
 
 from src.coginvasion.base.Precache import precacheSound, precacheActor, precacheModel
 from src.coginvasion.globals import CIGlobals
@@ -90,7 +90,7 @@ class HL2Shotgun(BaseHitscan, HL2ShotgunShared):
             precacheSound(rl)
             
         precacheModel(cls.ShellPath)
-        for i in xrange(cls.ShellContactSoundRange[0], cls.ShellContactSoundRange[1] + 1):
+        for i in range(cls.ShellContactSoundRange[0], cls.ShellContactSoundRange[1] + 1):
             precacheSound(cls.ShellContactSoundPath.format(i))
             
     def addPrimaryPressData(self, dg):

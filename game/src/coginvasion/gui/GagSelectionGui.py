@@ -249,7 +249,7 @@ class GagTrack(DirectFrame):
 
     def load(self):
         gags = GagGlobals.TrackGagNamesByTrackName[self.trackName]
-        for i in xrange(len(gags)):
+        for i in range(len(gags)):
             gagName = gags[i]
             gagId = base.cr.attackMgr.getAttackIDByName(gagName)
             btn = GagWidget(self, gagId)
@@ -415,7 +415,7 @@ class GagSelectionGui(DirectFrame, FSM):
 
     def load(self):
         tracks = self.__accumulateTracks()
-        for i in xrange(len(tracks)):
+        for i in range(len(tracks)):
             track = GagTrack(self, tracks[i])
             track.load()
             track.reparentTo(self)
@@ -448,7 +448,7 @@ class GagSelectionGui(DirectFrame, FSM):
         self.accept('wheel_up', self.__handleScrollUp)
         self.accept('wheel_down', self.__handleScrollDown)
 
-        for i in xrange(len(self.tracks)):
+        for i in range(len(self.tracks)):
             self.accept(str(i + 1), self.__handleTrackChoose, [i])
 
         self.request('Idle')
@@ -481,7 +481,7 @@ class GagSelectionGui(DirectFrame, FSM):
         self.ignore('wheel_up')
         self.ignore('wheel_down')
 
-        for i in xrange(len(self.tracks)):
+        for i in range(len(self.tracks)):
             self.ignore(str(i + 1))
 
         self.request('Idle')
@@ -577,7 +577,7 @@ class GagSelectionGui(DirectFrame, FSM):
         # Resort the tracks
         numTracks = len(self.tracks)
         maxTrack = numTracks - 1
-        for i in xrange(len(self.tracks)):
+        for i in range(len(self.tracks)):
             track = self.tracks[i]
 
             if i == idx:

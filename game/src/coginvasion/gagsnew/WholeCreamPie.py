@@ -2,8 +2,8 @@ from panda3d.core import Vec3
 
 from direct.interval.IntervalGlobal import Sequence, ActorInterval, Func
 
-from BaseGag import BaseGag
-from WholeCreamPieShared import WholeCreamPieShared
+from .BaseGag import BaseGag
+from .WholeCreamPieShared import WholeCreamPieShared
 from src.coginvasion.attack.Attacks import ATTACK_HOLD_RIGHT, ATTACK_GAG_WHOLECREAMPIE
 from src.coginvasion.base.Precache import precacheSound
 from src.coginvasion.gags import GagGlobals

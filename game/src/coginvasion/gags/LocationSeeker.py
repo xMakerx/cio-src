@@ -96,7 +96,7 @@ class LocationSeeker(Precacheable):
                                                        CIGlobals.FloorGroup |
                                                        CIGlobals.StreetVisGroup))
             if result.hasHits():
-                for i in xrange(len(hits)):
+                for i in range(len(hits)):
                     hit = hits[i]
                     node = hit.getNode()
                     if node.isOfType(BulletGhostNode.getClassType()):

@@ -57,7 +57,7 @@ class OptionsPage(BookPage):
         totalWidth = 0.0
         bookWidth = 2.0
 
-        for i in xrange(len(self.Categories.keys())):
+        for i in range(len(self.Categories.keys())):
             if i > 0:
                 totalWidth += spacing
             totalWidth += tabWidth

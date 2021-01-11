@@ -37,7 +37,7 @@ class DistributedToonInteriorAI(DistributedObjectAI.DistributedObjectAI):
         for npcId in npcIdList:
             while npcIdList.count(npcId) > 1:
                 npcIdList.remove(npcId)
-        for i in xrange(len(npcIdList)):
+        for i in range(len(npcIdList)):
             npcId = npcIdList[i]
             npcData = NPCGlobals.NPCToonDict.get(npcId)
             if not npcData[3] in [NPCGlobals.NPC_REGULAR, NPCGlobals.NPC_HQ, NPCGlobals.NPC_TAILOR, NPCGlobals.NPC_CLERK]:

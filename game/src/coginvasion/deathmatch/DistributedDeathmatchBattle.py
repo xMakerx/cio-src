@@ -9,7 +9,7 @@ Copyright (c) CIO Team. All rights reserved.
 """
 
 from src.coginvasion.battle.DistributedBattleZone import DistributedBattleZone
-from DeathmatchRules import DeathmatchRules
+from .DeathmatchRules import DeathmatchRules
 
 class DistributedDeathmatchBattle(DistributedBattleZone):
 

@@ -74,7 +74,7 @@ class BaseAttackAI(BaseAttackShared):
                 if (CIGlobals.isAvatar(obj) and obj.getKey() == avNP.getKey() and 
                 self.canDamage(obj)):
                     
-                    for _ in xrange(traces):
+                    for _ in range(traces):
                         dmgInfo = TakeDamageInfo(self.avatar, self.getID(),
                                             self.calcDamage(distance),
                                             hitPos, origin)

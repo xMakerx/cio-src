@@ -173,7 +173,7 @@ class DistributedTutorial(DistributedBattleZone):
 
     def __doTutChat(self, speechList):
         finalSpeech = ""
-        for i in xrange(len(speechList)):
+        for i in range(len(speechList)):
             speech = speechList[i]
             if i < len(speechList) - 1:
                 finalSpeech += speech + "\x07"

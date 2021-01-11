@@ -56,7 +56,7 @@ class DistributedToonHQInterior(DistributedToonInterior.DistributedToonInterior)
         doorOrigins = render.findAllMatches('**/door_origin*')
         numDoorOrigins = doorOrigins.getNumPaths()
 
-        for npIndex in xrange(numDoorOrigins):
+        for npIndex in range(numDoorOrigins):
             # Let's not generate the secondary door for the TTC playground interior.
             if npIndex == 0 or (npIndex == 1 and not self.zoneId == 2520):
                 doorOrigin = doorOrigins[npIndex]

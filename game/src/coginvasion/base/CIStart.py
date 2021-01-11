@@ -15,7 +15,7 @@ from panda3d.core import Thread, loadPrcFile, loadPrcFileData, CollisionTraverse
 from panda3d.core import ConfigVariableDouble, ConfigVariableString
 #from panda3d.core import PStatClient, WindowProperties
 
-import .Logger
+from . import Logger
 logger = Logger.Starter()
 logger.startNotifyLogging()
 

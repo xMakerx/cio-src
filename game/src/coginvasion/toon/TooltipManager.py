@@ -33,7 +33,7 @@ class TooltipManager:
         dgi = DatagramIterator(dg)
         # up to 255 tips
         numTips = dgi.getUint8()
-        for i in xrange(numTips):
+        for i in range(numTips):
             tipId = dgi.getUint8()
             self.seenTips.append(tipId)
 

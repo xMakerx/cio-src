@@ -2,7 +2,7 @@ from panda3d.core import (Point3, Vec3, Quat, GeomPoints, GeomVertexWriter, Geom
                           GeomVertexData, GeomEnums, InternalName, TextureStage, TexGenAttrib,
                           Geom, GeomNode, BoundingSphere, CallbackNode, CallbackObject, TextureAttrib,
                           ColorBlendAttrib, ColorWriteAttrib, Vec4, TransparencyAttrib, ColorWriteAttrib)
-from panda3d.bsp import GlowNode
+from libpandabsp import GlowNode
 
 from src.coginvasion.globals import CIGlobals
 from .Entity import Entity

@@ -39,7 +39,7 @@ class CogOfficePursueToonBehaviorAI(SuitPursueToonBehaviorAI):
 
     def exit(self):
         # Remove myself from the targets list for my target
-        if (self.targetId is not None and self.targetId in self.suit.battle.toonId2suitsTargeting.keys() and
-            self.suit.doId in self.suit.battle.toonId2suitsTargeting[self.targetId]):
+        if (self.targetId is not None and self.targetId in list(self.suit.battle.toonId2suitsTargeting.keys()) and
+            self.suit.doId in list(self.suit.battle.toonId2suitsTargeting)[self.targetId]):
             self.suit.battle.toonId2suitsTargeting[self.targetId].remove(self.suit.doId)
         SuitPursueToonBehaviorAI.exit(self)

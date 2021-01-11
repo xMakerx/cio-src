@@ -22,8 +22,8 @@ from src.coginvasion.cog.Suit import Suit
 from src.coginvasion.cog.SuitType import SuitType
 from src.coginvasion.cog import SuitBank
 from src.coginvasion.cog import Variant
-import NURBSMopath
-import CityCartGlobals
+from . import NURBSMopath
+from . import CityCartGlobals
 
 import random
 

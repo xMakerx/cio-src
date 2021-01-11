@@ -142,19 +142,19 @@ class DistributedElevatorAI(DistributedObjectAI):
 
     def requestEnter(self):
         avId = self.air.getAvatarIdFromSender()
-        if len(self.slotTakenByAvatarId) < len(ElevatorPoints) and not avId in self.slotTakenByAvatarId.keys() and self.fsm.getCurrentState().getName() in ['waitEmpty', 'waitCountdown']:
+        if len(self.slotTakenByAvatarId) < len(ElevatorPoints) and not avId in list(self.slotTakenByAvatarId.keys()) and self.fsm.getCurrentState().getName() in ['waitEmpty', 'waitCountdown']:
             if len(self.slotTakenByAvatarId) == 0 and self.type != ELEVATOR_INT:
                 # First avatar aboard! Start counting down!
                 self.b_setState('waitCountdown')
             slotToFill = -1
             for slotNum in self.slots:
-                if not slotNum in self.slotTakenByAvatarId.values():
+                if not slotNum in list(self.slotTakenByAvatarId.values()):
                     slotToFill = slotNum
                     break
             self.sendUpdate('fillSlot', [slotToFill, avId])
             self.slotTakenByAvatarId[avId] = slotToFill
             if self.type == ELEVATOR_INT:
-                if len(self.slotTakenByAvatarId.values()) == len(self.bldg.getAvatars()):
+                if len(list(self.slotTakenByAvatarId.values())) == len(self.bldg.getAvatars()):
                     base.taskMgr.remove(self.uniqueName('allAvatarsBoardedTask'))
                     base.taskMgr.doMethodLater(0.7, self.allAvatarsBoardedTask, self.uniqueName('allAvatarsBoardedTask'))
         else:
@@ -162,7 +162,7 @@ class DistributedElevatorAI(DistributedObjectAI):
 
     def requestExit(self):
         avId = self.air.getAvatarIdFromSender()
-        if avId in self.slotTakenByAvatarId.keys() and self.fsm.getCurrentState().getName() in ['waitEmpty', 'waitCountdown']:
+        if avId in list(self.slotTakenByAvatarId.keys()) and self.fsm.getCurrentState().getName() in ['waitEmpty', 'waitCountdown']:
             slot = self.slotTakenByAvatarId[avId]
             del self.slotTakenByAvatarId[avId]
             self.sendUpdate('emptySlot', [slot, avId])

@@ -9,7 +9,7 @@ Copyright (c) CIO Team. All rights reserved.
 """
 
 from panda3d.bullet import *
-from panda3d.bsp import *
+from libpandabsp import *
 
 from src.coginvasion.distributed.CogInvasionInternalRepository import CogInvasionInternalRepository
 from src.coginvasion.distributed.DistributedDistrictAI import DistributedDistrictAI
@@ -104,7 +104,7 @@ class CogInvasionAIRepository(CogInvasionInternalRepository):
             # How many suits are casting rays
             numSuits = 15#random.randint(4, 15)
             zonePhysics.doPhysics(dt, 1, 0.016)
-            for i in xrange(numSuits):
+            for i in range(numSuits):
                 zonePhysics.rayTestClosest((0, 0, 0), (0, 20, 0))
             
         return task.cont
@@ -143,7 +143,7 @@ class CogInvasionAIRepository(CogInvasionInternalRepository):
                 # Add objects that would be dynamic
                 # (Avatar capsules, weapon collisions, door collisions, etc)
                 dynObjects = 50#random.randint(15, 50)
-                for i in xrange(dynObjects):
+                for i in range(dynObjects):
                     box = BulletCapsuleShape(0.5, 1.0, ZUp)
                     rbnode = BulletRigidBodyNode("testrb")
                     rbnode.setKinematic(True)

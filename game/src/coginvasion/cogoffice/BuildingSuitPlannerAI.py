@@ -121,7 +121,7 @@ class BuildingSuitPlannerAI:
 
     def __setupInitialBuildings(self):
 
-        for _ in xrange(self.minBuildings):
+        for _ in range(self.minBuildings):
 
             if self.numCogBuildings >= self.minBuildings:
                 break

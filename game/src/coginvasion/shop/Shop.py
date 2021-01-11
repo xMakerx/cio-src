@@ -159,7 +159,7 @@ class Shop(StateData):
             return self.healCooldowns.get(item)
 
     def hasCooldown(self, item):
-        return item in self.healCooldowns.keys()
+        return item in list(self.healCooldowns.keys())
 
     def purchaseItem(self, item):
         items = self.items
@@ -495,7 +495,7 @@ class ShopWindow(DirectFrame):
         for button in self.itemButtons:
             button.hide()
             button.label.hide()
-        for i in xrange(4):
+        for i in range(4):
             item = self.newItems.keys()[begin + i] if (begin + i) < len(self.newItems.keys()) else None
             values = self.newItems.get(item) if item else None
             if item:

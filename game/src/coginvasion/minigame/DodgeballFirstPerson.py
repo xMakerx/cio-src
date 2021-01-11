@@ -197,7 +197,7 @@ class DodgeballFirstPerson(FirstPerson):
     def __tryToCatchOrGrab(self):
         snowballs = list(self.mg.snowballs)
         snowballs.sort(key = lambda snowball: snowball.getDistance(base.localAvatar))
-        for i in xrange(len(snowballs)):
+        for i in range(len(snowballs)):
             snowball = snowballs[i]
             if (not snowball.hasOwner() and not snowball.isAirborne and
                 snowball.getDistance(base.localAvatar) <= DodgeballFirstPerson.MaxPickupDistance):

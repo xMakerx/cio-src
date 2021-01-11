@@ -14,8 +14,8 @@ from direct.directnotify.DirectNotifyGlobal import directNotify
 
 from src.coginvasion.hood.playground.SafeZoneLoader import SafeZoneLoader
 from src.coginvasion.toon import ParticleLoader
-import CTPlayground
-import TrafficLight
+from . import CTPlayground
+from . import TrafficLight
 
 class CTSafeZoneLoader(SafeZoneLoader):
     notify = directNotify.newCategory("CTSafeZoneLoader")

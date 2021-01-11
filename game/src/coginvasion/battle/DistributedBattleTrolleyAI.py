@@ -108,7 +108,7 @@ class DistributedBattleTrolleyAI(DistributedObjectAI):
 
     def requestBoard(self):
         avId = self.air.getAvatarIdFromSender()
-        if len(self.slotTakenByAvatarId) < self.NUM_SLOTS and not avId in self.slotTakenByAvatarId.keys() and self.fsm.getCurrentState().getName() in ['wait', 'waitCountdown']:
+        if len(self.slotTakenByAvatarId) < self.NUM_SLOTS and not avId in list(self.slotTakenByAvatarId.keys()) and self.fsm.getCurrentState().getName() in ['wait', 'waitCountdown']:
             slotToFill = -1
             for slotNum in self.slots:
                 if not slotNum in self.slotTakenByAvatarId.values():
@@ -123,7 +123,7 @@ class DistributedBattleTrolleyAI(DistributedObjectAI):
 
     def requestHopOff(self):
         avId = self.air.getAvatarIdFromSender()
-        if avId in self.slotTakenByAvatarId.keys() and self.fsm.getCurrentState().getName() in ['wait', 'waitCountdown']:
+        if avId in list(self.slotTakenByAvatarId.keys()) and self.fsm.getCurrentState().getName() in ['wait', 'waitCountdown']:
             slot = self.slotTakenByAvatarId[avId]
             del self.slotTakenByAvatarId[avId]
             self.sendUpdate('emptySlot', [slot, avId])

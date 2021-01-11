@@ -134,7 +134,7 @@ class FriendsList(DirectFrame):
     def handleFriendsList(self, friendIdArray, nameArray, flags, accessLevels):
         self.friends = {}
         self.onlineFriends = {}
-        for i in xrange(len(friendIdArray)):
+        for i in range(len(friendIdArray)):
             avatarId = friendIdArray[i]
             name = nameArray[i]
             accessLevel = accessLevels[i]

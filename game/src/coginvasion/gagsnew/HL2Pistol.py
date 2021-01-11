@@ -15,8 +15,8 @@ from panda3d.core import Vec3, OmniBoundingVolume
 from direct.actor.Actor import Actor
 from direct.interval.IntervalGlobal import Sequence, Func, ActorInterval
 
-from BaseHitscan import BaseHitscan
-from HL2PistolShared import HL2PistolShared
+from .BaseHitscan import BaseHitscan
+from .HL2PistolShared import HL2PistolShared
 
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.base.Precache import precacheSound, precacheActor

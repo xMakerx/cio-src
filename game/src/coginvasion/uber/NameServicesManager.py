@@ -27,7 +27,7 @@ class NameServicesManager(DistributedObjectGlobal):
         self.sendUpdate('requestNameData', [])
 
     def nameDataRequest(self, names, avatarIds, accIds, dates, statuses):
-        for i in xrange(len(names)):
+        for i in range(len(names)):
             request = {}
             request['name'] = str(names[i])
             request['avId'] = int(avatarIds[i])

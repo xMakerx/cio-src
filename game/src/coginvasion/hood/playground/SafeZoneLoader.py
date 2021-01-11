@@ -196,7 +196,7 @@ class SafeZoneLoader(StateData):
         if self.szStorageDNAFile:
             if isinstance(self.szStorageDNAFile, list):
                 # We are loading multiple sz storages.
-                for i in xrange(len(self.szStorageDNAFile)):
+                for i in range(len(self.szStorageDNAFile)):
                     loader.loadDNAFile(self.hood.dnaStore, self.szStorageDNAFile[i])
             else:
                 loader.loadDNAFile(self.hood.dnaStore, self.szStorageDNAFile)
@@ -223,7 +223,7 @@ class SafeZoneLoader(StateData):
 
     def makeDictionaries(self, dnaStore):
         self.nodeList = []
-        for i in xrange(dnaStore.getNumDNAVisGroups()):
+        for i in range(dnaStore.getNumDNAVisGroups()):
             groupFullName = dnaStore.getDNAVisGroupName(i)
             #groupName = base.cr.hoodMgr.extractGroupName(groupFullName)
             groupNode = self.geom.find('**/' + groupFullName)

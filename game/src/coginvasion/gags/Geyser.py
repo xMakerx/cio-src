@@ -39,7 +39,7 @@ class Geyser(SquirtGag, ChargeUpGag):
 
     def buildGeyser(self):
         def clearNodes(entity, paths):
-            for i in xrange(paths.getNumPaths()):
+            for i in range(paths.getNumPaths()):
                 paths[i].removeNode()
 
         geyserWater = loader.loadModel(self.model)

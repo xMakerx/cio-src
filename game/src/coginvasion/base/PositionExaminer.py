@@ -61,7 +61,7 @@ class PositionExaminer(DirectObject, NodePath):
                 
                 wallEntry = False
                 
-                for iContact in xrange(sphereContactResult.getNumContacts()):
+                for iContact in range(sphereContactResult.getNumContacts()):
                     contact = sphereContactResult.getContact(iContact)
                     node0 = NodePath(contact.getNode0())
                     node1 = NodePath(contact.getNode1())

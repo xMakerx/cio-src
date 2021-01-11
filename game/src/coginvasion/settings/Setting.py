@@ -11,7 +11,7 @@ Copyright (c) CIO Team. All rights reserved.
 DATATYPE_TUPLE = tuple
 DATATYPE_LIST = list
 DATATYPE_INT = int
-DATATYPE_STR = unicode
+DATATYPE_STR = str
 DATATYPE_BOOL = bool
 DATATYPE_FLOAT = float
 
@@ -21,7 +21,7 @@ SHOWBASE_POSTINIT = 1
 def getVariants(datatype):
     
     if datatype == DATATYPE_STR:
-        return (unicode, str)
+        return (bytes, str)
     
     return (datatype)
     

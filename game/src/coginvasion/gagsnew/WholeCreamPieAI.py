@@ -4,9 +4,9 @@ from direct.distributed.PyDatagram import PyDatagram
 from direct.distributed.PyDatagramIterator import PyDatagramIterator
 from direct.distributed.ClockDelta import globalClockDelta
 
-from BaseGagAI import BaseGagAI
-from WholeCreamPieShared import WholeCreamPieShared
-from WholeCreamPieProjectileAI import WholeCreamPieProjectileAI
+from .BaseGagAI import BaseGagAI
+from .WholeCreamPieShared import WholeCreamPieShared
+from .WholeCreamPieProjectileAI import WholeCreamPieProjectileAI
 from src.coginvasion.attack.Attacks import ATTACK_GAG_WHOLECREAMPIE
 from src.coginvasion.attack.TakeDamageInfo import TakeDamageInfo
 from src.coginvasion.cog.ai.RelationshipsAI import RELATIONSHIP_FRIEND

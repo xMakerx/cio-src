@@ -2,8 +2,8 @@ from panda3d.core import Point3, Vec3
 from direct.distributed.PyDatagram import PyDatagram
 from direct.distributed.PyDatagramIterator import PyDatagramIterator
 
-from BaseGagAI import BaseGagAI
-from BaseHitscanShared import BaseHitscanShared
+from .BaseGagAI import BaseGagAI
+from .BaseHitscanShared import BaseHitscanShared
 
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.attack.Attacks import ATTACK_NONE

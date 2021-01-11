@@ -21,7 +21,7 @@ echo EVENT_LOGGER: %EVENT_LOGGER_IP%
 echo -----------------------------------
 echo %OPENCIOENGINE%
 
-call "%OPENCIOENGINE%\python\ppython.exe" -m src.coginvasion.uber.UberStart --base-channel %BASE_CHANNEL% ^
+call "%OPENCIOENGINE%\python\python.exe" -m src.coginvasion.uber.UberStart --base-channel %BASE_CHANNEL% ^
                      --max-channels %MAX_CHANNELS% --stateserver %STATE_SERVER% ^
                      --astron-ip %ASTRON_IP% --eventlogger-ip %EVENT_LOGGER_IP% --acc-limit %ACCOUNT_LIMIT% --acc-limit-per-comp %ACC_LIMIT_PER_COMP% --holiday %HOLIDAY%
 pause

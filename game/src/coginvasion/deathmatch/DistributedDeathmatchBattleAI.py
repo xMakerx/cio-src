@@ -9,7 +9,7 @@ Copyright (c) CIO Team. All rights reserved.
 """
 
 from src.coginvasion.battle.DistributedBattleZoneAI import DistributedBattleZoneAI
-from DeathmatchRulesAI import DeathmatchRulesAI
+from .DeathmatchRulesAI import DeathmatchRulesAI
 
 class DistributedDeathmatchBattleAI(DistributedBattleZoneAI):
 

@@ -15,7 +15,7 @@ from direct.gui.DirectGui import DirectFrame, DirectLabel
 from direct.directnotify.DirectNotifyGlobal import directNotify
 from panda3d.core import Vec4
 
-from panda3d.bsp import BloomAttrib
+from libpandabsp import BloomAttrib
 
 notify = directNotify.newCategory("LaffOMeter")
 
@@ -145,7 +145,7 @@ class LaffOMeter(DirectFrame):
             ToontownIntervals.start(ToontownIntervals.getPulseSmallerIval(self.container, name))
 
     def adjustTeeth(self, health):
-        for i in xrange(len(self.teethList)):
+        for i in range(len(self.teethList)):
             if health > self.maxHP * self.fractions[i]:
                 self.teethList[i].show()
             else:

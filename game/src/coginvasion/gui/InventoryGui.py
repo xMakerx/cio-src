@@ -711,7 +711,7 @@ class InventoryGui(DirectObject):
         numSlots = len(updateSlots)
         posGroup = {1 : self.oneSlotPos, 2 : self.twoSlotsPos, 3 : self.threeSlotsPos, 4 : self.fourSlotPos}.get(numSlots)
 
-        for i in xrange(len(updateSlots)):
+        for i in range(len(updateSlots)):
             updateSlots[i].setPos(posGroup[i])
             updateSlots[i].show()
         self.resetScroll()

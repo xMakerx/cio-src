@@ -232,7 +232,7 @@ class DistributedSuit(Suit, DistributedAvatar, DelayDeletable):
 
         voice = Voice.NORMAL
         if variant:
-            if isinstance(variant, (int, long, float, complex)):
+            if isinstance(variant, (int, integer, float, complex)):
                 variant = Variant.getVariantById(variant)
 
         if plan.getForcedVoice():

@@ -205,7 +205,7 @@ class DistributedBuildingAI(DistributedObjectAI):
                 toon = self.getToon(t)
             if toon is not None:
                 activeToons.append(toon)
-        for i in xrange(0, 4):
+        for i in range(0, 4):
             victor = victorList[i]
             if (victor is None) or (victor not in self.air.doId2do):
                 victorList[i] = 0
@@ -227,7 +227,7 @@ class DistributedBuildingAI(DistributedObjectAI):
         pass
 
     def findVictorIndex(self, avId):
-        for i in xrange(len(self.victorList)):
+        for i in range(len(self.victorList)):
             if self.victorList[i] == avId:
                 return i
 

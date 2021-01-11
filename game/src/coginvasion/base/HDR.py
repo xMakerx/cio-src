@@ -99,7 +99,7 @@ class HDR(DirectObject):
 
         # Build luminance histogram bucket ranges.
         self.ptaBucketRange = PTALVecBase2f.emptyArray(self.NumBuckets)
-        for i in xrange(self.NumBuckets):
+        for i in range(self.NumBuckets):
             # Use even distribution
             bmin = float(i) / float(self.NumBuckets)
             bmax = float(i + 1) / float(self.NumBuckets)

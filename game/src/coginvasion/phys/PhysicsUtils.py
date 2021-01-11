@@ -1,6 +1,6 @@
 from panda3d.core import Vec3, Point3, TransformState, GeomNode, CollisionNode, NodePath, BitMask32, NodePathCollection
 from panda3d.bullet import BulletBoxShape, BulletRigidBodyNode, BulletTriangleMesh, BulletTriangleMeshShape, BulletGhostNode
-from panda3d.bsp import BSPFaceAttrib, BSPMaterialAttrib
+from libpandabsp import BSPFaceAttrib, BSPMaterialAttrib
 
 from src.coginvasion.globals import CIGlobals
 
@@ -81,7 +81,7 @@ def makeBulletCollFromGeoms(rootNode, exclusions = [], enableNow = True, world =
         # Create a separate list of geoms for each possible face type
         # ( a wall or floor )
         type2geoms = {}
-        for i in xrange(faceNp.node().getNumGeoms()):
+        for i in range(faceNp.node().getNumGeoms()):
             geom = faceNp.node().getGeom(i)
             state = faceNp.node().getGeomState(i)
             if not geom.getPrimitive(0).isIndexed():
@@ -103,7 +103,7 @@ def makeBulletCollFromGeoms(rootNode, exclusions = [], enableNow = True, world =
             data = {}
             numGeoms = 0
             mesh = BulletTriangleMesh()
-            for i in xrange(len(geoms)):
+            for i in range(len(geoms)):
                 geom, state = geoms[i]
                 mesh.addGeom(geom, True)
                 surfaceprop = "default"
@@ -111,11 +111,11 @@ def makeBulletCollFromGeoms(rootNode, exclusions = [], enableNow = True, world =
                     mat = state.getAttrib(BSPMaterialAttrib.getClassSlot()).getMaterial()
                     if mat:
                         surfaceprop = mat.getSurfaceProp()
-                for j in xrange(geom.getNumPrimitives()):
+                for j in range(geom.getNumPrimitives()):
                     prim = geom.getPrimitive(j)
                     prim = prim.decompose()
                     tris = prim.getNumVertices() / 3
-                    for tidx in xrange(tris):
+                    for tidx in range(tris):
                         data[numGeoms] = surfaceprop
                         numGeoms += 1
             shape = BulletTriangleMeshShape(mesh, False)
@@ -225,7 +225,7 @@ def rayTestClosestNotMe(me, pFrom, pTo, mask = BitMask32.allOn(), world = None):
 
     _, hits = rayTestAllSorted(pFrom, pTo, mask, world)
     if hits is not None:
-        for i in xrange(len(hits)):
+        for i in range(len(hits)):
             hit = hits[i]
             hitNp = NodePath(hit.getNode())
             if not me.isAncestorOf(hitNp) and me != hitNp:

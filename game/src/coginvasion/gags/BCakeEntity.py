@@ -13,7 +13,7 @@ class BCakeEntity(Actor):
 
         self.flames = []
         numFlames = 6
-        for flameNum in xrange(numFlames):
+        for flameNum in range(numFlames):
             joint = self.controlJoint(None, "modelRoot", "joint_scale_flame{0}".format(flameNum + 1))
             data = {'joint': joint,
                     'lastPos': Point3(0, 0, 0),

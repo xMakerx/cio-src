@@ -12,8 +12,8 @@ from panda3d.core import loadPrcFile, NodePath, PGTop, TextPropertiesManager, Te
 from panda3d.core import CollisionHandlerFloor, CollisionHandlerQueue, CollisionHandlerPusher, loadPrcFileData, TexturePool, ModelPool, RenderState, Vec4, Point3
 from panda3d.core import CollisionTraverser, CullBinManager, LightRampAttrib, Camera, OmniBoundingVolume, Texture, GraphicsOutput, PerspectiveLens, ModelNode, BitMask32, OrthographicLens
 from panda3d.bullet import BulletWorld, BulletDebugNode
-from panda3d.bsp import Py_CL_BSPLoader, BSPLoader, BSPRender, BSPShaderGenerator, VertexLitGenericSpec, LightmappedGenericSpec, UnlitGenericSpec, UnlitNoMatSpec, CSMRenderSpec, SkyBoxSpec
-from panda3d.bsp import Audio3DManager, DecalModulateSpec
+from libpandabsp import Py_CL_BSPLoader, BSPLoader, BSPRender, BSPShaderGenerator, VertexLitGenericSpec, LightmappedGenericSpec, UnlitGenericSpec, UnlitNoMatSpec, CSMRenderSpec, SkyBoxSpec
+from libpandabsp import Audio3DManager, DecalModulateSpec
 
 import sys
 import builtins
@@ -62,14 +62,14 @@ class CIBase(ShowBase):
             ShowBase.__init__(self)
             self.loader.destroy()
             self.loader = CogInvasionLoader(self)
-            __builtin__.loader = self.loader
+            builtins.loader = self.loader
             self.graphicsEngine.setDefaultLoader(self.loader.loader)
             
         self.cam.node().getDisplayRegion(0).setClearDepthActive(1)
             
         from panda3d.core import RenderAttribRegistry
         from panda3d.core import ShaderAttrib, TransparencyAttrib
-        from panda3d.bsp import BSPMaterialAttrib
+        from libpandabsp import BSPMaterialAttrib
         attribRegistry = RenderAttribRegistry.getGlobalPtr()
         attribRegistry.setSlotSort(BSPMaterialAttrib.getClassSlot(), 0)
         attribRegistry.setSlotSort(ShaderAttrib.getClassSlot(), 1)
@@ -106,7 +106,7 @@ class CIBase(ShowBase):
         self.camNode.setCameraMask(CIGlobals.MainCameraBitmask)
 
         from direct.distributed.ClockDelta import globalClockDelta
-        __builtin__.globalClockDelta = globalClockDelta
+        builtins.globalClockDelta = globalClockDelta
 
         # Any ComputeNodes should be parented to this node, not render.
         # We isolate ComputeNodes to avoid traversing the same ComputeNodes
@@ -192,8 +192,8 @@ class CIBase(ShowBase):
         uis = UserInputStorage()
         self.inputStore = uis
         self.userInputStorage = uis
-        __builtin__.inputStore = uis
-        __builtin__.userInputStorage = uis
+        builtins.inputStore = uis
+        builtins.userInputStorage = uis
 
         self.credits2d = self.render2d.attachNewNode(PGTop("credits2d"))
         self.credits2d.setScale(1.0 / self.getAspectRatio(), 1.0, 1.0)
@@ -214,7 +214,7 @@ class CIBase(ShowBase):
         
         wrm = WaterReflectionManager()
         self.waterReflectionMgr = wrm
-        __builtin__.waterReflectionMgr = wrm
+        builtins.waterReflectionMgr = wrm
         
         # Let's setup our margins
         base.marginManager = MarginManager()
@@ -314,7 +314,7 @@ class CIBase(ShowBase):
             return [startPos, endPos]
         result = []
         valueList = self.navMeshNp.node().path_find_follow(startPos, endPos)
-        for i in xrange(valueList.get_num_values()):
+        for i in range(valueList.get_num_values()):
             result.append(valueList.get_value(i))
         return result
         
@@ -325,7 +325,7 @@ class CIBase(ShowBase):
         if not self.bspLoader.hasActiveLevel():
             return data
         
-        for i in xrange(self.bspLoader.getNumEntities()):
+        for i in range(self.bspLoader.getNumEntities()):
             classname = self.bspLoader.getEntityValue(i, "classname")
             if classname == "light_environment":
                 data[0] = 1
@@ -479,7 +479,7 @@ class CIBase(ShowBase):
         data = {}
         mup = MemoryUsagePointers()
         MemoryUsage.getPointers(mup)
-        for i in xrange(mup.getNumPointers()):
+        for i in range(mup.getNumPointers()):
             ptr = mup.getPythonPointer(i)
             if ptr.__class__.__name__ in data.keys():
                 data[ptr.__class__.__name__] += 1
@@ -690,7 +690,7 @@ class CIBase(ShowBase):
         self.cl_attackMgr = AttackManager()
         
         if self.DebugShaderQualities:
-            from panda3d.bsp import SHADERQUALITY_HIGH, SHADERQUALITY_MEDIUM, SHADERQUALITY_LOW
+            from libpandabsp import SHADERQUALITY_HIGH, SHADERQUALITY_MEDIUM, SHADERQUALITY_LOW
             self.accept('1', self.shaderGenerator.setShaderQuality, [SHADERQUALITY_LOW])
             self.accept('2', self.shaderGenerator.setShaderQuality, [SHADERQUALITY_MEDIUM])
             self.accept('3', self.shaderGenerator.setShaderQuality, [SHADERQUALITY_HIGH])

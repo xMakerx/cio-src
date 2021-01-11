@@ -456,7 +456,7 @@ class DistributedPlayerToonAI(DistributedToonAI, DistributedPlayerToonShared):
 
     def setLoadout(self, gagIds):
         if self.backpack:
-            for i in xrange(len(gagIds) - 1, -1, -1):
+            for i in range(len(gagIds) - 1, -1, -1):
                 gagId = gagIds[i]
                 if not self.backpack.hasGag(gagId):
                     gagIds.remove(gagId)
@@ -538,7 +538,7 @@ class DistributedPlayerToonAI(DistributedToonAI, DistributedPlayerToonShared):
         return GagGlobals.trackExperienceToNetString(self.trackExperience)
 
     def getInventory(self):
-        return self.backpack.gags.keys()
+        return list(self.backpack.gags.keys())
 
     def died(self):
         self.b_setHealth(self.getMaxHealth())

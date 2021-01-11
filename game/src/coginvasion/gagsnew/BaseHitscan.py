@@ -9,8 +9,8 @@ Copyright (c) CIO Team. All rights reserved.
 @desc Base Hitscan class, to be used for all other Hitscans
 
 """
-from BaseGag import BaseGag
-from BaseHitscanShared import BaseHitscanShared
+from .BaseGag import BaseGag
+from .BaseHitscanShared import BaseHitscanShared
 
 from src.coginvasion.gui.Crosshair import CrosshairData
 from src.coginvasion.globals import CIGlobals

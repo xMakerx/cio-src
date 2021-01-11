@@ -387,7 +387,7 @@ class WaterReflectionManager:
         self.underwaterSound.setLoop(True)
         
         wades = 8
-        for i in xrange(wades):
+        for i in range(wades):
             sound = base.loadSfx("phase_14/audio/sfx/footsteps/wade{0}.wav".format(i + 1))
             sound.setVolume(0.6)
             self.wadeSounds.append(sound)

@@ -405,7 +405,7 @@ class DistributedDodgeballGame(DistributedToonFPSGame, TeamMinigame):
             tree.setPos(pos)
             self.trees.append(tree)
 
-        for i in xrange(len(DistributedDodgeballGame.SnowballData)):
+        for i in range(len(DistributedDodgeballGame.SnowballData)):
             snowdata = DistributedDodgeballGame.SnowballData[i]
             snowball = Snowball(self, i)
             snowball.load()

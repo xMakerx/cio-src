@@ -1,8 +1,8 @@
 from src.coginvasion.gags import GagGlobals
 from src.coginvasion.attack.Attacks import ATTACK_SLAP
 
-from BaseHitscanAI import BaseHitscanAI
-from BaseHitscanShared import BaseHitscanShared
+from .BaseHitscanAI import BaseHitscanAI
+from .BaseHitscanShared import BaseHitscanShared
 
 class SlapAI(BaseHitscanAI, BaseHitscanShared):
 

@@ -1,5 +1,5 @@
-from BaseHitscanAI import BaseHitscanAI
-from HL2PistolShared import HL2PistolShared
+from .BaseHitscanAI import BaseHitscanAI
+from .HL2PistolShared import HL2PistolShared
 from src.coginvasion.gags import GagGlobals
 from src.coginvasion.attack.Attacks import ATTACK_HL2PISTOL
 

@@ -8,11 +8,11 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-import __builtin__
+import builtins
 
-__builtin__.process = 'ai'
+builtins.process = 'ai'
 
-__builtin__.__dict__.update(__import__('panda3d.core', fromlist=['*']).__dict__)
+builtins.__dict__.update(__import__('panda3d.core', fromlist=['*']).__dict__)
 
 import sys
 sys.dont_write_bytecode = True

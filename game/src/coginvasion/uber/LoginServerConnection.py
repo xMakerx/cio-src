@@ -18,7 +18,8 @@ uberRepo = None
 SRV_CREATE_TOKEN = 0
 SRV_NTWK_MESSAGE = 1
 
-class LoginServerConnection:
+class LoginServerConnection:   
+
     notify = directNotify.newCategory('LoginServerConnection')
     
     def __init__(self, repository, port):
@@ -29,7 +30,7 @@ class LoginServerConnection:
         self.socket.listen(5)
         self.closeRequested = False
         
-        thread.start_new_thread(self.handleConnection, ())
+        threading.Thread(target = self.handleConnection, name = "ConnHandlerThread").start()
         self.notify.info('Successfully started LoginServerConnection Server!')
         
         global uberRepo

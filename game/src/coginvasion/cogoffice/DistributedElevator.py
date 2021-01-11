@@ -346,7 +346,7 @@ class DistributedElevator(DistributedObject):
         self.cr.playGame.getPlace().fsm.request('walk')
 
     def setToonsInElevator(self, toonsInElevator):
-        for i in xrange(len(toonsInElevator)):
+        for i in range(len(toonsInElevator)):
             avId = toonsInElevator[i]
             toon = self.cr.doId2do.get(avId)
             if toon:

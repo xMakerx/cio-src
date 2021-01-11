@@ -12,8 +12,8 @@ Copyright (c) CIO Team. All rights reserved.
 
 from direct.interval.IntervalGlobal import Func, ActorInterval, Parallel
 
-from BaseHitscan import BaseHitscan
-from BaseHitscanShared import BaseHitscanShared
+from .BaseHitscan import BaseHitscan
+from .BaseHitscanShared import BaseHitscanShared
 
 from src.coginvasion.base.Precache import precacheSound
 from src.coginvasion.gags import GagGlobals

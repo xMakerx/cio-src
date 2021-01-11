@@ -1,5 +1,5 @@
 from panda3d.core import ModelRoot, Point2, WindowProperties, ConfigVariableDouble, Point3, NodePath, CharacterJointEffect, BitMask32, PerspectiveLens, Quat, Vec3
-from panda3d.bsp import BSPRender, BSPLoader
+from libpandabsp import BSPRender, BSPLoader
 
 from direct.showbase.DirectObject import DirectObject
 from direct.actor.Actor import Actor

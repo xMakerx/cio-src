@@ -1,8 +1,8 @@
 from panda3d.core import Vec3
 from direct.interval.IntervalGlobal import ActorInterval, Func
 
-from BaseGag import BaseGag
-from TNTShared import TNTShared
+from .BaseGag import BaseGag
+from .TNTShared import TNTShared
 from src.coginvasion.attack.Attacks import ATTACK_GAG_TNT, ATTACK_HOLD_RIGHT
 from src.coginvasion.gags import GagGlobals
 from src.coginvasion.globals import CIGlobals

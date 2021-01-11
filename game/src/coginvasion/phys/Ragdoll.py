@@ -128,7 +128,7 @@ class Ragdoll(DirectObject):
         for limb in self.limbs.values():
             body = BulletRigidBodyNode("ragdoll-limb-" + limb.jointName)
             body.setMass(limb.mass)
-            for i in xrange(len(limb.shapes)):
+            for i in range(len(limb.shapes)):
                 shapeDesc = limb.shapes[i]
                 capsule = BulletCapsuleShape(shapeDesc.radius, shapeDesc.length / 2.0, ZUp)
                 body.addShape(capsule, TransformState.makePosHpr(shapeDesc.localPos, shapeDesc.localHpr))

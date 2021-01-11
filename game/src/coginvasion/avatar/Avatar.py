@@ -464,7 +464,7 @@ class Avatar(ToonTalker.ToonTalker, Actor, AvatarShared, BasePhysicsObject):
         aboveGround = False
         if aboveResult.hasHits():
             sortedHits = sorted(aboveResult.getHits(), key = lambda hit: (pFrom - hit.getHitPos()).lengthSquared())
-            for i in xrange(len(sortedHits)):
+            for i in range(len(sortedHits)):
                 hit = sortedHits[i]
                 node = hit.getNode()
                 np = NodePath(node)
@@ -482,7 +482,7 @@ class Avatar(ToonTalker.ToonTalker, Actor, AvatarShared, BasePhysicsObject):
         belowResult = base.physicsWorld.rayTestAll(pFrom, pTo, CIGlobals.WallGroup | CIGlobals.FloorGroup | CIGlobals.StreetVisGroup)
         if belowResult.hasHits():
             sortedHits = sorted(belowResult.getHits(), key = lambda hit: (pFrom - hit.getHitPos()).lengthSquared())
-            for i in xrange(len(sortedHits)):
+            for i in range(len(sortedHits)):
                 hit = sortedHits[i]
                 node = hit.getNode()
                 np = NodePath(node)

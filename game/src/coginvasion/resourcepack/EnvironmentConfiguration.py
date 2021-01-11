@@ -41,14 +41,14 @@ class Modifier:
                 return None
             else:
                 for n in data:
-                    if not isinstance(n, (int, long)):
+                    if not isinstance(n, int):
                         self.notify.warning('Received a non-int value for color.')
                         return None
             
             if len(data) < 3:
                 # if the user supplied less than 3 values for a color,
                 # fill in the missing values with the last supplied value.
-                for _ in xrange(3 - len(data)):
+                for _ in range(3 - len(data)):
                     data.append(data[len(data) - 1])
             if len(data) < 4:
                 # user didn't supply a scalar.
@@ -67,7 +67,7 @@ class Modifier:
                 return None
             elif isinstance(data, list) and len(data) == 3:
                 for n in data:
-                    if not isinstance(n, (int, long)):
+                    if not isinstance(n, int):
                         self.notify.warning('Positional values must be integers.')
                         return None
             return Vec3(data[0], data[1], data[2])
@@ -123,7 +123,7 @@ class HoodData(object):
     def digest(self, hoodSection):
         for key in hoodSection:
             if not isinstance(key, dict):
-                if key in self.modifiers.keys():
+                if key in list(self.modifiers.keys()):
                     entry = self.modifiers.get(key)
                     modifier = entry[0]
                     setattr(self, entry[1], modifier.digest(hoodSection[key]))
@@ -170,14 +170,14 @@ class EnvironmentConfiguration:
         
         self.hoodData = {}
         
-        for hood in HoodAbbr2Hood.keys():
+        for hood in list(HoodAbbr2Hood.keys()):
             self.hoodData[hood] = HoodData(self)
             
     def processData(self, data):
         # This is the section where our environment data can be found.
         environ = data if not self.section else data[self.section]
 
-        if 'want-reflections' in environ.keys():
+        if 'want-reflections' in list(environ.keys()):
             modifier = Modifier(boolean)
             self.wantReflections = modifier.digest(environ['want-reflections'])
         
@@ -188,7 +188,7 @@ class EnvironmentConfiguration:
             fileHoodDataToLoad = []
             for key in shaders:
                 hoodData = self.getHoodSection(key)
-                if not isinstance(shaders[key], dict) and key in self.defaultShaderModifiers.keys():
+                if not isinstance(shaders[key], dict) and key in list(self.defaultShaderModifiers.keys()):
                     entry = self.defaultShaderModifiers.get(key)
                     modifier = entry[0]
                     setattr(self, entry[1], modifier.digest(shaders[key]))
@@ -202,7 +202,7 @@ class EnvironmentConfiguration:
                     self.notify.warning('Unexpected key %s was found.' % key)
             
             fileDataLoaded = 0
-            for i in xrange(0, len(self.hoodData.keys())):
+            for i in range(0, len(list(self.hoodData.keys()))):
                 if len(hoodDataToLoad) > 0 and i < len(hoodDataToLoad):
                     hoodData = self.getHoodSection(hoodDataToLoad[i])
                     hoodData.setDefaults()
@@ -224,10 +224,10 @@ class EnvironmentConfiguration:
             self.processData(load(self.configStream))
                     
     def getHoodSection(self, key):
-        index = -1 if not key in HoodAbbr2Hood.values() else HoodAbbr2Hood.values().index(key)
-        if key.upper() in HoodAbbr2Hood.keys():
-            return self.hoodData.get(HoodAbbr2Hood.keys()[HoodAbbr2Hood.keys().index(key.upper())])
+        index = -1 if not key in list(HoodAbbr2Hood.values()) else list(HoodAbbr2Hood.values()).index(key)
+        if key.upper() in list(HoodAbbr2Hood.keys()):
+            return self.hoodData.get(list(HoodAbbr2Hood.keys())[list(HoodAbbr2Hood.keys()).index(key.upper())])
         elif index > -1:
-            return self.hoodData.get(HoodAbbr2Hood.keys()[index])
+            return self.hoodData.get(list(HoodAbbr2Hood.keys())[index])
         return None
         

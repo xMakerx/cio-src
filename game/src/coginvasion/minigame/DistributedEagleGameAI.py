@@ -49,9 +49,9 @@ class DistributedEagleGameAI(DistributedMinigameAI):
 
     def d_gameOver(self):
         winners = []
-        for avId in self.avId2score.keys():
+        for avId in list(self.avId2score.keys()):
             score = self.avId2score[avId]
-            if score == max(self.avId2score.values()):
+            if score == max(list(self.avId2score.values())):
                 winners.append(avId)
         DistributedMinigameAI.d_gameOver(self, 1, winners)
 
@@ -61,8 +61,8 @@ class DistributedEagleGameAI(DistributedMinigameAI):
 
     def allRoundsEndedTask(self, task):
         self.sendUpdate('allRoundsEnded', [])
-        avIdArray = self.avId2score.keys()
-        scoreArray = self.avId2score.values()
+        avIdArray = list(self.avId2score.keys())
+        scoreArray = list(self.avId2score.values())
         self.sendUpdate('finalScores', [avIdArray, scoreArray])
         taskMgr.doMethodLater(7.0, self.gameOverTask, self.uniqueName("DEagleGameAI-gameOver"))
         return Task.done

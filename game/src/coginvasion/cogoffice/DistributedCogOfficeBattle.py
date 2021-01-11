@@ -125,7 +125,7 @@ class DistributedCogOfficeBattle(DistributedBattleZone):
         
     def getNumElevators(self):
         elevs = 0
-        for i in xrange(len(self.elevators)):
+        for i in range(len(self.elevators)):
             if self.elevators[i] is not None:
                 elevs += 1
         return elevs
@@ -199,7 +199,7 @@ class DistributedCogOfficeBattle(DistributedBattleZone):
         faceoffs = base.bspLoader.findAllEntities("cogoffice_faceoff_point")
         
         runTrack = Parallel()
-        for i in xrange(len(self.avIds)):
+        for i in range(len(self.avIds)):
             avId = self.avIds[i]
             toon = self.cr.doId2do.get(avId)
             if toon:

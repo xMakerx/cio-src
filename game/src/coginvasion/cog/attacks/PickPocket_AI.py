@@ -1,5 +1,5 @@
 
-from PickPocketShared import PickPocketShared
+from .PickPocketShared import PickPocketShared
 from src.coginvasion.attack.BaseAttackAI import BaseAttackAI
 from src.coginvasion.attack.Attacks import ATTACK_PICKPOCKET
 

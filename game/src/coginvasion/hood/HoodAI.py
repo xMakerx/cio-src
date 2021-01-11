@@ -137,7 +137,7 @@ class HoodAI:
         butterflies = ButterflyGlobals.Spots.get(self.zoneId) is not None
         if butterflies:
             numFlies = 5
-            for i in xrange(numFlies):
+            for i in range(numFlies):
                 bf = DistributedButterflyAI(self.air, self.zoneId, random.randint(1, 6))
                 self.notify.info("Made butterfly in {0} (wings: {1})".format(self.zoneId, bf.wingType))
                 bf.generateWithRequired(self.zoneId)

@@ -70,7 +70,7 @@ class GagShop(Shop):
         if not hasattr(self.originalSupply, 'keys'):
             gagIds = []
         else:
-            gagIds = self.originalSupply.keys()
+            gagIds = list(self.originalSupply.keys())
             for gagId in gagIds:
                 ammoList.append(base.localAvatar.getBackpack().getSupply(gagId))
         self.distShop.sendUpdate('confirmPurchase', [gagIds, ammoList, base.localAvatar.getMoney()])
@@ -78,7 +78,7 @@ class GagShop(Shop):
 
     def cancelPurchase(self):
         if hasattr(self.originalSupply, 'keys'):
-            gagIds = self.originalSupply.keys()
+            gagIds = list(self.originalSupply.keys())
             for gagId in gagIds:
                 base.localAvatar.updateAttackAmmo(gagId, self.originalSupply.get(gagId))
             self.originalSupply = {}

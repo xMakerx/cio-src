@@ -51,7 +51,7 @@ class NameServicesManagerUD(DistributedObjectGlobalUD):
         avatar = self.air.doId2do.get(avId)
         if True:
             names, avatarIds, accIds, dates, statuses = [], [], [], [], []
-            for i in xrange((len(self.requestedNames))):
+            for i in range((len(self.requestedNames))):
                 nameRequest = self.requestedNames[i]
                 names.append(nameRequest['name'])
                 avatarIds.append(int(nameRequest['avId']))

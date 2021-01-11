@@ -93,7 +93,7 @@ class DistributedHQNPCToon(DistributedNPCToon.DistributedNPCToon):
         self.questPosters = []
         self.questBtns = []
         
-        for i in xrange(len(quests)):
+        for i in range(len(quests)):
             poster = None
             quest = quests[i]
             poster = QuestGlobals.generatePoster(quest, parent = aspect2d)

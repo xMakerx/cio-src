@@ -12,7 +12,7 @@ from direct.directnotify.DirectNotifyGlobal import directNotify
 
 from src.coginvasion.hood import ZoneUtil, HoodAI
 from src.coginvasion.globals import CIGlobals
-import DistributedCityCartAI
+from . import DistributedCityCartAI
 
 class CTHoodAI(HoodAI.HoodAI):
     notify = directNotify.newCategory('CTHoodAI')

@@ -137,7 +137,7 @@ class ShtickerBook(DirectFrame, StateData):
             self.acceptOnce(base.inputStore.NextBookPage, self.changePage, [0])
 
     def loadPageTabButtons(self):
-        for i in xrange(len(self.pages)):
+        for i in range(len(self.pages)):
             page = self.pages[i]
             btnOffset = i * 0.07
             pageBtn = DirectButton(parent = self.tabButtonFrame, relief = DGG.RAISED,

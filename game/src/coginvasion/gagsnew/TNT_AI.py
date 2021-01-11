@@ -2,9 +2,9 @@ from panda3d.core import Vec3, Point3
 from direct.distributed.PyDatagram import PyDatagram
 from direct.distributed.PyDatagramIterator import PyDatagramIterator
 
-from BaseGagAI import BaseGagAI
-from TNTShared import TNTShared
-from TNTProjectileAI import TNTProjectileAI
+from .BaseGagAI import BaseGagAI
+from .TNTShared import TNTShared
+from .TNTProjectileAI import TNTProjectileAI
 from src.coginvasion.attack.Attacks import ATTACK_GAG_TNT
 from src.coginvasion.phys import PhysicsUtils
 from src.coginvasion.gags import GagGlobals

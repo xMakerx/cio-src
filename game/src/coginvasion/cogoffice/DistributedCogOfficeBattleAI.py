@@ -26,7 +26,7 @@ from .DistributedCogOfficeElevatorAI import DistributedCogOfficeElevatorAI
 from .DistributedCogOfficeSuitAI import DistributedCogOfficeSuitAI
 from .CogOfficeConstants import *
 from .ElevatorConstants import *
-import .SuitBuildingGlobals
+from . import SuitBuildingGlobals
 
 import random
 

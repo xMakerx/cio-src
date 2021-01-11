@@ -205,7 +205,7 @@ class DistributedBuilding(DistributedObject, Precacheable):
         nodePath = []
         npc = self.townTopLevel.findAllMatches('**/?b' + str(self.block) + ':*_DNARoot;+s')
         npc.addPathsFrom(self.townTopLevel.findAllMatches("**/toonBuildingsBlock" + str(self.block) + ";+s"))
-        for i in xrange(npc.getNumPaths()):
+        for i in range(npc.getNumPaths()):
             nodePath.append(npc.getPath(i))
         return nodePath
 
@@ -217,7 +217,7 @@ class DistributedBuilding(DistributedObject, Precacheable):
         self.elevatorNodePath = hidden.attachNewNode('elevatorNodePath')
         self.elevatorModel = loader.loadModel(self.ELEVATOR_MDL)
         npc = self.elevatorModel.findAllMatches('**/floor_light_?;+s')
-        for i in xrange(npc.getNumPaths()):
+        for i in range(npc.getNumPaths()):
             np = npc.getPath(i)
             floor = int(np.getName()[-1:]) - 1
             self.floorIndicator[floor] = np
@@ -555,7 +555,7 @@ class DistributedBuilding(DistributedObject, Precacheable):
             currTime = bounceTime
         realScale = nodeObj.getScale()
         currScaleDiff = startScale - realScale[2]
-        for currBounceScale in xrange(numBounces):
+        for currBounceScale in range(numBounces):
             if currBounceScale == numBounces - 1:
                 currScale = realScale[2]
             elif currBounceScale % 2:
@@ -608,7 +608,7 @@ class DistributedBuilding(DistributedObject, Precacheable):
             self.setLights = False
 
         npc = hidden.findAllMatches(self.getSbSearchString())
-        for i in xrange(npc.getNumPaths()):
+        for i in range(npc.getNumPaths()):
             nodePath = npc.getPath(i)
             self.adjustSbNodepathScale(nodePath)
             self.setupSuitBuilding(nodePath)

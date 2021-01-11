@@ -4,7 +4,7 @@ from direct.distributed.ClockDelta import globalClockDelta
 
 from panda3d.core import Point3
 
-from BaseHitscanAI import BaseHitscanAI
+from .BaseHitscanAI import BaseHitscanAI
 from src.coginvasion.attack.Attacks import ATTACK_GUMBALLBLASTER
 from src.coginvasion.gags import GagGlobals
 from src.coginvasion.gagsnew.GumballProjectileAI import GumballProjectileAI

@@ -823,7 +823,7 @@ def processTrackData(trackData, backpack, isAI = False):
         expAmounts = TrackExperienceAmounts.get(track)
         gags = TrackGagNamesByTrackName.get(track)
         
-        for i in xrange(len(expAmounts)):
+        for i in range(len(expAmounts)):
             maxEXP = expAmounts[i]
             if exp >= maxEXP and len(gags) > i:
                 gagAtLevel = gags[i]

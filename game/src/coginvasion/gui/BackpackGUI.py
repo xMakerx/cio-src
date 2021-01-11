@@ -186,10 +186,10 @@ class BackpackGUI(DirectFrame):
         self.gagButtonByName[gagName] = button
 
     def createGUI(self):
-        for i in xrange(len(GagGlobals.TrackNameById)):
+        for i in range(len(GagGlobals.TrackNameById)):
             trackName = GagGlobals.TrackNameById[i]
             self.__makeTrack(trackName)
-            for j in xrange(len(GagGlobals.TrackGagNamesByTrackName[trackName])):
+            for j in range(len(GagGlobals.TrackGagNamesByTrackName[trackName])):
                 gagName = GagGlobals.TrackGagNamesByTrackName[trackName][j]
                 gagId = GagGlobals.gagIdByName[gagName]
                 if base.localAvatar.getBackpack().hasGag(gagId):

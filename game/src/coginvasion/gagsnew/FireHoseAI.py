@@ -19,7 +19,7 @@ from src.coginvasion.cog.attacks.FiredAI import FiredProjectileAI
 from src.coginvasion.gags import GagGlobals
 from src.coginvasion.gagsnew.BaseHitscanAI import BaseHitscanAI
 
-from FireHoseShared import FireHoseShared
+from .FireHoseShared import FireHoseShared
 
 class FireHoseAI(BaseHitscanAI, FireHoseShared):
 

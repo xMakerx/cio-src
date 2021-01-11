@@ -1,6 +1,6 @@
 from panda3d.core import Vec3, VBase4
 
-from BaseHitscan import BaseHitscan
+from .BaseHitscan import BaseHitscan
 from src.coginvasion.attack.Attacks import ATTACK_GUMBALLBLASTER, ATTACK_HOLD_LEFT, ATTACK_HOLD_RIGHT
 from src.coginvasion.gags import GagGlobals
 from src.coginvasion.base.Precache import precacheSound, precacheModel

@@ -82,10 +82,8 @@ class CIProgressScreen:
         self.progress_bar['range'] = range
         self.bgm.reparentTo(aspect2d)
         
-        ZoneUtil.Hood2ZoneId.keys()
-        
         # We only want to show special loading screens for actual in-game locations.
-        if hood in ZoneUtil.Hood2ZoneId.keys():
+        if hood in list(ZoneUtil.Hood2ZoneId.keys()):
             abbr = ZoneUtil.ZoneId2HoodAbbr.get(ZoneUtil.Hood2ZoneId.get(hood)).lower()
             bgTexture = loader.loadTexture('phase_14/maps/{0}_loading.png'.format(abbr), okMissing=True)
             

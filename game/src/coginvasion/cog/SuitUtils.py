@@ -23,7 +23,7 @@ def getMoveIvalFromPath(suit, path, elapsedT, isClient, seqName):
     if isClient:
         moveIval.append(Func(suit.setPlayRate, walkMod, 'walk'))
         moveIval.append(Func(suit.animFSM.request, 'walk'))
-    for i in xrange(len(path)):
+    for i in range(len(path)):
         if i == 0:
             continue
         waypoint = path[i]

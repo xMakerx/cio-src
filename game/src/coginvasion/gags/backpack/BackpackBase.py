@@ -161,7 +161,7 @@ class BackpackBase:
     def hasGag(self, gagId):
         if isinstance(gagId, str):
             gagId = self.avatar.getAttackMgr().getAttackIDByName(gagId)
-        return gagId in self.avatar.attacks.keys()
+        return gagId in list(self.avatar.attacks.keys())
         
     def getNetString(self):
         return self.netString
@@ -171,7 +171,7 @@ class BackpackBase:
     def toNetString(self):
         dg = PyDatagram()
         
-        for gagId in self.avatar.attacks.keys():
+        for gagId in list(self.avatar.attacks.keys()):
             supply = self.avatar.attacks[gagId].getAmmo()
             
             if supply < 0:

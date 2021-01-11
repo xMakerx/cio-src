@@ -11,7 +11,7 @@ Copyright (c) CIO Team. All rights reserved.
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
 from src.coginvasion.hood import ZoneUtil, ToonHood
-import CTSafeZoneLoader
+from . import CTSafeZoneLoader
 
 class CTHood(ToonHood.ToonHood):
     notify = directNotify.newCategory("CTHood")

@@ -88,7 +88,7 @@ class DistributedCogOfficeElevator(DistributedElevator, DistributedEntity):
         DistributedElevator.postAnnounceGenerate(self, makeIvals = False)
 
         npc = self.elev.elevatorMdl.findAllMatches('**/floor_light_?;+s')
-        for i in xrange(npc.getNumPaths()):
+        for i in range(npc.getNumPaths()):
             np = npc.getPath(i)
             floor = int(np.getName()[-1:]) - 1
             if floor < self.thebldg.numFloors:
@@ -119,7 +119,7 @@ class DistributedCogOfficeElevator(DistributedElevator, DistributedEntity):
         closeDoors(self.getLeftDoor(), self.getRightDoor())
 
     def putToonsInElevator(self):
-        for i in xrange(len(self.thebldg.avIds)):
+        for i in range(len(self.thebldg.avIds)):
             avId = self.thebldg.avIds[i]
             toon = self.cr.doId2do.get(avId)
             if toon:

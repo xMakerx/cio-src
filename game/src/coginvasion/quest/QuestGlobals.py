@@ -233,7 +233,7 @@ def generatePoster(quest, parent, **kw):
     return poster
     
 def isShopLocation(location):
-    return location in ZoneUtil.zone2TitleDict.keys() or location == 0
+    return location in list(ZoneUtil.zone2TitleDict.keys()) or location == 0
 
 def getOrdinal(number):
     """Returns number as a string with an ordinal. Ex: 1st, 2nd, 3rd"""

@@ -82,7 +82,7 @@ class DistributedUnoGameAI(DistributedMinigameAI.DistributedMinigameAI):
             self.singlePlayer = True
             self.playerMgr = UnoGameAIPlayerMgr(self)
             players = random.randint(1, 3)
-            for _ in xrange(1):
+            for _ in range(1):
                 self.playerMgr.createPlayer()
             self.ais = len(self.playerMgr.getPlayers())
             self.playerMgr.generateHeadPanels()

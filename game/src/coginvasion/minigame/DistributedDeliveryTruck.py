@@ -46,7 +46,7 @@ class DistributedDeliveryTruck(DistributedNode):
 
     def __generateBarrels(self):
         self.__removeAllBarrels()
-        for i in xrange(self.numBarrels):
+        for i in range(self.numBarrels):
             point = self.barrelpoints[i]
             barrel = loader.loadModel('phase_4/models/cogHQ/gagTank.bam')
             barrel.setScale(self.barrelscale)

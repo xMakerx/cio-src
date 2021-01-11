@@ -138,7 +138,7 @@ class ChoiceWidget(DirectFrame):
             try:
                 if self.mode == DEGREE and not self.origChoice == 0:
                     destIndex = self.options.index('x{0}'.format(str(self.origChoice)))
-                elif (self.mode == AUTO and len(self.options) == 2) or isinstance(self.origChoice, (int, long)):
+                elif (self.mode == AUTO and len(self.options) == 2) or isinstance(self.origChoice, (integer, int)):
                     destIndex = int(self.origChoice)
                 elif isinstance(self.origChoice, (list, tuple)):
                     destIndex = self.options.index('{0}x{1}'.format(str(self.origChoice[0]), str(self.origChoice[1])))

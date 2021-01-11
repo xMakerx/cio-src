@@ -19,7 +19,7 @@ class Task_FindBestHPBarrel(BaseTaskAI):
         closestBarrel = None
         closest = 999999999
         npcPos = self.npc.getPos()
-        for i in xrange(len(barrels)):
+        for i in range(len(barrels)):
             barrel = barrels[i]
             len2 = (npcPos - barrel.getPos()).lengthSquared()
             if len2 < closest and barrel.hp > 0:

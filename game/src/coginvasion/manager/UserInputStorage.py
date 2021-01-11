@@ -20,7 +20,7 @@ class Control(object):
     def __str__(self):
         altsStr = ''
         
-        for i in xrange(0, len(self.alternatives)):
+        for i in range(0, len(self.alternatives)):
             ctrl = self.alternatives[i]
             altsStr += ctrl
             

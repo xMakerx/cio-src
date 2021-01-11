@@ -44,7 +44,7 @@ class TestCutscene:
         numGoons = 6
         
         goonWakeup = Parallel()
-        for i in xrange(numGoons):
+        for i in range(numGoons):
             delay = random.uniform(0.0, 0.5)
             goon = base.bspLoader.getPyEntityByTargetName("groom_goon_{0}".format(i))
             goonWakeup.append(Sequence(Wait(delay), Func(goon.wakeup)))

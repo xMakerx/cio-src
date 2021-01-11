@@ -443,7 +443,7 @@ class CogInvasionClientRepository(AstronClientRepository):
         return
 
     def _removeAllOV(self):
-        owners = self.doId2ownerView.keys()
+        owners = list(self.doId2ownerView.keys())
         for doId in owners:
             self.disableDoId(doId, ownerView = True)
 

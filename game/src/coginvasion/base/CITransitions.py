@@ -43,6 +43,6 @@ class CITransitions(Transitions):
             return transitionIval
     
     def refreshGraphicsEngine(self):
-        for _ in xrange(self.REFRESH_TIMES):
+        for _ in range(self.REFRESH_TIMES):
             base.graphicsEngine.renderFrame()
         

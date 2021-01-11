@@ -53,8 +53,8 @@ class DistributedDodgeballGameAI(DistributedToonFPSGameAI, TeamMinigameAI):
 
     def reqPickupSnowball(self, idx):
         sender = self.air.getAvatarIdFromSender()
-        if (idx not in self.doId2snowballIndex.values() and
-            sender not in self.doId2snowballIndex.keys() and
+        if (idx not in list(self.doId2snowballIndex.values()) and
+            sender not in list(self.doId2snowballIndex.keys()) and
             self.gameInAction):
             self.doId2snowballIndex[sender] = idx
             self.sendUpdateToAvatarId(sender, 'snowballPickupResp', [1, idx])

@@ -143,7 +143,7 @@ class CharSelection(DirectObject):
 
     def __async_loadSZTask(self, task = None):
         dnas = HOOD_ID_2_DNA[self.choice.lastHood]
-        for i in xrange(len(dnas)):
+        for i in range(len(dnas)):
             dnaFile = dnas[i]
             if i == len(dnas) - 1:
                 node = loader.loadDNAFile(self.dnaStore, dnaFile)

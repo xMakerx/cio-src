@@ -1,8 +1,8 @@
 from direct.distributed.PyDatagram import PyDatagram
 from direct.distributed.PyDatagramIterator import PyDatagramIterator
 
-from HL2ShotgunShared import HL2ShotgunShared
-from BaseHitscanAI import BaseHitscanAI
+from .HL2ShotgunShared import HL2ShotgunShared
+from .BaseHitscanAI import BaseHitscanAI
 
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.gags import GagGlobals

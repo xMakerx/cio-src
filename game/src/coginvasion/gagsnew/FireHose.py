@@ -19,7 +19,7 @@ from src.coginvasion.gagsnew.BaseHitscan import BaseHitscan
 from src.coginvasion.base.Precache import precacheSound
 from src.coginvasion.gui.WaterBar import WaterBar
 from src.coginvasion.phys import PhysicsUtils
-from FireHoseShared import FireHoseShared
+from .FireHoseShared import FireHoseShared
 
 import math
 import random

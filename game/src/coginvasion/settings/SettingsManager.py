@@ -17,7 +17,7 @@ from src.coginvasion.globals import CIGlobals
 from panda3d.core import WindowProperties, AntialiasAttrib, loadPrcFileData
 from panda3d.bullet import *
 
-from panda3d.bsp import SHADERQUALITY_HIGH
+from libpandabsp import SHADERQUALITY_HIGH
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
 import json
@@ -38,7 +38,7 @@ class SettingsManager:
         # Keys are the names of the setting and the value is a "Setting" instance.
         self.registry = {}
         
-        self.addSetting("cursor", optionType = DATATYPE_STR, default = self.MouseCursors.keys()[0],
+        self.addSetting("cursor", optionType = DATATYPE_STR, default = list(self.MouseCursors.keys())[0],
                         callback = self.__updateCursor, sunrise = SHOWBASE_POSTINIT,
                         options = ["Toontown", "None"],
                         description = "Updates the game's cursor.")
@@ -276,7 +276,7 @@ class SettingsManager:
         
     def __buildDefaultSettings(self):
         settings = {}
-        for settingName in self.registry.keys():
+        for settingName in list(self.registry.keys()):
             setting = self.registry.get(settingName)
             settings[settingName] = setting.getDefault()
 
@@ -295,7 +295,7 @@ class SettingsManager:
             settings = self.jsonData["settings"]
             updated = False
             
-            for settingName in self.registry.keys():
+            for settingName in list(self.registry.keys()):
                 setting = self.registry.get(settingName)
                 
                 fileValue = settings.get(settingName, None)
@@ -325,7 +325,7 @@ class SettingsManager:
         
         settings = self.jsonData["settings"]
         
-        for settingName in self.registry.keys():
+        for settingName in list(self.registry.keys()):
             setting = self.registry.get(settingName)
             
             settings[settingName] = setting.getValue()
@@ -335,7 +335,7 @@ class SettingsManager:
         jsonFile.close()
         
     def addSetting(self, name, optionType, default, callback, sunrise = SHOWBASE_PREINIT, options = None, description = ""):
-        if (name and len(name) > 0) and (not name in self.registry.keys()):
+        if (name and len(name) > 0) and (not name in list(self.registry.keys())):
             
             if not sunrise in [SHOWBASE_PREINIT, SHOWBASE_POSTINIT]:
                 raise ValueError("Invalid sunrise type for Setting %s.".format(name))
@@ -358,7 +358,7 @@ class SettingsManager:
     def doSunriseFor(self, sunrise):
         """ Applies settings with the specified sunrise type """
         
-        for settingName in self.registry.keys():
+        for settingName in list(self.registry.keys()):
             setting = self.registry.get(settingName)
             callback = setting.getCallback()
             
