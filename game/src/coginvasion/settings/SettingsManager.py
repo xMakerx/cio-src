@@ -8,16 +8,16 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-from Setting import Setting
-from Setting import SHOWBASE_PREINIT, SHOWBASE_POSTINIT
-from Setting import DATATYPE_INT, DATATYPE_STR, DATATYPE_LIST, DATATYPE_TUPLE, DATATYPE_BOOL, DATATYPE_FLOAT
+from .Setting import Setting
+from .Setting import SHOWBASE_PREINIT, SHOWBASE_POSTINIT
+from .Setting import DATATYPE_INT, DATATYPE_STR, DATATYPE_LIST, DATATYPE_TUPLE, DATATYPE_BOOL, DATATYPE_FLOAT
 
 from src.coginvasion.globals import CIGlobals
 
 from panda3d.core import WindowProperties, AntialiasAttrib, loadPrcFileData
 from panda3d.bullet import *
 
-from libpandabsp import SHADERQUALITY_HIGH
+from panda3d.bsp import SHADERQUALITY_HIGH
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
 import json
@@ -301,7 +301,7 @@ class SettingsManager:
                 fileValue = settings.get(settingName, None)
                 
                 if fileValue is None or not setting.isValidValueType(fileValue):
-                    print "Setting is not valid: {0} {1}".format(settingName, fileValue)
+                    print("Setting is not valid: {0} {1}".format(settingName, fileValue))
                     # This means that the setting has no value in the JSON file,
                     # let's set the value to the default.
                     settings[settingName] = setting.getDefault()
@@ -376,6 +376,6 @@ class SettingsManager:
                 render2d.clearAntialias()
         elif sunrise == SHOWBASE_PREINIT:
             if metadata.MULTITHREADED_PIPELINE:
-                print "Applying temporary multithreaded pipeline fixes."
+                print("Applying temporary multithreaded pipeline fixes.")
                 # Until it's fixed, we can't do hardware skinning with multithreaded pipeline.
                 loadPrcFileData("", "hardware-animated-vertices #f")

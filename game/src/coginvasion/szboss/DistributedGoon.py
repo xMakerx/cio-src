@@ -1,9 +1,9 @@
 from direct.interval.IntervalGlobal import Func, LerpHprInterval
 
 from src.coginvasion.avatar.DistributedAvatar import DistributedAvatar
-from DistributedEntity import DistributedEntity
+from .DistributedEntity import DistributedEntity
 from src.coginvasion.globals import CIGlobals
-from Goon import Goon
+from .Goon import Goon
 
 class DistributedGoon(Goon, DistributedAvatar, DistributedEntity):
 

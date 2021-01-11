@@ -78,7 +78,7 @@ class Setting(object):
             vType = value.__class__.__name__ if hasattr(value, '__class__') else type(value)
             
             typeConflict = "{0} expects a value of type {1}, instead it was given a {2}. Reverting to default!".format(self.name, str(self.type), vType)
-            print typeConflict
+            print(typeConflict)
     
     def getValue(self):
         """ Fetches the current value of this Setting """

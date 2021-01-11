@@ -1,4 +1,4 @@
-from EntityAI import EntityAI
+from .EntityAI import EntityAI
 
 class InfoHintCover(EntityAI):
     """

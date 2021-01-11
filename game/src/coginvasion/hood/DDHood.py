@@ -11,11 +11,11 @@ Copyright (c) CIO Team. All rights reserved.
 from panda3d.core import VBase4
 from src.coginvasion.holiday.HolidayManager import HolidayType
 
-from street import DDTownLoader
-from playground import DDSafeZoneLoader
+from .street import DDTownLoader
+from .playground import DDSafeZoneLoader
 
-from ToonHood import ToonHood
-import ZoneUtil
+from .ToonHood import ToonHood
+from src.coginvasion.hood import ZoneUtil
 
 class DDHood(ToonHood):
 

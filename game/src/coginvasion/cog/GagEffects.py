@@ -30,6 +30,6 @@ def doGagEffect(suit, flags):
     effect = Parallel()
     for id in Effects.keys():
         if (flags & id) != 0:
-            print "Doing effect", id
+            print("Doing effect", id)
             effect.append(Effects[id](suit))
     effect.start()

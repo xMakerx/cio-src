@@ -5,10 +5,10 @@
 
 """
 
-import ToonFPS
-from GunGameBullet import GunGameBullet
+from . import ToonFPS
+from .GunGameBullet import GunGameBullet
 from direct.distributed.ClockDelta import globalClockDelta
-import GunGameGlobals as GGG
+from . import GunGameGlobals as GGG
 import random
 
 from src.coginvasion.gui.KOTHGui import KOTHGui

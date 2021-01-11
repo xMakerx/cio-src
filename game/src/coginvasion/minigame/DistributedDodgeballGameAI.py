@@ -11,10 +11,10 @@ Copyright (c) CIO Team. All rights reserved.
 from direct.directnotify.DirectNotifyGlobal import directNotify
 from direct.fsm import ClassicFSM, State
 
-from DistributedToonFPSGameAI import DistributedToonFPSGameAI
-from TeamMinigameAI import TeamMinigameAI
+from .DistributedToonFPSGameAI import DistributedToonFPSGameAI
+from .TeamMinigameAI import TeamMinigameAI
 
-from DodgeballGlobals import *
+from .DodgeballGlobals import *
 
 import random
 

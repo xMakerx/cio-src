@@ -9,8 +9,7 @@ Copyright (c) CIO Team. All rights reserved.
 """
 
 from direct.directnotify.DirectNotifyGlobal import directNotify
-import SafeZoneLoader
-import MGPlayground
+from src.coginvasion.hood.playground import SafeZoneLoader, MGPlayground
 
 class MGSafeZoneLoader(SafeZoneLoader.SafeZoneLoader):
     notify = directNotify.newCategory("MGSafeZoneLoader")

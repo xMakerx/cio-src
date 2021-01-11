@@ -13,7 +13,7 @@ from panda3d.core import Vec4
 from direct.fsm.ClassicFSM import ClassicFSM
 from direct.fsm.State import State
 
-import Hood
+from src.coginvasion.hood import Hood
 
 class ToonHood(Hood.Hood):
 

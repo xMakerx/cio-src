@@ -1,5 +1,5 @@
 from src.coginvasion.cog.DistributedSuitAI import DistributedSuitAI
-from DistributedEntityAI import DistributedEntityAI
+from .DistributedEntityAI import DistributedEntityAI
 
 from src.coginvasion.cog import Variant, SuitBank
 #from src.coginvasion.cog.SuitBrainAI import SuitBrain

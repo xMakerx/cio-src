@@ -1,6 +1,6 @@
 from panda3d.core import Point3
 
-from Clickable import Clickable
+from .Clickable import Clickable
 
 
 class Clickable2d(Clickable):

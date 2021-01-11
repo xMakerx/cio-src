@@ -17,8 +17,7 @@ from src.coginvasion.globals import CIGlobals
 from src.coginvasion.phys import PhysicsUtils
 
 from libpandadna import *
-import ToonInteriorColors
-import ZoneUtil
+from src.coginvasion.hood import ToonInteriorColors, ZoneUtil
 
 import random
 

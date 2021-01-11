@@ -12,7 +12,7 @@ Copyright (c) CIO Team. All rights reserved.
 """
 
 from panda3d.core import OmniBoundingVolume, NodePathCollection
-from libpandabsp import BSPMaterial
+from panda3d.bsp import BSPMaterial
 
 class Precacheable(object):
     

@@ -13,7 +13,7 @@ from src.coginvasion.attack.Attacks import ATTACK_FIRED
 from src.coginvasion.attack.LobProjectileAI import LobProjectileAI
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.phys.WorldColliderAI import WorldColliderAI
-from Fired_Shared import Fired_Shared
+from .Fired_Shared import Fired_Shared
 
 class FiredProjectileAI(LobProjectileAI):
 

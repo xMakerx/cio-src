@@ -51,7 +51,7 @@ class QuestUpdateGUI(DirectFrame):
         self.accept(CIGlobals.ENTER_WALK_EVENT, self.__handleEnterWalk, [])
         
     def __addQueuedLines(self):
-        for text, color in self.queuedLines.iteritems():
+        for text, color in self.queuedLines.items():
             self.addLine(text, color)
         self.queuedLines.clear()
         
@@ -95,7 +95,7 @@ class QuestUpdateGUI(DirectFrame):
             
             # Let's display the text for completed quests.
             if len(oldData) > len(newData):
-                for questId, quest in oldQuests.iteritems():
+                for questId, quest in oldQuests.items():
                     if not questId in newQuests.keys():
                         # Let's acknowledge that we finished our last objective.
                         if len(quest.accessibleObjectives) == 1:
@@ -116,7 +116,7 @@ class QuestUpdateGUI(DirectFrame):
                         quest = oldQuests.get(questId)
                         self.addLine('{0}: \"{1}\"'.format(self.QUEST_COMPLETE, quest.name), self.GREEN_COLOR)
             
-            for questId, newQuest in newQuests.iteritems():
+            for questId, newQuest in newQuests.items():
                 oldQuest = oldQuests.get(questId, None)
                 
                 if oldQuest:

@@ -11,9 +11,9 @@ Copyright (c) CIO Team. All rights reserved.
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.cog import SuitGlobals, Dept
 
-from QuestGlobals import Tiers, Any, Anywhere
-from Objectives import *
-from Rewards import *
+from .QuestGlobals import Tiers, Any, Anywhere
+from .Objectives import *
+from .Rewards import *
 
 VisHQObj = [VisitNPCObjective, 0, 1]
 

@@ -9,10 +9,9 @@ Copyright (c) CIO Team. All rights reserved.
 """
 
 from src.coginvasion.holiday.HolidayManager import HolidayType
-from playground import TTSafeZoneLoader
-from street import TTTownLoader
-import ToonHood
-import ZoneUtil
+from .playground import TTSafeZoneLoader
+from .street import TTTownLoader
+from src.coginvasion.hood import ZoneUtil, ToonHood
 
 class TTHood(ToonHood.ToonHood):
 

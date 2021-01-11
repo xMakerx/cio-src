@@ -11,7 +11,7 @@ Copyright (c) CIO Team. All rights reserved.
 from direct.directnotify.DirectNotifyGlobal import directNotify
 from direct.interval.SoundInterval import SoundInterval
 
-import Playground
+from . import Playground
 
 import random
 

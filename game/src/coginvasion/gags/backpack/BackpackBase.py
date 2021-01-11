@@ -175,7 +175,7 @@ class BackpackBase:
             supply = self.avatar.attacks[gagId].getAmmo()
             
             if supply < 0:
-                print "Gag ID {0} is about to cause a cause with supply: {1}".format(str(gagId), str(supply))
+                print("Gag ID {0} is about to cause a cause with supply: {1}".format(str(gagId), str(supply)))
                 supply = 0
             
             dg.addUint8(gagId)

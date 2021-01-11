@@ -18,11 +18,11 @@ import random
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.hood import ZoneUtil
 
-from DistributedMinigame import DistributedMinigame
-from RemoteCameraShyAvatar import RemoteCameraShyAvatar
-from CameraShyFirstPerson import CameraShyFirstPerson
-from CameraShyHeadPanels import CameraShyHeadPanels
-from CameraShyLevelLoader import CameraShyLevelLoader
+from .DistributedMinigame import DistributedMinigame
+from .RemoteCameraShyAvatar import RemoteCameraShyAvatar
+from .CameraShyFirstPerson import CameraShyFirstPerson
+from .CameraShyHeadPanels import CameraShyHeadPanels
+from .CameraShyLevelLoader import CameraShyLevelLoader
 
 class DistributedCameraShyGame(DistributedMinigame):
     notify = directNotify.newCategory("DistributedCameraShyGame")

@@ -7,7 +7,7 @@
 
 from direct.showbase.DirectObject import *
 from direct.distributed.PyDatagram import PyDatagram
-import MinigameBase
+from . import MinigameBase
 
 STATION_SLOTS_OPEN = 901
 STATION_HEAD_OFF = 902

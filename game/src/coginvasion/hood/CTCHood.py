@@ -11,11 +11,10 @@ Copyright (c) CIO Team. All rights reserved.
 from src.coginvasion.holiday.HolidayManager import HolidayType
 from panda3d.core import TransparencyAttrib
 
-from playground import CTCSafeZoneLoader
-from street import TTTownLoader
+from .playground import CTCSafeZoneLoader
+from .street import TTTownLoader
 
-import ToonHood
-import ZoneUtil
+from src.coginvasion.hood import ToonHood, ZoneUtil
 
 class CTCHood(ToonHood.ToonHood):
 

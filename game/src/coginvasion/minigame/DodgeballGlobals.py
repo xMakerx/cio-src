@@ -3,7 +3,7 @@
 
 MaxRounds = 3
 
-from TeamMinigame import TEAM1, TEAM2
+from .TeamMinigame import TEAM1, TEAM2
 
 BLUE = TEAM1
 RED = TEAM2

@@ -131,7 +131,7 @@ class SoundGag(Gag):
         return Gag.build(self)
 
     def cleanupGag(self):
-        print "cleanupGag"
+        print("cleanupGag")
         if self.state == GagState.LOADED or self.state == GagState.RECHARGING:
             Gag.cleanupGag(self)
             if CIGlobals.isNodePathOk(self.megaphone):

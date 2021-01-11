@@ -14,22 +14,19 @@ from src.coginvasion.distributed.HoodMgr import HoodMgr
 from src.coginvasion.dna.DNALoader import *
 from src.coginvasion.cogoffice.BuildingSuitPlannerAI import BuildingSuitPlannerAI
 
-from playground.SZTreasurePlannerAI import SZTreasurePlannerAI
-from playground.DistributedButterflyAI import DistributedButterflyAI
-from playground import DistributedTailorInteriorAI
-from playground import DistributedGagShopInteriorAI
-from playground import TreasureGlobals
-from playground import ButterflyGlobals
-from street import DistributedCinemaInteriorAI
-from street import DistributedKnockKnockDoorAI
-from street import CinemaGlobals
-from street import KnockKnockGlobals
+from .playground.SZTreasurePlannerAI import SZTreasurePlannerAI
+from .playground.DistributedButterflyAI import DistributedButterflyAI
+from .playground import DistributedTailorInteriorAI
+from .playground import DistributedGagShopInteriorAI
+from .playground import TreasureGlobals
+from .playground import ButterflyGlobals
+from .street import DistributedCinemaInteriorAI
+from .street import DistributedKnockKnockDoorAI
+from .street import CinemaGlobals
+from .street import KnockKnockGlobals
 
-import DistributedDoorAI
-import DistributedToonInteriorAI
-import DistributedToonHQInteriorAI
-import DistributedBuildingAI
-import ZoneUtil
+from src.coginvasion.hood import DistributedDoorAI, DistributedToonInteriorAI, DistributedToonHQInteriorAI, DistributedBuildingAI, ZoneUtil
+
 import random
 
 class HoodAI:

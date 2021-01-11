@@ -194,7 +194,7 @@ class MakeAToon:
             requestedName = self.toonName
 
             # We need to get the name of the head color.
-            #for colorName, color in toon.colorName2DNAcolor.iteritems():
+            #for colorName, color in toon.colorName2DNAcolor.items():
             #    if headColor == color:
             #        colorName = colorName.title()
             #        self.toonName = "%s %s" % (colorName, toon.getAnimal().title())

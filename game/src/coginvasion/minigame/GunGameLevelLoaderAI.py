@@ -7,7 +7,7 @@
 
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
-import GunGameGlobals as GGG
+from . import GunGameGlobals as GGG
 
 import random
 

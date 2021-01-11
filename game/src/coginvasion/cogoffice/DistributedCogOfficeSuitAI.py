@@ -16,7 +16,7 @@ from src.coginvasion.cog.DistributedSuitAI import DistributedSuitAI
 #from src.coginvasion.cog.SuitBrainAI import SuitBrain
 #from src.coginvasion.cog.SuitPursueToonBehaviorAI import SuitPursueToonBehaviorAI
 from src.coginvasion.globals import CIGlobals
-from CogOfficeConstants import POINTS
+from .CogOfficeConstants import POINTS
 #from CogOfficePathDataAI import *
 import random
 

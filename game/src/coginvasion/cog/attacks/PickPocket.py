@@ -12,7 +12,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 from direct.interval.IntervalGlobal import Parallel, Sequence, Wait, Func
 
-from PickPocketShared import PickPocketShared
+from .PickPocketShared import PickPocketShared
 from src.coginvasion.attack.BaseAttack import BaseAttack
 from src.coginvasion.attack.Attacks import ATTACK_PICKPOCKET, ATTACK_HOLD_NONE
 from src.coginvasion.base.Precache import precacheSound

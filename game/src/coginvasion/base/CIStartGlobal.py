@@ -11,4 +11,4 @@ Copyright (c) CIO Team. All rights reserved.
 import sys
 sys.dont_write_bytecode = True
 
-import src.coginvasion.base.CIStart
+from . import CIStart

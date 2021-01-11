@@ -3,8 +3,8 @@ from panda3d.core import Point3, Vec3
 from direct.interval.IntervalGlobal import LerpPosInterval, Sequence, Wait, Func
 from direct.fsm.FSM import FSM
 
-from UseableObject import UseableObject
-from DistributedEntity import DistributedEntity
+from .UseableObject import UseableObject
+from .DistributedEntity import DistributedEntity
 
 class DistributedButton(DistributedEntity, UseableObject, FSM):
     

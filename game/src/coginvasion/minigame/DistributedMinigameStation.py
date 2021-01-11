@@ -8,8 +8,8 @@
 from direct.distributed.DistributedObject import DistributedObject
 from direct.interval.IntervalGlobal import Sequence, Wait, Func
 from direct.directnotify.DirectNotify import DirectNotify
-import MinigameStation
-from DistributedGroupStation import DistributedGroupStation
+from . import MinigameStation
+from .DistributedGroupStation import DistributedGroupStation
 
 class DistributedMinigameStation(DistributedGroupStation, MinigameStation.MinigameStation, DistributedObject):
     notify = DirectNotify().newCategory("DistributedMinigameStation")

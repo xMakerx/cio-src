@@ -192,12 +192,12 @@ class BaseLocalAvatar:
     def printPos(self):
         x, y, z = self.getPos(render)
         h, p, r = self.getHpr(render)
-        print "Pos: (%s, %s, %s), Hpr: (%s, %s, %s)" % (x, y, z, h, p, r)
+        print("Pos: (%s, %s, %s), Hpr: (%s, %s, %s)" % (x, y, z, h, p, r))
         
     def printPos_cam(self):
         x, y, z = camera.getPos(render)
         h, p, r = camera.getHpr(render)
-        print "Pos: (%s, %s, %s), Hpr: (%s, %s, %s)" % (x, y, z, h, p, r)
+        print("Pos: (%s, %s, %s), Hpr: (%s, %s, %s)" % (x, y, z, h, p, r))
         
     def setWalkSpeedNormal(self):
         pass

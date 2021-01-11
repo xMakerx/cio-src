@@ -5,7 +5,7 @@
 
 """
 
-import Bullet
+from . import Bullet
 
 class FactorySneakGameBullet(Bullet.Bullet):
 

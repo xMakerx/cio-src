@@ -23,9 +23,9 @@ from direct.actor.Actor import Actor
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.base.Lighting import OutdoorLightingConfig
 from src.coginvasion.toon import ToonGlobals
-from FlightProjectileInterval import FlightProjectileInterval
-from DistributedMinigame import DistributedMinigame
-import EagleGameGlobals as EGG
+from .FlightProjectileInterval import FlightProjectileInterval
+from .DistributedMinigame import DistributedMinigame
+from . import EagleGameGlobals as EGG
 
 def getGameText(fg = (1.0, 0.5, 0.0, 1.0)):
     return OnscreenText(text = "", scale = 0.15, fg = fg, font = CIGlobals.getMickeyFont())

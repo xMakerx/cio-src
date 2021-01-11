@@ -88,7 +88,7 @@ class GagManager:
               GagGlobals.HL2Shotgun : HL2Shotgun}
         
     def getGagNameByType(self, gagType):
-        for gName, definedType in self.gags.iteritems():
+        for gName, definedType in self.gags.items():
             if definedType == type(gagType):
                 return gName
 

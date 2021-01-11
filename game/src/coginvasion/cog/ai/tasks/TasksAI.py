@@ -1,6 +1,6 @@
 from panda3d.core import Vec3
 
-from BaseTaskAI import BaseTaskAI
+from .BaseTaskAI import BaseTaskAI
 
 from src.coginvasion.cog.ai.ScheduleResultsAI import SCHED_COMPLETE, SCHED_CONTINUE, SCHED_FAILED
 from src.coginvasion.cog.ai.RelationshipsAI import RELATIONSHIP_FRIEND

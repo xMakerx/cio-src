@@ -9,7 +9,7 @@ Copyright (c) CIO Team. All rights reserved.
 """
 
 import random, string
-import LoginToken
+from .LoginToken import LoginToken
 
 def generateLoginToken(ip):
 	# The size of the token can be anywhere from 30 to 60 characters.

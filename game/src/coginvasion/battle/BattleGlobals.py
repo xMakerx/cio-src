@@ -39,7 +39,7 @@ def getArcadeArenaIdByName(arenaName):
     if len(ArcadeArena2Id.keys()) == 0:
         # If the 'ArcadeArena2Id' dictionary has not been setup, we need
         # to set it up now.
-        for key, value in ArcadeId2Arena.iteritems():
+        for key, value in ArcadeId2Arena.items():
             ArcadeArena2Id[value] = key
     
     return ArcadeArena2Id.get(arenaName, None)

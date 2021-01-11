@@ -15,8 +15,8 @@ from src.coginvasion.cog import CogBattleGlobals
 from src.coginvasion.npc.DistributedDisneyCharAI import DistributedDisneyCharAI
 from src.coginvasion.npc.DisneyCharGlobals import *
 
-from HoodAI import HoodAI
-import ZoneUtil
+from .HoodAI import HoodAI
+from src.coginvasion.hood import ZoneUtil
 
 class ToonHoodAI(HoodAI):
     notify = directNotify.newCategory("ToonHoodAI")

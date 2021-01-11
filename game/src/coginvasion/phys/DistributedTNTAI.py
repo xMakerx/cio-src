@@ -8,7 +8,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-from DistributedPhysicsEntityAI import DistributedPhysicsEntityAI
+from .DistributedPhysicsEntityAI import DistributedPhysicsEntityAI
 
 class DistributedTNTAI(DistributedPhysicsEntityAI):
     

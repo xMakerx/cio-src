@@ -10,7 +10,7 @@ It seriously took me 2 years to add in toon-up barrels. SMH
 
 """
 
-from DistributedRestockBarrel import DistributedRestockBarrel
+from .DistributedRestockBarrel import DistributedRestockBarrel
 
 class DistributedHPBarrel(DistributedRestockBarrel):
     

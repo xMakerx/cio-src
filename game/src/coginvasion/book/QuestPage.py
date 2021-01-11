@@ -11,7 +11,7 @@ Copyright (c) CIO Team. All rights reserved.
 from src.coginvasion.quest.poster.QuestPoster import QuestPoster
 from src.coginvasion.quest.poster.DoubleFrameQuestPoster import DoubleFrameQuestPoster
 from src.coginvasion.quest import QuestGlobals
-from BookPage import BookPage
+from .BookPage import BookPage
 
 class QuestPage(BookPage):
 

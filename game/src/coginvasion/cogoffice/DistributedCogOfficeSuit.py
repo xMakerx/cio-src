@@ -16,7 +16,7 @@ from direct.fsm import ClassicFSM, State
 
 from src.coginvasion.npc.NPCWalker import NPCWalkInterval
 from src.coginvasion.cog.DistributedSuit import DistributedSuit
-from CogOfficeConstants import *
+from .CogOfficeConstants import *
 
 class DistributedCogOfficeSuit(DistributedSuit):
     notify = directNotify.newCategory('DistributedCogOfficeSuit')

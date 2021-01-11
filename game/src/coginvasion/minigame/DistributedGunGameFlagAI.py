@@ -4,7 +4,7 @@
 from direct.directnotify.DirectNotifyGlobal import directNotify
 from direct.distributed.DistributedNodeAI import DistributedNodeAI
 
-import GunGameGlobals as GGG
+from . import GunGameGlobals as GGG
 
 class DistributedGunGameFlagAI(DistributedNodeAI):
     notify = directNotify.newCategory('DistributedGunGameFlagAI')

@@ -1,5 +1,5 @@
 from panda3d.core import ModelRoot, Point2, WindowProperties, ConfigVariableDouble, Point3, NodePath, CharacterJointEffect, BitMask32, PerspectiveLens, Quat, Vec3
-from libpandabsp import BSPRender, BSPLoader
+from panda3d.bsp import BSPRender, BSPLoader
 
 from direct.showbase.DirectObject import DirectObject
 from direct.actor.Actor import Actor
@@ -135,9 +135,9 @@ class FPSCamera(DirectObject):
         #base.bspLoader.addDynamicNode(self.vmRoot)
         
         if self.PrintAnimLengths:
-            print "v_toon_arms animation lengths:"
+            print("v_toon_arms animation lengths:")
             for anim in self.viewModel.getAnimNames():
-                print "\t{0}\t:\t{1}".format(anim, self.viewModel.getDuration(anim))
+                print("\t{0}\t:\t{1}".format(anim, self.viewModel.getDuration(anim)))
 
         taskMgr.add(self.__vpDebugTask, "vpdebutask", sort = -100)
 
@@ -244,7 +244,7 @@ class FPSCamera(DirectObject):
         return task.cont
 
     def handleSuitAttack(self, attack):
-        print "FPSCamera handleSuitAttack:", attack
+        print("FPSCamera handleSuitAttack:", attack)
 
     def doDamageFade(self, r, g, b, severity = 1.0):
         if self.dmgFadeIval:

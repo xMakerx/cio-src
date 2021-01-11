@@ -23,12 +23,9 @@ from src.coginvasion.cog.ai.tasks.BaseTaskAI import BaseTaskAI
 from src.coginvasion.gags import GagGlobals
 from src.coginvasion.gags.GagType import GagType
 
-from SuitBank import SuitPlan
-from SuitType import SuitType
-import SuitBank
-import SuitGlobals
-import Variant
-import GagEffects
+from .SuitBank import SuitPlan
+from .SuitType import SuitType
+from src.coginvasion.cog import SuitBank, SuitGlobals, Variant, GagEffects
 
 import math
 
@@ -340,7 +337,7 @@ class DistributedSuitAI(DistributedAvatarAI, BaseNPCAI):
         damages = []
         
         for hitData in data:
-            for track, damage in hitData.iteritems():
+            for track, damage in hitData.items():
                 tracks.append(track)
                 damages.append(damage)
 

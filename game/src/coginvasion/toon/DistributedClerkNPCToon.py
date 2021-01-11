@@ -5,7 +5,7 @@ from direct.directnotify.DirectNotifyGlobal import directNotify
 
 from src.coginvasion.shop.GagShop import GagShop
 from src.coginvasion.shop.ItemType import ItemType
-from DistributedNPCToon import DistributedNPCToon
+from .DistributedNPCToon import DistributedNPCToon
 
 import random
 

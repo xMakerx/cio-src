@@ -13,7 +13,7 @@ It seriously took me 2 years to add in toon-up barrels. SMH
 from src.coginvasion.hood import ZoneUtil
 
 from src.coginvasion.globals import CIGlobals
-from DistributedRestockBarrelAI import DistributedRestockBarrelAI
+from .DistributedRestockBarrelAI import DistributedRestockBarrelAI
 from src.coginvasion.hood.playground import TreasureGlobals
 
 class DistributedHPBarrelAI(DistributedRestockBarrelAI):

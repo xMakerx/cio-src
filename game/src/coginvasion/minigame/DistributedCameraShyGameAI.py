@@ -13,8 +13,8 @@ from direct.interval.IntervalGlobal import Sequence, Wait, Func
 
 import random
 
-from DistributedMinigameAI import DistributedMinigameAI
-from CameraShyLevelLoaderAI import CameraShyLevelLoaderAI
+from .DistributedMinigameAI import DistributedMinigameAI
+from .CameraShyLevelLoaderAI import CameraShyLevelLoaderAI
 
 class DistributedCameraShyGameAI(DistributedMinigameAI):
     notify = directNotify.newCategory("DistributedCameraShyGameAI")

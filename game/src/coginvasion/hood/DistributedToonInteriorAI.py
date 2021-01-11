@@ -14,7 +14,7 @@ from direct.distributed import DistributedObjectAI
 from src.coginvasion.toon import DistributedNPCToonAI, DistributedHQNPCToonAI, DistributedTailorNPCToonAI, DistributedClerkNPCToonAI
 from src.coginvasion.npc import NPCGlobals
 
-import DistributedDoorAI
+from src.coginvasion.hood import DistributedDoorAI
 
 class DistributedToonInteriorAI(DistributedObjectAI.DistributedObjectAI):
     notify = directNotify.newCategory('DistributedToonInteriorAI')

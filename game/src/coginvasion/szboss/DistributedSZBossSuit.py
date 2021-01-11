@@ -1,6 +1,6 @@
 from src.coginvasion.cog.DistributedSuit import DistributedSuit
 
-from DistributedEntity import DistributedEntity
+from .DistributedEntity import DistributedEntity
 
 class DistributedSZBossSuit(DistributedSuit, DistributedEntity):
     

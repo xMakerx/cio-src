@@ -1,5 +1,5 @@
 from panda3d.core import VBase4, NodePath, DepthWriteAttrib, AntialiasAttrib, BitMask32
-from libpandabsp import BloomAttrib
+from panda3d.bsp import BloomAttrib
 
 from src.coginvasion.globals import CIGlobals
 

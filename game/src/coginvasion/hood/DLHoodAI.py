@@ -10,8 +10,8 @@ Copyright (c) CIO Team. All rights reserved.
 
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
-from ToonHoodAI import ToonHoodAI
-import ZoneUtil
+from .ToonHoodAI import ToonHoodAI
+from src.coginvasion.hood import ZoneUtil
 
 class DLHoodAI(ToonHoodAI):
     notify = directNotify.newCategory('DLHoodAI')

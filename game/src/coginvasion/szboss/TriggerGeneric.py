@@ -1,6 +1,6 @@
 from panda3d.core import NodePath
 
-from Entity import Entity
+from .Entity import Entity
 
 class TriggerOnce(Entity):
     """Listens for an avatar entry only once, then disables."""

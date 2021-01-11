@@ -14,9 +14,9 @@ from direct.task import Task
 
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.cog import SuitBank
-from DistributedEagleSuitAI import DistributedEagleSuitAI
-from DistributedToonCannonAI import DistributedToonCannonAI
-from DistributedMinigameAI import DistributedMinigameAI
+from .DistributedEagleSuitAI import DistributedEagleSuitAI
+from .DistributedToonCannonAI import DistributedToonCannonAI
+from .DistributedMinigameAI import DistributedMinigameAI
 
 class DistributedEagleGameAI(DistributedMinigameAI):
     notify = directNotify.newCategory("DistributedEagleGameAI")
@@ -185,7 +185,7 @@ class DistributedEagleGameAI(DistributedMinigameAI):
             if i < len(self.avatars):
                 avatar = self.avatars[i]
                 cannon.putAvatarInTurret(avatar.doId)
-                print cannon.getOwner()
+                print(cannon.getOwner())
             cannon.generateWithRequired(self.zoneId)
             cannon.d_setPos(*self.cannonPositions[i])
             cannon.b_setParent(CIGlobals.SPRender)

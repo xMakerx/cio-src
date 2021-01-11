@@ -2,8 +2,8 @@ from panda3d.core import NodePath, Point3, Vec3
 
 from direct.interval.IntervalGlobal import Sequence, Wait, Func, LerpPosInterval
 
-from UseableObject import UseableObject
-from Entity import Entity
+from .UseableObject import UseableObject
+from .Entity import Entity
 
 class FuncButton(UseableObject, Entity):
 

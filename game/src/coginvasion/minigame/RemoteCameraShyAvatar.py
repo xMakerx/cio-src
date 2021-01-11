@@ -11,7 +11,7 @@ Copyright (c) CIO Team. All rights reserved.
 from direct.directnotify.DirectNotifyGlobal import directNotify
 from direct.interval.IntervalGlobal import Sequence, LerpScaleInterval, Func, SoundInterval
 
-from RemoteAvatar import RemoteAvatar
+from .RemoteAvatar import RemoteAvatar
 
 class RemoteCameraShyAvatar(RemoteAvatar):
     notify = directNotify.newCategory("RemoteCameraShyAvatar")

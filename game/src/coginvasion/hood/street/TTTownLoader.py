@@ -10,8 +10,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 from panda3d.core import TextureStage
 
-import TownLoader
-import TTStreet
+from src.coginvasion.hood.street import TownLoader, TTStreet
 
 class TTTownLoader(TownLoader.TownLoader):
 

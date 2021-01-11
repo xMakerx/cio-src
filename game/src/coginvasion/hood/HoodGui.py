@@ -12,7 +12,8 @@ from direct.gui.DirectGui import OnscreenText
 from direct.interval.IntervalGlobal import LerpFunc, Sequence, Wait, Func
 
 from src.coginvasion.globals import CIGlobals
-import ZoneUtil
+from src.coginvasion.hood import ZoneUtil
+
 
 def fadeText(a, lbl):
 	lbl['fg'] = (1, 0.3, 0.5, a)

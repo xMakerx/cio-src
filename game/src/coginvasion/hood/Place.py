@@ -17,7 +17,7 @@ from direct.fsm.StateData import StateData
 from direct.directnotify.DirectNotifyGlobal import directNotify
 from direct.interval.IntervalGlobal import Sequence, Wait, Func
 from src.coginvasion.globals import CIGlobals
-from PublicWalk import PublicWalk
+from .PublicWalk import PublicWalk
 from src.coginvasion.book.ShtickerBook import ShtickerBook
 from src.coginvasion.gui.Dialog import GlobalDialog, Ok
 from src.coginvasion.gui.ChatInput import CHAT_WINDOW_OPENED_EVENT, CHAT_WINDOW_CLOSED_EVENT
@@ -25,9 +25,8 @@ from src.coginvasion.minigame.FirstPerson import FirstPerson
 from src.coginvasion.nametag import NametagGlobals
 from src.coginvasion.holiday.HolidayManager import HolidayType
 from src.coginvasion.globals import ChatGlobals
-from SnowEffect import SnowEffect
-import LinkTunnel
-import ZoneUtil
+from .SnowEffect import SnowEffect
+from src.coginvasion.hood import LinkTunnel, ZoneUtil
 
 class Place(StateData):
     notify = directNotify.newCategory("Place")

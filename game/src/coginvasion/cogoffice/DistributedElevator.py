@@ -20,8 +20,8 @@ from direct.gui.DirectGui import DirectButton
 
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.hood import ZoneUtil
-from ElevatorConstants import *
-from ElevatorUtils import *
+from .ElevatorConstants import *
+from .ElevatorUtils import *
 
 class DistributedElevator(DistributedObject):
     notify = directNotify.newCategory('DistributedElevator')
@@ -248,7 +248,7 @@ class DistributedElevator(DistributedObject):
         DistributedObject.disable(self)
 
     def onDoorCloseFinish(self):
-        print "Door close finish"
+        print("Door close finish")
         if self.localAvOnElevator:
             base.localAvatar.wrtReparentTo(render)
 
@@ -286,7 +286,7 @@ class DistributedElevator(DistributedObject):
         toon = self.cr.doId2do.get(avId)
         if toon:
 
-            print "fillSlot", toon
+            print("fillSlot", toon)
 
             point = ElevatorPoints[index]
             
@@ -300,7 +300,7 @@ class DistributedElevator(DistributedObject):
 
             if avId == base.localAvatar.doId:
                 self.localAvOnElevator = True
-                print "We are now on this elevator"
+                print("We are now on this elevator")
                 track.append(Func(self.showHopOffButton))
                 base.localAvatar.stopSmartCamera()
                 base.localAvatar.walkControls.setCollisionsActive(0)
@@ -321,7 +321,7 @@ class DistributedElevator(DistributedObject):
         
         if toon:
 
-            print "emptySlot", toon
+            print("emptySlot", toon)
 
             OutPoint = ElevatorOutPoints[index]
             InPoint = ElevatorPoints[index]

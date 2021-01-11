@@ -4,15 +4,15 @@
 from direct.showbase.DirectObject import DirectObject
 
 from src.coginvasion.globals import CIGlobals
-from DistributedRaceGameAI import DistributedRaceGameAI
-from DistributedUnoGameAI import DistributedUnoGameAI
-from DistributedGunGameAI import DistributedGunGameAI
-from DistributedMinigameAI import DistributedMinigameAI
-from DistributedFactorySneakGameAI import DistributedFactorySneakGameAI
-from DistributedCameraShyGameAI import DistributedCameraShyGameAI
-from DistributedEagleGameAI import DistributedEagleGameAI
-from DistributedDeliveryGameAI import DistributedDeliveryGameAI
-from DistributedDodgeballGameAI import DistributedDodgeballGameAI
+from .DistributedRaceGameAI import DistributedRaceGameAI
+from .DistributedUnoGameAI import DistributedUnoGameAI
+from .DistributedGunGameAI import DistributedGunGameAI
+from .DistributedMinigameAI import DistributedMinigameAI
+from .DistributedFactorySneakGameAI import DistributedFactorySneakGameAI
+from .DistributedCameraShyGameAI import DistributedCameraShyGameAI
+from .DistributedEagleGameAI import DistributedEagleGameAI
+from .DistributedDeliveryGameAI import DistributedDeliveryGameAI
+from .DistributedDodgeballGameAI import DistributedDodgeballGameAI
 
 class MinigameBase(DirectObject):
 

@@ -9,7 +9,7 @@ Copyright (c) CIO Team. All rights reserved.
 """
 
 from panda3d.bullet import *
-from libpandabsp import *
+from panda3d.bsp import *
 
 from src.coginvasion.distributed.CogInvasionInternalRepository import CogInvasionInternalRepository
 from src.coginvasion.distributed.DistributedDistrictAI import DistributedDistrictAI
@@ -32,7 +32,7 @@ from src.coginvasion.phys import PhysicsUtils
 from panda3d.core import UniqueIdAllocator
 from src.coginvasion.hood import ZoneUtil
 from src.coginvasion.globals.CIGlobals import ToonClasses
-from AIZoneData import AIZoneDataStore
+from .AIZoneData import AIZoneDataStore
 from direct.directnotify.DirectNotifyGlobal import directNotify
 from src.coginvasion.distributed.CogInvasionDoGlobals import (DO_ID_DISTRICT_NAME_MANAGER,
                                                               DO_ID_HOLIDAY_MANAGER,
@@ -123,7 +123,7 @@ class CogInvasionAIRepository(CogInvasionInternalRepository):
         self.numAvatars += 1
 
         if zoneId in self.battleZones:
-            print "Adding avatar to battle zone at {0}".format(zoneId)
+            print("Adding avatar to battle zone at {0}".format(zoneId))
             avatar.battleZone = self.battleZones[zoneId]
             avatar.addToPhysicsWorld(avatar.battleZone.physicsWorld)
         
@@ -131,7 +131,7 @@ class CogInvasionAIRepository(CogInvasionInternalRepository):
             # Setup simulation physics environment for each
             # zone, we will pretend they are battle zones
             if zoneId not in self.zonePhysics:
-                print "Making phys world in zone {0}".format(zoneId)
+                print("Making phys world in zone {0}".format(zoneId))
                 physicsWorld = BulletWorld()
                 # Panda units are in feet, so the gravity is 32 feet per second,
                 # not 9.8 meters per second.
@@ -171,7 +171,7 @@ class CogInvasionAIRepository(CogInvasionInternalRepository):
             self.numAvatars -= 1
 
         if avatar.battleZone:
-            print "Removing avatar from battle zone at {0}".format(zoneOfAv)
+            print("Removing avatar from battle zone at {0}".format(zoneOfAv))
             avatar.removeFromPhysicsWorld(avatar.battleZone.physicsWorld)
             avatar.battleZone = None
         
@@ -217,8 +217,8 @@ class CogInvasionAIRepository(CogInvasionInternalRepository):
         self.notify.info("Done.")
         
         if DO_SIMULATION:
-            print "There are {0} avatars.".format(self.numAvatars)
-            print "There are {0} zones.".format(len(self.zonePhysics.keys()))
+            print("There are {0} avatars.".format(self.numAvatars))
+            print("There are {0} zones.".format(len(self.zonePhysics.keys())))
         
             taskMgr.add(self.__update, "AIUpdate")
 

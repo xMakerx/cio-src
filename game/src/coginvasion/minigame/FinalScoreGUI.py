@@ -6,7 +6,7 @@ from direct.directnotify.DirectNotifyGlobal import directNotify
 from direct.gui.DirectGui import DGG, DirectFrame, OnscreenImage, OnscreenText
 
 from src.coginvasion.globals import CIGlobals
-from FinalScore import FinalScore
+from .FinalScore import FinalScore
 
 class FinalScoreGUI:
     notify = directNotify.newCategory("FinalScoreGUI")

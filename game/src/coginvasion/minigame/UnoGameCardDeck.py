@@ -7,7 +7,7 @@
 
 from direct.gui.DirectGui import DirectFrame, OnscreenImage, DirectButton
 from direct.gui.DirectGui import DirectScrolledList, DGG
-import UnoGameGlobals as UGG
+from . import UnoGameGlobals as UGG
 from src.coginvasion.holiday.HolidayManager import HolidayType
 
 class UnoGameCardDeck(DirectFrame):

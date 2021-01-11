@@ -15,8 +15,7 @@ from direct.actor.Actor import Actor
 
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.holiday.HolidayManager import HolidayType
-import SafeZoneLoader
-import TTPlayground
+from src.coginvasion.hood.playground import SafeZoneLoader, TTPlayground
 
 import random
 

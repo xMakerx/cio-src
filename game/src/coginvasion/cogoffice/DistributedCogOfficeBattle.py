@@ -23,9 +23,9 @@ from src.coginvasion.npc.NPCWalker import NPCWalkInterval
 from src.coginvasion.cog import SuitGlobals
 from src.coginvasion.base.Lighting import IndoorLightingConfig
 from src.coginvasion.hood import ZoneUtil
-from ElevatorUtils import *
-from ElevatorConstants import *
-from CogOfficeConstants import *
+from .ElevatorUtils import *
+from .ElevatorConstants import *
+from .CogOfficeConstants import *
 import random
 
 class DistributedCogOfficeBattle(DistributedBattleZone):

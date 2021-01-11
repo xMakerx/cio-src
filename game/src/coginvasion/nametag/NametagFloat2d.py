@@ -1,6 +1,6 @@
 from panda3d.core import Point3
 
-from NametagFloat3d import NametagFloat3d
+from .NametagFloat3d import NametagFloat3d
 
 
 class NametagFloat2d(NametagFloat3d):

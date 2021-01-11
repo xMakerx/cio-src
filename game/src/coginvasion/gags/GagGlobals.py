@@ -809,7 +809,7 @@ def getGagData(gagName):
 def trackExperienceToNetString(tracks):
     dg = PyDatagram()
     
-    for track, exp in tracks.iteritems():
+    for track, exp in tracks.items():
         dg.addUint8(TrackNameById.values().index(track))
         dg.addInt16(exp)
     dgi = PyDatagramIterator(dg)
@@ -819,7 +819,7 @@ def trackExperienceToNetString(tracks):
 def processTrackData(trackData, backpack, isAI = False):
     addedGag = False
 
-    for track, exp in trackData.iteritems():
+    for track, exp in trackData.items():
         expAmounts = TrackExperienceAmounts.get(track)
         gags = TrackGagNamesByTrackName.get(track)
         
@@ -935,7 +935,7 @@ def getDefaultBackpack(isAI = False):
             data = gagData.get(tempGag, None)
             
             if not data:
-                print 'Invalid attack supplied: ' + tempGag
+                print('Invalid attack supplied: ' + tempGag)
                 continue
             
             # This line just gets the proper supply for the specified attack,

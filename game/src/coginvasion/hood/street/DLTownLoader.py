@@ -8,8 +8,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-import TownLoader
-import DLStreet
+from src.coginvasion.hood.street import TownLoader, DLStreet
 
 class DLTownLoader(TownLoader.TownLoader):
 

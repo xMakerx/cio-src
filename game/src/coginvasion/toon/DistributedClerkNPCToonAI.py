@@ -11,7 +11,7 @@ Copyright (c) CIO Team. All rights reserved.
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
 from src.coginvasion.npc import NPCGlobals
-from DistributedNPCToonAI import DistributedNPCToonAI
+from .DistributedNPCToonAI import DistributedNPCToonAI
 
 class DistributedClerkNPCToonAI(DistributedNPCToonAI):
     notify = directNotify.newCategory('DistributedClerkNPCToonAI')

@@ -1,4 +1,4 @@
-from DistributedEntityAI import DistributedEntityAI
+from .DistributedEntityAI import DistributedEntityAI
 
 class DistributedCutsceneAI(DistributedEntityAI):
 
@@ -23,7 +23,7 @@ class DistributedCutsceneAI(DistributedEntityAI):
         if self.inProgress:
             return
             
-        print "DoCutscene", self.length
+        print("DoCutscene", self.length)
 
         self.sendUpdate('doCutscene', [self.cutsceneId])
         self.dispatchOutput("OnBegin")

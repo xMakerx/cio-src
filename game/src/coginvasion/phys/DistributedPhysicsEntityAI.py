@@ -9,7 +9,7 @@ Copyright (c) CIO Team. All rights reserved.
 """
 
 from direct.distributed.DistributedSmoothNodeAI import DistributedSmoothNodeAI
-from PhysicsNodePathAI import PhysicsNodePathAI
+from .PhysicsNodePathAI import PhysicsNodePathAI
 
 class DistributedPhysicsEntityAI(DistributedSmoothNodeAI, PhysicsNodePathAI):
     

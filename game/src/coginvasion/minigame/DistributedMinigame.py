@@ -14,14 +14,14 @@ from direct.showbase.Transitions import Transitions
 from direct.fsm.State import State
 from direct.fsm.ClassicFSM import ClassicFSM
 
-import Timer
+from . import Timer
 
 from src.coginvasion.hood import ZoneUtil
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.gui.Dialog import GlobalDialog
 
-from HeadPanels import HeadPanels
-from FinalScoreGUI import FinalScoreGUI
+from .HeadPanels import HeadPanels
+from .FinalScoreGUI import FinalScoreGUI
 from src.coginvasion.nametag import NametagGlobals
 import random
 

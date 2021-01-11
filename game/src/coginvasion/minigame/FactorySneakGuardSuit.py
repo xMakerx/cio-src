@@ -12,7 +12,7 @@ from src.coginvasion.npc.NPCWalker import NPCLookInterval, NPCWalkInterval
 from src.coginvasion.cog.Suit import Suit
 from src.coginvasion.cog import SuitBank, Variant
 #from src.coginvasion.suit import SuitPathFinder
-import CogGuardGlobals as CGG
+from . import CogGuardGlobals as CGG
 
 import random
 
@@ -66,7 +66,7 @@ class FactorySneakGuardSuit(Suit, FSM):
         if self.queue.getNumEntries() > 0:
             self.queue.sortEntries()
             hitObj = self.queue.getEntry(0).getIntoNodePath()
-            print hitObj
+            print(hitObj)
             isLocalAvatar = hitObj.getParent().getPythonTag('localAvatar')
             if isLocalAvatar == 1:
                 # Yes! We see the prowler!
@@ -215,7 +215,7 @@ class FactorySneakGuardSuit(Suit, FSM):
             elif self.getCurrentOrNextState() == 'GoBackToGuardSpot':
                 self.request('Guard')
             return
-        print self.pathQueue[self.currentPathIndex]
+        print(self.pathQueue[self.currentPathIndex])
         if self.currentPathIndex == 1 and self.pathQueue[0] == 1:
             # We need to walk from our guard point to the first waypoint in our path
             startPoint = self.getPos(render)

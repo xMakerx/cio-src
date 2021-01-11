@@ -8,9 +8,9 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-from OptionsCategory import OptionsCategory
-from ChoiceWidget import ChoiceWidget
-from ChoiceWidget import MULTICHOICE
+from .OptionsCategory import OptionsCategory
+from .ChoiceWidget import ChoiceWidget
+from .ChoiceWidget import MULTICHOICE
 
 class GeneralCategory(OptionsCategory):
     Name = "General"

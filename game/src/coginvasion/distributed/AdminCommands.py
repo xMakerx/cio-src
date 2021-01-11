@@ -12,7 +12,7 @@ Copyright (c) CIO Team. All rights reserved.
 """
 
 from src.coginvasion.gui import Dialog
-import __builtin__
+import builtins
 
 NoAccess = 0
 
@@ -81,12 +81,12 @@ Roles = {
 
 RoleIdByName = {}
 
-for accessLevel, role in Roles.iteritems():
+for accessLevel, role in Roles.items():
     RoleIdByName[role.name] = accessLevel
 
 ########################################
 def precommandChecks(permission):
-    if not hasattr(__builtin__, "base") and not hasattr(base, "localAvatar"):
+    if not hasattr(builtins, "base") and not hasattr(base, "localAvatar"):
         return False
     elif base.localAvatar.getAccessLevel() > NoAccess:
         # Let's see if the local avatar has permission to access the requested command.
@@ -137,7 +137,7 @@ def REQ_SET_TSA_UNI(avId, flag):
     if toon:
         toon.sendUpdate('reqSetTSAUni', [flag])
 
-__builtin__.REQ_SET_TSA_UNI = REQ_SET_TSA_UNI
+builtins.REQ_SET_TSA_UNI = REQ_SET_TSA_UNI
 
 def REQ_SET_ACCESS_LEVEL(avId, accessLevel):
     if not precommandChecks(PERM_SET_ACCESS_LEVEL):
@@ -152,7 +152,7 @@ def REQ_SET_ACCESS_LEVEL(avId, accessLevel):
 
         toon.sendUpdate('reqSetAccessLevel', [accessLevel])
 
-__builtin__.REQ_SET_ACCESS_LEVEL = REQ_SET_ACCESS_LEVEL
+builtins.REQ_SET_ACCESS_LEVEL = REQ_SET_ACCESS_LEVEL
 
 def SEND_KICK_MSG(avId, andBan = 0):
     if (not andBan and not precommandChecks(PERM_KICK_PLAYER)) or (andBan and not precommandChecks(PERM_BAN_PLAYER)):
@@ -166,10 +166,10 @@ def SEND_KICK_MSG(avId, andBan = 0):
             return
     
     
-    print "SEND_KICK_MSG({0}, {1})".format(avId, andBan)
+    print("SEND_KICK_MSG({0}, {1})".format(avId, andBan))
     base.localAvatar.sendUpdate("requestEject", [avId, andBan])
 
-__builtin__.SEND_KICK_MSG = SEND_KICK_MSG
+builtins.SEND_KICK_MSG = SEND_KICK_MSG
 
 def SEND_SUIT_CMD(commandName):
     if not precommandChecks(None):
@@ -179,7 +179,7 @@ def SEND_SUIT_CMD(commandName):
         base.cr.playGame.suitManager.sendUpdate('suitAdminCommand', [base.localAvatar.getAccessLevel(),
                                                                      commandName])
 
-__builtin__.SEND_SUIT_CMD = SEND_SUIT_CMD
+builtins.SEND_SUIT_CMD = SEND_SUIT_CMD
 
 def SEND_REQ_UNLOCK_GAGS():
     if not precommandChecks(PERM_UNLOCK_GAGS):
@@ -187,7 +187,7 @@ def SEND_REQ_UNLOCK_GAGS():
 
     base.localAvatar.sendUpdate('reqUnlockAllGags')
 
-__builtin__.SEND_REQ_UNLOCK_GAGS = SEND_REQ_UNLOCK_GAGS
+builtins.SEND_REQ_UNLOCK_GAGS = SEND_REQ_UNLOCK_GAGS
 
 def SEND_REQ_REFILL_LAFF():
     if not precommandChecks(PERM_REFILL_LAFF):
@@ -195,7 +195,7 @@ def SEND_REQ_REFILL_LAFF():
     
     base.localAvatar.sendUpdate('reqRefillLaff')
 
-__builtin__.SEND_REQ_REFILL_LAFF = SEND_REQ_REFILL_LAFF
+builtins.SEND_REQ_REFILL_LAFF = SEND_REQ_REFILL_LAFF
 
 def TOGGLE_GHOST():
     if not precommandChecks(PERM_TOGGLE_GHOST):
@@ -206,7 +206,7 @@ def TOGGLE_GHOST():
     else:
         base.localAvatar.b_setGhost(1)
 
-__builtin__.TOGGLE_GHOST = TOGGLE_GHOST
+builtins.TOGGLE_GHOST = TOGGLE_GHOST
 
 def TOGGLE_PLAYER_IDS():
     if not precommandChecks(PERM_TOGGLE_PLAYER_IDS):
@@ -217,7 +217,7 @@ def TOGGLE_PLAYER_IDS():
     else:
         base.cr.showPlayerIds()
         
-__builtin__.TOGGLE_PLAYER_IDS = TOGGLE_PLAYER_IDS
+builtins.TOGGLE_PLAYER_IDS = TOGGLE_PLAYER_IDS
 
 def DISTRICT_WIDE_MSG(msg):
     if not precommandChecks(PERM_DIST_MSG):
@@ -225,7 +225,7 @@ def DISTRICT_WIDE_MSG(msg):
         
     base.cr.myDistrict.sendUpdate('systemMessageCommand', [base.localAvatar.getAccessLevel(), msg])
 
-__builtin__.DISTRICT_WIDE_MSG = DISTRICT_WIDE_MSG
+builtins.DISTRICT_WIDE_MSG = DISTRICT_WIDE_MSG
 
 def REQ_SET_WORLD_ACCESS(avId, andTP):
     if not precommandChecks(PERM_SET_WORLD_ACCESS):
@@ -235,5 +235,5 @@ def REQ_SET_WORLD_ACCESS(avId, andTP):
     if toon:
         toon.sendUpdate('reqSetWorldAccess', [andTP])
         
-__builtin__.REQ_SET_WORLD_ACCESS = REQ_SET_WORLD_ACCESS
+builtins.REQ_SET_WORLD_ACCESS = REQ_SET_WORLD_ACCESS
     

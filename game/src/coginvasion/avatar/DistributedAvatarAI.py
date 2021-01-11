@@ -15,9 +15,9 @@ from direct.directnotify.DirectNotifyGlobal import directNotify
 from direct.distributed import DistributedSmoothNodeAI
 from src.coginvasion.globals import CIGlobals
 
-from AvatarTypes import AVATAR_NONE
-from AvatarShared import AvatarShared
-from Activities import ACT_NONE
+from .AvatarTypes import AVATAR_NONE
+from .AvatarShared import AvatarShared
+from .Activities import ACT_NONE
 from src.coginvasion.phys.PhysicsNodePathAI import BasePhysicsObjectAI
 from src.coginvasion.cog.ai.RelationshipsAI import RELATIONSHIP_NONE
 

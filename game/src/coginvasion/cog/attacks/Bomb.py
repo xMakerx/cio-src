@@ -1,6 +1,6 @@
 from direct.interval.IntervalGlobal import Func, Sequence, Wait, Parallel
 
-from BombShared import BombShared
+from .BombShared import BombShared
 from src.coginvasion.attack.BaseAttack import BaseAttack
 from src.coginvasion.attack.Attacks import ATTACK_BOMB, ATTACK_HOLD_RIGHT
 

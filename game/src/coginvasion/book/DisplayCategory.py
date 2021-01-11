@@ -13,9 +13,9 @@ from panda3d.core import TextNode, WindowProperties, AntialiasAttrib
 from direct.gui.DirectGui import DirectCheckButton, OnscreenText
 
 from src.coginvasion.globals import CIGlobals
-from OptionsCategory import OptionsCategory
-from ChoiceWidget import ChoiceWidget
-from ChoiceWidget import DEGREE, RESOLUTION, INDEX
+from .OptionsCategory import OptionsCategory
+from .ChoiceWidget import ChoiceWidget
+from .ChoiceWidget import DEGREE, RESOLUTION, INDEX
 
 class DisplayCategory(OptionsCategory):
     Name = "Display"

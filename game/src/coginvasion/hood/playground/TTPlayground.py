@@ -12,7 +12,7 @@ from direct.directnotify.DirectNotifyGlobal import directNotify
 from direct.interval.SoundInterval import SoundInterval
 
 from src.coginvasion.holiday.HolidayManager import HolidayType
-import Playground, random
+import .Playground, random
 
 class TTPlayground(Playground.Playground):
     notify = directNotify.newCategory("TTPlayground")

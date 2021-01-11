@@ -10,11 +10,11 @@ from direct.interval.IntervalGlobal import Sequence, Wait, Func
 from direct.fsm import ClassicFSM, State
 
 from src.coginvasion.minigame.DistributedToonFPSGameAI import DistributedToonFPSGameAI
-import GunGameGlobals as GGG
-import GunGameLevelLoaderAI
-from DistributedGunGameFlagAI import DistributedGunGameFlagAI
-from DistributedGunGameCapturePointAI import DistributedGunGameCapturePointAI
-from TeamMinigameAI import TeamMinigameAI
+from . import GunGameGlobals as GGG
+from . import GunGameLevelLoaderAI
+from .DistributedGunGameFlagAI import DistributedGunGameFlagAI
+from .DistributedGunGameCapturePointAI import DistributedGunGameCapturePointAI
+from .TeamMinigameAI import TeamMinigameAI
 
 class DistributedGunGameAI(DistributedToonFPSGameAI, TeamMinigameAI):
     notify = directNotify.newCategory("DistributedGunGameAI")

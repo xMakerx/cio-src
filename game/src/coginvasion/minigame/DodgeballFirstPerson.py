@@ -8,8 +8,8 @@ from direct.fsm import ClassicFSM, State
 from direct.actor.Actor import Actor
 from direct.interval.IntervalGlobal import Sequence, Func, ActorInterval, Parallel, Wait, LerpPosInterval, LerpQuatInterval
 
-from FirstPerson import FirstPerson
-from MinigameUtils import *
+from .FirstPerson import FirstPerson
+from .MinigameUtils import *
 
 ToonSpeedFactor = 1.0
 ToonForwardSpeed = 16.0 * ToonSpeedFactor

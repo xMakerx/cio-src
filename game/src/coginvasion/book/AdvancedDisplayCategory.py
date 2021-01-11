@@ -8,8 +8,8 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-from ChoiceWidget import ChoiceWidget, INDEX
-from OptionsCategory import OptionsCategory
+from .ChoiceWidget import ChoiceWidget, INDEX
+from .OptionsCategory import OptionsCategory
 
 class AdvancedDisplayCategory(OptionsCategory):
     Name = "Graphics"

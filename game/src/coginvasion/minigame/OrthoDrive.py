@@ -8,7 +8,7 @@ from direct.interval.IntervalGlobal import *
 from direct.task.Task import Task
 from src.coginvasion.globals import CIGlobals
 from direct.directnotify.DirectNotifyGlobal import directNotify
-import ArrowKeys
+from . import ArrowKeys
 
 class OrthoDrive:
     notify = directNotify.newCategory('OrthoDrive')

@@ -22,11 +22,11 @@ from src.coginvasion.battle import BattleGlobals
 from src.coginvasion.hood import ZoneUtil
 from src.coginvasion.toon.ToonGlobals import GAG_START_EVENT
 
-from DistributedCogOfficeElevatorAI import DistributedCogOfficeElevatorAI
-from DistributedCogOfficeSuitAI import DistributedCogOfficeSuitAI
-from CogOfficeConstants import *
-from ElevatorConstants import *
-import SuitBuildingGlobals
+from .DistributedCogOfficeElevatorAI import DistributedCogOfficeElevatorAI
+from .DistributedCogOfficeSuitAI import DistributedCogOfficeSuitAI
+from .CogOfficeConstants import *
+from .ElevatorConstants import *
+import .SuitBuildingGlobals
 
 import random
 

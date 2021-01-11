@@ -10,7 +10,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 from direct.interval.SoundInterval import SoundInterval
 
-import Playground
+from . import Playground
 
 import random
 from src.coginvasion.holiday.HolidayManager import HolidayType

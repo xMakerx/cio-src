@@ -12,11 +12,11 @@ from panda3d.core import VBase4, Vec3
 
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
-from ToonHood import ToonHood
-from playground.MLSafeZoneLoader import MLSafeZoneLoader
-from street.MLTownLoader import MLTownLoader
+from .ToonHood import ToonHood
+from .playground.MLSafeZoneLoader import MLSafeZoneLoader
+from .street.MLTownLoader import MLTownLoader
 from src.coginvasion.holiday.HolidayManager import HolidayType
-import ZoneUtil
+from src.coginvasion.hood import ZoneUtil
 
 class MLHood(ToonHood):
     notify = directNotify.newCategory("MLHood")

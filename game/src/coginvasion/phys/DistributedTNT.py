@@ -14,7 +14,7 @@ from direct.actor.Actor import Actor
 
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.toon import ParticleLoader
-from DistributedPhysicsEntity import DistributedPhysicsEntity
+from .DistributedPhysicsEntity import DistributedPhysicsEntity
 
 class DistributedTNT(DistributedPhysicsEntity):
 

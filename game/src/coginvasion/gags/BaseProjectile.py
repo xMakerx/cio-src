@@ -70,7 +70,7 @@ class BaseProjectile(WorldCollider):
         pos = self.getPos(render)
         dist = (pos - self.initialPos).lengthSquared()
         if dist > self.maxTravelSqr:
-            print "Stopping at distance {0}, squared {1}".format(math.sqrt(dist), dist)
+            print("Stopping at distance {0}, squared {1}".format(math.sqrt(dist), dist))
             # Oh well, didn't hit anything
             self.removeNode()
             return task.done

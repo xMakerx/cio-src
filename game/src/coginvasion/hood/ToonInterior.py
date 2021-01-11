@@ -12,7 +12,7 @@ from direct.directnotify.DirectNotifyGlobal import directNotify
 from direct.fsm.State import State
 from direct.fsm.ClassicFSM import ClassicFSM
 
-import Place
+from src.coginvasion.hood import Place
 
 class ToonInterior(Place.Place):
     notify = directNotify.newCategory("ToonInterior")

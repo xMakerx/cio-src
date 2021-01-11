@@ -1,4 +1,4 @@
-from WorldColliderShared import WorldColliderShared
+from .WorldColliderShared import WorldColliderShared
 
 class WorldCollider(WorldColliderShared):
     pass

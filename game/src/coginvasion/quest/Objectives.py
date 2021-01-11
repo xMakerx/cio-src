@@ -13,7 +13,7 @@ from src.coginvasion.hood import ZoneUtil
 from src.coginvasion.npc import NPCGlobals
 from src.coginvasion.cog import Variant
 from src.coginvasion.gags import GagGlobals
-import QuestGlobals
+from . import QuestGlobals
 import random
 
 ####################################

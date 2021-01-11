@@ -12,7 +12,7 @@ from panda3d.core import Point3
 
 from direct.interval.IntervalGlobal import Sequence, Wait, Func, LerpPosInterval, SoundInterval, Parallel
 
-from ElevatorConstants import *
+from .ElevatorConstants import *
 
 def getRightDoor(model):
     door = model.find('**/right-door')

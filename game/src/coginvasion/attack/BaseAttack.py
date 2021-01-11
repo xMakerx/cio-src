@@ -6,7 +6,7 @@ from direct.directnotify.DirectNotifyGlobal import directNotify
 from direct.distributed.PyDatagram import PyDatagram
 from direct.interval.IntervalGlobal import Parallel, Sequence, ActorInterval, Func
 
-from Attacks import ATTACKTYPE_NONE, ATTACK_HOLD_NONE, ATTACK_HOLD_LEFT, ATTACK_HOLD_RIGHT
+from .Attacks import ATTACKTYPE_NONE, ATTACK_HOLD_NONE, ATTACK_HOLD_LEFT, ATTACK_HOLD_RIGHT
 from src.coginvasion.attack.BaseAttackShared import BaseAttackShared
 
 from src.coginvasion.globals import CIGlobals

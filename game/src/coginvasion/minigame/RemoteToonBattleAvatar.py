@@ -11,9 +11,9 @@ from direct.directnotify.DirectNotifyGlobal import directNotify
 from direct.interval.IntervalGlobal import *
 from direct.fsm.ClassicFSM import ClassicFSM
 from direct.fsm.State import State
-from Bullet import Bullet
-from RemoteAvatar import RemoteAvatar
-import GunGameGlobals as GGG
+from .Bullet import Bullet
+from .RemoteAvatar import RemoteAvatar
+from . import GunGameGlobals as GGG
 
 class RemoteToonBattleAvatar(RemoteAvatar):
     notify = directNotify.newCategory("RemoteToonBattleAvatar")

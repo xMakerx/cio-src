@@ -11,8 +11,7 @@ Copyright (c) CIO Team. All rights reserved.
 from panda3d.core import ModelNode
 
 from src.coginvasion.holiday.HolidayManager import HolidayType
-import SafeZoneLoader
-import DDPlayground
+from src.coginvasion.hood.playground import SafeZoneLoader, DDPlayground
 
 from src.coginvasion.globals import CIGlobals
 

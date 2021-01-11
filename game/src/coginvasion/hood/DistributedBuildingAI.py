@@ -21,8 +21,8 @@ from src.coginvasion.cogoffice import SuitBuildingGlobals
 from src.coginvasion.cogoffice.DistributedElevatorAI import DistributedElevatorAI
 from src.coginvasion.cogoffice.DistributedCogOfficeBattleAI import DistributedCogOfficeBattleAI
 
-from DistributedToonInteriorAI import DistributedToonInteriorAI
-from DistributedDoorAI import DistributedDoorAI
+from .DistributedToonInteriorAI import DistributedToonInteriorAI
+from .DistributedDoorAI import DistributedDoorAI
 
 from src.coginvasion.cogoffice.ElevatorConstants import *
 

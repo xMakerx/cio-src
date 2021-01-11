@@ -1,6 +1,6 @@
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
-from Attacks import ATTACK_NONE
+from .Attacks import ATTACK_NONE
 
 from src.coginvasion.globals import CIGlobals
 

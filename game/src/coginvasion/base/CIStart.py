@@ -15,7 +15,7 @@ from panda3d.core import Thread, loadPrcFile, loadPrcFileData, CollisionTraverse
 from panda3d.core import ConfigVariableDouble, ConfigVariableString
 #from panda3d.core import PStatClient, WindowProperties
 
-import Logger
+import .Logger
 logger = Logger.Starter()
 logger.startNotifyLogging()
 
@@ -26,8 +26,8 @@ notify.setInfo(True)
 notify.info("Starting the game.")
 
 from src.coginvasion.base.Metadata import Metadata
-import __builtin__
-__builtin__.metadata = Metadata()
+import builtins
+builtins.metadata = Metadata()
 
 import sys
 
@@ -69,7 +69,7 @@ sm.loadFile(jsonFile)
 sm.doSunriseFor(sunrise = SHOWBASE_PREINIT)
 notify.info("Applying pre-ShowBase initialization settings.")
 
-from CIBase import CIBase
+from .CIBase import CIBase
 base = CIBase()
 
 sm.doSunriseFor(sunrise = SHOWBASE_POSTINIT)
@@ -170,11 +170,10 @@ def doneInitLoad():
     base.cr = CogInvasionClientRepository.CogInvasionClientRepository("ver-" + metadata.VERSION)
 
 notify.info("Starting initial game load...")
-from InitialLoad import InitialLoad
+from .InitialLoad import InitialLoad
 il = InitialLoad(doneInitLoad)
 
 from src.coginvasion.base import MusicCache
-print "Precaching music..."
 MusicCache.precacheMusic()
 
 base.playMusic(CIGlobals.getThemeSong(), volume = 2.0)

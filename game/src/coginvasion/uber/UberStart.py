@@ -65,7 +65,7 @@ if args.login_token_life:
     try:
         int(args.login_token_life)
     except ValueError:
-        print 'Argument --login_token_life is expecting an integer!'
+        print('Argument --login_token_life is expecting an integer!')
         sys.exit()
 
 # Let's make sure we received an integer for holiday.
@@ -73,7 +73,7 @@ if args.holiday:
     try:
         int(args.holiday)
     except ValueError:
-        print 'Argument --holiday is expecting an integer!'
+        print('Argument --holiday is expecting an integer!')
         sys.exit()
 else:
     # Let's default to no holiday.

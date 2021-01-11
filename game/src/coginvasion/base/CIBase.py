@@ -12,14 +12,11 @@ from panda3d.core import loadPrcFile, NodePath, PGTop, TextPropertiesManager, Te
 from panda3d.core import CollisionHandlerFloor, CollisionHandlerQueue, CollisionHandlerPusher, loadPrcFileData, TexturePool, ModelPool, RenderState, Vec4, Point3
 from panda3d.core import CollisionTraverser, CullBinManager, LightRampAttrib, Camera, OmniBoundingVolume, Texture, GraphicsOutput, PerspectiveLens, ModelNode, BitMask32, OrthographicLens
 from panda3d.bullet import BulletWorld, BulletDebugNode
-from libpandabsp import Py_CL_BSPLoader, BSPLoader, BSPRender, BSPShaderGenerator, VertexLitGenericSpec, LightmappedGenericSpec, UnlitGenericSpec, UnlitNoMatSpec, CSMRenderSpec, SkyBoxSpec
-from libpandabsp import Audio3DManager, DecalModulateSpec
+from panda3d.bsp import Py_CL_BSPLoader, BSPLoader, BSPRender, BSPShaderGenerator, VertexLitGenericSpec, LightmappedGenericSpec, UnlitGenericSpec, UnlitNoMatSpec, CSMRenderSpec, SkyBoxSpec
+from panda3d.bsp import Audio3DManager, DecalModulateSpec
 
 import sys
-if sys.version_info >= (3, 0):
-    import builtins
-else:
-    import __builtin__ as builtins
+import builtins
 
 #from p3recastnavigation import RNNavMeshManager
 
@@ -38,14 +35,13 @@ from src.coginvasion.base.CIPostProcess import CIPostProcess
 from src.coginvasion.base import ScreenshotHandler
 from src.coginvasion.base import MusicCache
 from src.coginvasion.hood.SkyUtil import SkyUtil
-from Lighting import OutdoorLightingConfig
+from .Lighting import OutdoorLightingConfig
 
-from HDR import HDR
-from ShakeCamera import ShakeCamera
-from WaterReflectionManager import WaterReflectionManager
+from .HDR import HDR
+from .ShakeCamera import ShakeCamera
+from .WaterReflectionManager import WaterReflectionManager
 from src.coginvasion.phys import PhysicsUtils
 
-import __builtin__
 import random
 import os
 
@@ -73,7 +69,7 @@ class CIBase(ShowBase):
             
         from panda3d.core import RenderAttribRegistry
         from panda3d.core import ShaderAttrib, TransparencyAttrib
-        from libpandabsp import BSPMaterialAttrib
+        from panda3d.bsp import BSPMaterialAttrib
         attribRegistry = RenderAttribRegistry.getGlobalPtr()
         attribRegistry.setSlotSort(BSPMaterialAttrib.getClassSlot(), 0)
         attribRegistry.setSlotSort(ShaderAttrib.getClassSlot(), 1)
@@ -297,29 +293,10 @@ class CIBase(ShowBase):
         base.cr.playGame.hood.loader.geom.hide()
         
     def reportCam(self):
-        print self.camera
-        print self.camera.getNetTransform()
+        print(self.camera)
+        print(self.camera.getNetTransform())
         self.camera.setScale(render, 1)
         self.camera.setShear(render, 0)
-
-        """
-        print 'TPM START'
-        tpMgr = TextPropertiesManager.getGlobalPtr()
-        print 'PROPERTIES GET'
-        tpRed = TextProperties()
-        tpRed.setTextColor(1, 0, 0, 1)
-        tpSlant = TextProperties()
-        tpSlant.setSlant(0.3)
-        print 'RED AND SLANT GENERATED'
-        tpMgr.setProperties('red', tpRed)
-        print 'RED SET'
-        try:
-            tpMgr.setProperties('slant', tpSlant)
-        except Exception:
-            print 'AN EXCEPTION OCCURRED'
-        print 'SLANT SET'
-        print 'TPM END'
-        """
         
     def convertHammerAngles(self, angles):
         """
@@ -455,10 +432,10 @@ class CIBase(ShowBase):
         return snd
 
     def physicsReport(self):
-        print "\nThere are {0} total rigid bodies:".format(base.physicsWorld.getNumRigidBodies())
+        print("\nThere are {0} total rigid bodies:".format(base.physicsWorld.getNumRigidBodies()))
         for rb in base.physicsWorld.getRigidBodies():
-            print "\t", NodePath(rb)
-        print "\n"
+            print("\t", NodePath(rb))
+        print("\n")
 
     def removeEverything(self):
         for task in self.taskMgr.getTasks():
@@ -493,12 +470,12 @@ class CIBase(ShowBase):
     def doMemReport(self):
         MemoryUsage.showCurrentTypes()
         MemoryUsage.showCurrentAges()
-        print MemoryUsage.getCurrentCppSize()
-        print MemoryUsage.getExternalSize()
-        print MemoryUsage.getTotalSize()
+        print(MemoryUsage.getCurrentCppSize())
+        print(MemoryUsage.getExternalSize())
+        print(MemoryUsage.getTotalSize())
 
     def doPointers(self):
-        print "---------------------------------------------------------------------"
+        print("---------------------------------------------------------------------")
         data = {}
         mup = MemoryUsagePointers()
         MemoryUsage.getPointers(mup)
@@ -509,10 +486,10 @@ class CIBase(ShowBase):
             else:
                 data[ptr.__class__.__name__] = 1
         
-        print "NodeReferenceCount:", data["NodeReferenceCount"]
-        print "CopyOnWriteObject:", data["CopyOnWriteObject"]
+        print("NodeReferenceCount:", data["NodeReferenceCount"])
+        print("CopyOnWriteObject:", data["CopyOnWriteObject"])
         
-        print "---------------------------------------------------------------------"
+        print("---------------------------------------------------------------------")
         
     def hideMouseCursor(self):
         props = WindowProperties()
@@ -713,7 +690,7 @@ class CIBase(ShowBase):
         self.cl_attackMgr = AttackManager()
         
         if self.DebugShaderQualities:
-            from libpandabsp import SHADERQUALITY_HIGH, SHADERQUALITY_MEDIUM, SHADERQUALITY_LOW
+            from panda3d.bsp import SHADERQUALITY_HIGH, SHADERQUALITY_MEDIUM, SHADERQUALITY_LOW
             self.accept('1', self.shaderGenerator.setShaderQuality, [SHADERQUALITY_LOW])
             self.accept('2', self.shaderGenerator.setShaderQuality, [SHADERQUALITY_MEDIUM])
             self.accept('3', self.shaderGenerator.setShaderQuality, [SHADERQUALITY_HIGH])

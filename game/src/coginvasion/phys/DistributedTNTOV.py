@@ -16,7 +16,7 @@ from src.coginvasion.globals import CIGlobals
 from src.coginvasion.gags import GagGlobals
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.phys import PhysicsUtils
-from DistributedTNT import DistributedTNT
+from .DistributedTNT import DistributedTNT
 
 import random
 

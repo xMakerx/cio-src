@@ -15,7 +15,7 @@ from direct.gui.DirectGui import *
 from direct.interval.IntervalGlobal import *
 from src.coginvasion.globals import CIGlobals
 from direct.distributed.ClockDelta import globalClockDelta
-from RemoteToonBattleAvatar import RemoteToonBattleAvatar
+from .RemoteToonBattleAvatar import RemoteToonBattleAvatar
 import random
 
 class DistributedSneakyGame(DistributedMinigame.DistributedMinigame):

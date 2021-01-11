@@ -13,10 +13,10 @@ from direct.directnotify.DirectNotifyGlobal import directNotify
 
 from src.coginvasion.holiday.HolidayManager import HolidayType
 
-from ToonHood import ToonHood
-from playground.DGSafeZoneLoader import DGSafeZoneLoader
-from street import DGTownLoader
-import ZoneUtil
+from .ToonHood import ToonHood
+from .playground.DGSafeZoneLoader import DGSafeZoneLoader
+from .street import DGTownLoader
+from src.coginvasion.hood import ZoneUtil
 
 class DGHood(ToonHood):
     notify = directNotify.newCategory("DGHood")

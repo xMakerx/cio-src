@@ -8,7 +8,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-import Street
+from src.coginvasion.hood.street import Street
 
 class DLStreet(Street.Street):
 

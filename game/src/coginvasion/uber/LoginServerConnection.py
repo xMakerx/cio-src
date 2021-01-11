@@ -9,9 +9,8 @@ Copyright (c) CIO Team. All rights reserved.
 """
 
 from direct.directnotify.DirectNotifyGlobal import directNotify
-from LoginToken import LoginToken
+from .LoginToken import LoginToken
 import socket
-import thread
 import threading
 
 uberRepo = None

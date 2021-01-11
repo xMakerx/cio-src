@@ -14,7 +14,7 @@ from direct.directnotify.DirectNotifyGlobal import directNotify
 from direct.fsm.ClassicFSM import ClassicFSM
 from direct.fsm.State import State
 
-import ButterflyGlobals
+from . import ButterflyGlobals
 
 import random
 

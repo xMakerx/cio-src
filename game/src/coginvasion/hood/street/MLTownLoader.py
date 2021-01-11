@@ -8,9 +8,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-import TownLoader
-import MLStreet
-
+from src.coginvasion.hood.street import TownLoader, MLStreet
 from src.coginvasion.globals import CIGlobals
 
 class MLTownLoader(TownLoader.TownLoader):

@@ -10,9 +10,9 @@ Copyright (c) CIO Team. All rights reserved.
 
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
-from EnvironmentConfiguration import EnvironmentConfiguration
-from EnvironmentConfiguration import Modifier
-from EnvironmentConfiguration import stringList, stringValue, anyValue
+from .EnvironmentConfiguration import EnvironmentConfiguration
+from .EnvironmentConfiguration import Modifier
+from .EnvironmentConfiguration import stringList, stringValue, anyValue
 
 from yaml import load
 

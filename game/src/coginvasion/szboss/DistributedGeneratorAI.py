@@ -1,4 +1,4 @@
-from DistributedEntityAI import DistributedEntityAI
+from .DistributedEntityAI import DistributedEntityAI
 
 from direct.fsm.FSM import FSM
 

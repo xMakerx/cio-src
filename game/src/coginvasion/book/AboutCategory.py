@@ -10,7 +10,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 from panda3d.core import PandaSystem
 
-from OptionsCategory import OptionsCategory
+from .OptionsCategory import OptionsCategory
 
 from direct.showbase.DirectObject import DirectObject
 from direct.gui.DirectGui import OnscreenImage, OnscreenText

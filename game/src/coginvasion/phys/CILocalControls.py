@@ -1,4 +1,4 @@
-from BaseLocalControls import BaseLocalControls
+from .BaseLocalControls import BaseLocalControls
 
 class CILocalControls(BaseLocalControls):
 

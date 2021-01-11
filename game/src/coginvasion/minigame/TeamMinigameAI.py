@@ -1,7 +1,7 @@
 # Filename: TeamMinigameAI.py
 # Created by:  blach (30Apr16)
 
-from TeamMinigame import TEAM1, TEAM2
+from .TeamMinigame import TEAM1, TEAM2
 
 class TeamMinigameAI:
     """An abstract class for any team based minigame (AI/server side)"""

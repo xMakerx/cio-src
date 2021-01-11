@@ -14,7 +14,7 @@ from direct.fsm import ClassicFSM, State
 from direct.task import Task
 
 from src.coginvasion.hood import DistributedToonInteriorAI
-import CinemaGlobals
+from src.coginvasion.hood.street import CinemaGlobals
 
 class DistributedCinemaInteriorAI(DistributedToonInteriorAI.DistributedToonInteriorAI):
     notify = directNotify.newCategory("DistributedCinemaInteriorAI")

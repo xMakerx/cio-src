@@ -89,7 +89,7 @@ class DistributedGagPickup(DistributedEntity):
 
         sph = BulletSphereShape(1.0)
         gn = BulletGhostNode(self.uniqueName("pickupGhost"))
-        print gn.getName()
+        print(gn.getName())
         gn.addShape(sph)
         self.collNode = self.attachNewNode(gn)
 

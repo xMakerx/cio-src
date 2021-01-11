@@ -8,7 +8,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-from ElevatorConstants import ElevatorData, ELEVATOR_NORMAL, TOON_VICTORY_EXIT_TIME
+from .ElevatorConstants import ElevatorData, ELEVATOR_NORMAL, TOON_VICTORY_EXIT_TIME
 from src.coginvasion.hood import ZoneUtil
 
 VICTORY_RUN_TIME = ElevatorData[ELEVATOR_NORMAL]['openTime'] + TOON_VICTORY_EXIT_TIME

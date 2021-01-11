@@ -51,7 +51,7 @@ class LocationGag(Precacheable):
         return self.shadowScale
 
     def equip(self):
-        print "equip again"
+        print("equip again")
         self.cleanupLocationSeeker()
         self.buildButton()
         self.button.reparentTo(self.avatar.find('**/def_joint_left_hold'))

@@ -11,8 +11,8 @@ Copyright (c) Cog Invasion Online. All rights reserved.
 from direct.showbase.DirectObject import DirectObject
 
 from src.coginvasion.hood import ZoneUtil
-from QuestManagerBase import QuestManagerBase
-import QuestGlobals
+from .QuestManagerBase import QuestManagerBase
+from . import QuestGlobals
 
 class QuestManager(QuestManagerBase, DirectObject):
     

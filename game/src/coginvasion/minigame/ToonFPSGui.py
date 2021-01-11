@@ -12,7 +12,7 @@ from direct.gui.DirectGui import DGG, OnscreenText, DirectLabel
 
 from panda3d.core import TextNode
 
-from MinigameUtils import *
+from .MinigameUtils import *
 
 class ToonFPSGui:
 

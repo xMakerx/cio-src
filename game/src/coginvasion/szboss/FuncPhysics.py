@@ -3,7 +3,7 @@ from panda3d.bullet import BulletRigidBodyNode, BulletBoxShape
 
 from src.coginvasion.phys import PhysicsUtils
 
-from Entity import Entity
+from .Entity import Entity
 
 class FuncPhysics(Entity):
 

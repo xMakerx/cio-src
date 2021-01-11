@@ -3,7 +3,7 @@
 
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
-from DistributedToonFPSGameAI import DistributedToonFPSGameAI
+from .DistributedToonFPSGameAI import DistributedToonFPSGameAI
 
 class DistributedFactorySneakGameAI(DistributedToonFPSGameAI):
     notify = directNotify.newCategory("DistributedFactorySneakGameAI")

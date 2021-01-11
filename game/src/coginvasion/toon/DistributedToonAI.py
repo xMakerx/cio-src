@@ -17,8 +17,7 @@ from src.coginvasion.avatar.DistributedAvatarAI import DistributedAvatarAI
 from src.coginvasion.avatar.AvatarTypes import *
 from src.coginvasion.cog.ai.RelationshipsAI import *
 from src.coginvasion.globals import CIGlobals
-import ToonGlobals
-import ToonDNA
+from . import ToonDNA, ToonGlobals
 
 class DistributedToonAI(DistributedAvatarAI, ToonDNA.ToonDNA):
     notify = directNotify.newCategory('DistributedToonAI')

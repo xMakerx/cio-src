@@ -1,7 +1,7 @@
 from panda3d.core import NodePath, Point3, TransformState
 from panda3d.bullet import BulletBoxShape, BulletRigidBodyNode, BulletGhostNode
 
-from Useable import Useable
+from .Useable import Useable
 from src.coginvasion.phys.PhysicsNodePath import PhysicsNodePath
 from src.coginvasion.phys import PhysicsUtils
 

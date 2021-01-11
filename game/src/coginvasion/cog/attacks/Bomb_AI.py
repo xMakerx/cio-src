@@ -1,7 +1,7 @@
 from panda3d.core import Vec3, Point3
 
-from BombShared import BombShared
-from BombProjectileAI import BombProjectileAI
+from .BombShared import BombShared
+from .BombProjectileAI import BombProjectileAI
 from src.coginvasion.attack.BaseAttackAI import BaseAttackAI
 from src.coginvasion.attack.Attacks import ATTACK_BOMB
 from src.coginvasion.phys import PhysicsUtils

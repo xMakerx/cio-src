@@ -8,11 +8,10 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-from playground import BRSafeZoneLoader
-from street import BRTownLoader
+from .playground import BRSafeZoneLoader
+from .street import BRTownLoader
 
-import ToonHood
-import ZoneUtil
+from src.coginvasion.hood import ToonHood, ZoneUtil
 
 class BRHood(ToonHood.ToonHood):
 

@@ -12,8 +12,7 @@ from panda3d.core import TransparencyAttrib, ColorAttrib
 
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.holiday.HolidayManager import HolidayType
-import SafeZoneLoader
-import DGPlayground
+from src.coginvasion.hood.playground import SafeZoneLoader, DGPlayground
 
 class DGSafeZoneLoader(SafeZoneLoader.SafeZoneLoader):
 

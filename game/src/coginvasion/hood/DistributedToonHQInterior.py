@@ -14,9 +14,7 @@ from panda3d.core import ModelNode, NodePath, Point3, CardMaker, \
 from libpandadna import *
 
 from src.coginvasion.globals import CIGlobals
-import DistributedToonInterior
-import ToonInteriorColors
-import ZoneUtil
+from src.coginvasion.hood import DistributedToonInterior, ToonInteriorColors, ZoneUtil
 
 """
 from datetime import datetime

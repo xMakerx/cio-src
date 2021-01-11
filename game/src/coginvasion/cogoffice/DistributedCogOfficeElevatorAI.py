@@ -10,9 +10,9 @@ Copyright (c) CIO Team. All rights reserved.
 
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
-from DistributedElevatorAI import DistributedElevatorAI
+from .DistributedElevatorAI import DistributedElevatorAI
 from src.coginvasion.szboss.DistributedEntityAI import DistributedEntityAI
-from ElevatorConstants import *
+from .ElevatorConstants import *
 
 class DistributedCogOfficeElevatorAI(DistributedElevatorAI, DistributedEntityAI):
     notify = directNotify.newCategory('DistributedCogOfficeElevatorAI')

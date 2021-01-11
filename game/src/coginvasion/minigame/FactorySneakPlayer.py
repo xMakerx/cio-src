@@ -7,7 +7,7 @@ from direct.showbase.DirectObject import DirectObject
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
 from src.coginvasion.gui.MoneyGui import MoneyGui
-from FactorySneakGameToonFPS import FactorySneakGameToonFPS
+from .FactorySneakGameToonFPS import FactorySneakGameToonFPS
 
 class FactorySneakPlayer(DirectObject):
     notify = directNotify.newCategory("FactorySneakPlayer")

@@ -18,7 +18,7 @@ from direct.gui.DirectGui import DirectLabel
 
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.hood import DistributedToonInterior
-import CinemaGlobals
+from src.coginvasion.hood.street import CinemaGlobals
 
 CardScaleDivisor = 50.0
 

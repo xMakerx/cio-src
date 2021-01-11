@@ -18,8 +18,8 @@ from direct.fsm import State
 from src.coginvasion.minigame.DistributedMinigame import DistributedMinigame
 from src.coginvasion.hood import ZoneUtil
 from src.coginvasion.globals import CIGlobals
-import DeliveryGameGlobals as DGG
-from DeliveryGamePie import DeliveryGamePie
+from . import DeliveryGameGlobals as DGG
+from .DeliveryGamePie import DeliveryGamePie
 
 import random
 

@@ -1,6 +1,6 @@
 from panda3d.core import NodePath, Point3
 
-from Entity import Entity
+from .Entity import Entity
 
 class FuncWater(Entity):
 

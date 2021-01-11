@@ -16,7 +16,7 @@ from src.coginvasion.battle.RPToonData import RPToonData
 from src.coginvasion.battle.GameRules import GameRules
 from src.coginvasion.gui.RewardPanel import RewardPanel
 from src.coginvasion.globals import CIGlobals
-import BattleGlobals
+from . import BattleGlobals
 
 from direct.interval.IntervalGlobal import Sequence, Func, Wait
 
@@ -134,7 +134,7 @@ class DistributedBattleZone(DistributedObject):
         
     def clearAvatarDebris(self, avId):
         if avId in self.debris.values():
-            for debris, creatorId in self.debris.iteritems():
+            for debris, creatorId in self.debris.items():
                 if creatorId == avId:
                     self.removeDebris(debris, silently = 0)
         

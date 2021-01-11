@@ -8,7 +8,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-from DistributedTreasure import DistributedTreasure
+from .DistributedTreasure import DistributedTreasure
 
 class DistributedTTCTreasure(DistributedTreasure):
     __module__ = __name__

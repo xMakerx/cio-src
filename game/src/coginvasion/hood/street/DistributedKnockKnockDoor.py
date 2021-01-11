@@ -57,7 +57,7 @@ class DistributedKnockKnockDoor(DistributedObject, ToonTalker):
             for door in doorNodes:
                 doorBlock = door.getName()[-1:]
                 if doorBlock == str(self.block):
-                    print "Setting up door"
+                    print("Setting up door")
                     self.__setupDoor(door)
                     break
         except:
@@ -86,7 +86,7 @@ class DistributedKnockKnockDoor(DistributedObject, ToonTalker):
         DistributedObject.delete(self)
             
     def __setupDoor(self, node):
-        print "Setting up door for", node
+        print("Setting up door for", node)
         self.collisionNode = node
         self.physDoor = node.getParent()
         self.collisionNode.setCollideMask(CIGlobals.EventGroup)

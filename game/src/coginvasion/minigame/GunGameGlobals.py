@@ -1,7 +1,7 @@
 # Filename: GunGameGlobals.py
 # Created by:  blach (05Aug15)
 
-from TeamMinigame import TEAM1, TEAM2
+from .TeamMinigame import TEAM1, TEAM2
 from panda3d.core import BitMask32
 
 

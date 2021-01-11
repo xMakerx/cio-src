@@ -9,8 +9,8 @@
 from direct.interval.IntervalGlobal import Sequence, Func, Wait
 from src.coginvasion.minigame.UnoGameAIPlayerMgr import UnoGameAIPlayerMgr
 from collections import Counter
-import DistributedMinigameAI
-import UnoGameGlobals as UGG
+from . import DistributedMinigameAI
+from . import UnoGameGlobals as UGG
 import random
 
 class DistributedUnoGameAI(DistributedMinigameAI.DistributedMinigameAI):

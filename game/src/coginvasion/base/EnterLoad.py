@@ -8,8 +8,8 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-import FileUtility
-from LoadUtility import LoadUtility
+from . import FileUtility
+from .LoadUtility import LoadUtility
 
 class EnterLoad(LoadUtility):
 

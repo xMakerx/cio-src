@@ -6,7 +6,7 @@
 """
 
 from direct.distributed import DistributedObjectAI
-import TimerAI
+from . import TimerAI
 
 class DistributedMinigameAI(DistributedObjectAI.DistributedObjectAI, TimerAI.TimerAI):
 

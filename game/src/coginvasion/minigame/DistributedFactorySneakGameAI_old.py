@@ -5,7 +5,7 @@
     
 """
 
-import DistributedMinigameAI
+from . import DistributedMinigameAI
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
 class DistributedFactorySneakGameAI(DistributedMinigameAI.DistributedMinigameAI):

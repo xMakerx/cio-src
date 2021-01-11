@@ -16,7 +16,7 @@ from direct.showbase.InputStateGlobal import inputState
 from direct.interval.IntervalGlobal import Sequence, Func, Wait
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
-from FirstPerson import FirstPerson
+from .FirstPerson import FirstPerson
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.gui.Viewfinder import Viewfinder
 

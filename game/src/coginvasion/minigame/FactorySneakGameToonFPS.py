@@ -5,8 +5,8 @@
 
 """
 
-import ToonFPS
-from FactorySneakGameBullet import FactorySneakGameBullet
+from . import ToonFPS
+from .FactorySneakGameBullet import FactorySneakGameBullet
 
 class FactorySneakGameToonFPS(ToonFPS.ToonFPS):
 

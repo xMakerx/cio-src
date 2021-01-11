@@ -1,4 +1,4 @@
-from DistributedEntityAI import DistributedEntityAI
+from .DistributedEntityAI import DistributedEntityAI
 from direct.fsm.FSM import FSM
 
 class DistributedFuncRotatingAI(DistributedEntityAI, FSM):
@@ -52,7 +52,7 @@ class DistributedFuncRotatingAI(DistributedEntityAI, FSM):
         pass
         
     def enterRotating(self):
-        print "enterRotating"
+        print("enterRotating")
         self.dispatchOutput("OnStart")
         
     def exitRotating(self):

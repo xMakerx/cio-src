@@ -12,10 +12,10 @@ Copyright (c) CIO Team. All rights reserved.
 from panda3d.core import loadPrcFile, loadPrcFileData
 from panda3d.core import CullBinManager, AntialiasAttrib
 from panda3d.core import UniqueIdAllocator
-import __builtin__
+import builtins
 
 from src.coginvasion.base.Metadata import Metadata
-__builtin__.metadata = Metadata()
+builtins.metadata = Metadata()
 metadata.USE_LIGHTING = 1
 
 loadPrcFile('config/Confauto.prc')
@@ -96,5 +96,4 @@ soundClick = DirectGuiGlobals.getDefaultClickSound()
 NametagGlobals.setClickSound(soundClick)
 
 from src.coginvasion.base import MusicCache
-print "Precaching music..."
 MusicCache.precacheMusic()

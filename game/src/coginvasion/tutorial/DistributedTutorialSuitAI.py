@@ -10,7 +10,7 @@ from src.coginvasion.cog.DistributedSuitAI import DistributedSuitAI
 from src.coginvasion.cog import SuitGlobals#, SuitAttacks
 from src.coginvasion.npc.NPCWalker import NPCWalkInterval
 from src.coginvasion.globals import CIGlobals
-import TutorialGlobals
+from . import TutorialGlobals
 
 import random
 

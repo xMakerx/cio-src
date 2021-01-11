@@ -8,9 +8,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-import DistributedToonInteriorAI
-import DistributedDoorAI
-import ZoneUtil
+from src.coginvasion.hood import DistributedToonInteriorAI, DistributedDoorAI, ZoneUtil
 
 class DistributedToonHQInteriorAI(DistributedToonInteriorAI.DistributedToonInteriorAI):
 

@@ -42,7 +42,7 @@ class RPToonData:
             for track in GagGlobals.TrackNameById.values():
                 self.tracks[track] = Track(track, 0, 0, 0)
         else:
-            for track, exp in self.avatar.trackExperience.iteritems():
+            for track, exp in self.avatar.trackExperience.items():
                 self.tracks[track] = Track(track, exp, GagGlobals.getMaxExperienceValue(exp, track), 0)
     
     def toNetString(self, avDoId):

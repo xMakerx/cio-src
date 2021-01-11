@@ -14,7 +14,7 @@ from direct.distributed.ClockDelta import globalClockDelta
 from direct.fsm import ClassicFSM, State
 from direct.task import Task
 
-from ElevatorConstants import *
+from .ElevatorConstants import *
 
 class DistributedElevatorAI(DistributedObjectAI):
     notify = directNotify.newCategory('DistributedElevatorAI')

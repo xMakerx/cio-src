@@ -22,8 +22,8 @@ from src.coginvasion.gags import GagGlobals
 from src.coginvasion.hood import ZoneUtil
 from src.coginvasion.distributed import AdminCommands
 from src.coginvasion.tutorial.DistributedTutorialAI import DistributedTutorialAI
-from DistributedPlayerToonShared import DistributedPlayerToonShared
-import ToonDNA
+from .DistributedPlayerToonShared import DistributedPlayerToonShared
+from . import ToonDNA
 import types
 
 class DistributedPlayerToonAI(DistributedToonAI, DistributedPlayerToonShared):

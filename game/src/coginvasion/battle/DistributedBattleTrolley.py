@@ -195,7 +195,7 @@ class DistributedBattleTrolley(DistributedObject):
     def putAvatarInTrolley(self, avId, slot):
         av = self.cr.doId2do.get(avId)
         if av:
-            print "putAvatarInTrolley:", av.node().getName()
+            print("putAvatarInTrolley:", av.node().getName())
             av.stopSmooth()
             av.wrtReparentTo(self.trolleyCar)
             av.setAnimState('off')

@@ -8,7 +8,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-from DistributedRestockBarrelAI import DistributedRestockBarrelAI
+from .DistributedRestockBarrelAI import DistributedRestockBarrelAI
 from src.coginvasion.gags import GagGlobals, GagType
 
 import random

@@ -9,7 +9,7 @@ Copyright (c) CIO Team. All rights reserved.
 """
 
 from direct.showbase.DirectObject import DirectObject
-import ZoneUtil
+from src.coginvasion.hood import ZoneUtil
 from src.coginvasion.phys import PhysicsUtils
 
 CollisionName = 'tunnel_trigger'

@@ -226,7 +226,7 @@ class ThrowGag(Gag):
             if [closestPie, trackOfClosestPie, colliderOfClosestPie] in self.entities:
                 self.entities.remove([closestPie, trackOfClosestPie, colliderOfClosestPie])
             if not colliderOfClosestPie.isEmpty():
-                print colliderOfClosestPie, "removing!"
+                print(colliderOfClosestPie, "removing!")
                 colliderOfClosestPie.removeNode()
             if not closestPie.isEmpty():
                 if isinstance(closestPie, Actor):
@@ -234,7 +234,7 @@ class ThrowGag(Gag):
                 closestPie.removeNode()
 
     def onCollision(self, contact, frNp, intoNP):
-        print "onCollision:", frNp, "->", intoNP
+        print("onCollision:", frNp, "->", intoNP)
         avNP = intoNP.getParent()
         fromNP = frNp.getParent()
 

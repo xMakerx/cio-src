@@ -8,9 +8,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-import TownLoader
-import BRStreet
-
+from src.coginvasion.hood.street import TownLoader, BRStreet
 from src.coginvasion.globals import CIGlobals
 
 class BRTownLoader(TownLoader.TownLoader):

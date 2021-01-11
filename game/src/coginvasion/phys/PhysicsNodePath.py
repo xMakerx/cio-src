@@ -1,7 +1,7 @@
 from panda3d.core import NodePath, Point3
 
 from src.coginvasion.globals import CIGlobals
-from BasePhysicsObjectShared import BasePhysicsObjectShared
+from .BasePhysicsObjectShared import BasePhysicsObjectShared
         
 class BasePhysicsObject(BasePhysicsObjectShared):
 

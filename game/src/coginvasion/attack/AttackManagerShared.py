@@ -13,7 +13,7 @@ class AttackManagerShared(Precacheable):
     
     def getAttackIDByName(self, name):
         """ Fetches an attack ID by its name. Returns ATTACK_NONE if not found. """
-        for aID, cls in self.AttackClasses.iteritems():
+        for aID, cls in self.AttackClasses.items():
             if cls.Name == name:
                 return aID
 

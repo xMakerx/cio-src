@@ -1,4 +1,4 @@
-from DistributedEntity import DistributedEntity
+from .DistributedEntity import DistributedEntity
 
 from direct.fsm.FSM import FSM
 

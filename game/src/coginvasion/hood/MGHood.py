@@ -12,9 +12,8 @@ Copyright (c) CIO Team. All rights reserved.
 from direct.directnotify.DirectNotifyGlobal import directNotify
 from direct.fsm.State import State
 
-from playground import MGSafeZoneLoader
-import ToonHood
-import ZoneUtil
+from .playground import MGSafeZoneLoader
+from src.coginvasion.hood import ZoneUtil, ToonHood
 
 class MGHood(ToonHood.ToonHood):
     notify = directNotify.newCategory("MGHood")

@@ -71,7 +71,6 @@ class ScriptedSequenceAI(EntityAI):
             return task.done
 
         if len(self.targetEnt.getMotor().getWaypoints()) == 0:
-            print "Movement done, performing sequence"
             self.__performSequence()
             return task.done
 
@@ -111,7 +110,6 @@ class ScriptedSequenceAI(EntityAI):
 
     def StopSequence(self):
         if self.shouldRestartAI:
-            print "restarting AI"
             self.targetEnt.setNPCState(STATE_IDLE)
         if self.seq:
             self.seq.pause()

@@ -18,13 +18,11 @@ from direct.distributed.ClockDelta import globalClockDelta
 
 from src.coginvasion.avatar.DistributedAvatar import DistributedAvatar
 
-from SuitBank import SuitPlan
-from Suit import Suit
-from SuitUtils import getMoveIvalFromPath
-import SuitBank
-import SuitGlobals
-import Voice
-import Variant
+from .SuitBank import SuitPlan
+from .Suit import Suit
+from .SuitUtils import getMoveIvalFromPath
+
+from src.coginvasion.cog import SuitBank, SuitGlobals, Voice, Variant
 
 class DistributedSuit(Suit, DistributedAvatar, DelayDeletable):
     notify = directNotify.newCategory('DistributedSuit')

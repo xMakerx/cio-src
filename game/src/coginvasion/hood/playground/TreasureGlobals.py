@@ -8,12 +8,12 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-from DistributedTTCTreasureAI import DistributedTTCTreasureAI
-from DistributedTBTreasureAI import DistributedTBTreasureAI
-from DistributedDLTreasureAI import DistributedDLTreasureAI
-from DistributedMLTreasureAI import DistributedMLTreasureAI
-from DistributedDDTreasureAI import DistributedDDTreasureAI
-from DistributedDGTreasureAI import DistributedDGTreasureAI
+from .DistributedTTCTreasureAI import DistributedTTCTreasureAI
+from .DistributedTBTreasureAI import DistributedTBTreasureAI
+from .DistributedDLTreasureAI import DistributedDLTreasureAI
+from .DistributedMLTreasureAI import DistributedMLTreasureAI
+from .DistributedDDTreasureAI import DistributedDDTreasureAI
+from .DistributedDGTreasureAI import DistributedDGTreasureAI
 from src.coginvasion.hood import ZoneUtil
 
 TreasureTT = 0

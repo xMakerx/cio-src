@@ -8,12 +8,12 @@ from src.coginvasion.cog.ai.tasks.BaseTaskAI import BaseTaskAI
 from src.coginvasion.cog.ai.tasks.TasksAI import *
 from src.coginvasion.avatar.Activities import ACT_WAKE_ANGRY, ACT_NONE, ACT_SMALL_FLINCH, ACT_DIE
 from src.coginvasion.avatar.Motor import Motor
-from ScheduleAI import Schedule
-from ConditionsAI import *
-from RelationshipsAI import *
-from StatesAI import *
-from ScheduleResultsAI import *
-from MemoryAI import *
+from .ScheduleAI import Schedule
+from .ConditionsAI import *
+from .RelationshipsAI import *
+from .StatesAI import *
+from .ScheduleResultsAI import *
+from .MemoryAI import *
 
 from collections import deque
 import random

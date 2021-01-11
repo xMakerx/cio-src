@@ -10,9 +10,9 @@ Copyright (c) CIO Team. All rights reserved.
 
 from src.coginvasion.globals import CIGlobals
 
-from OptionsCategory import OptionsCategory
-from ChoiceWidget import ChoiceWidget
-from SliderWidget import SliderWidget
+from .OptionsCategory import OptionsCategory
+from .ChoiceWidget import ChoiceWidget
+from .SliderWidget import SliderWidget
 
 class SoundCategory(OptionsCategory):
     Name = "Sound"

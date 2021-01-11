@@ -10,7 +10,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
-from Playground import Playground
+from .Playground import Playground
 
 class DLPlayground(Playground):
     notify = directNotify.newCategory("DLPlayground")

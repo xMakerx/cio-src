@@ -10,7 +10,7 @@ Copyright (c) Cog Invasion Online. All rights reserved.
 
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
-import DistributedNPCToonAI
+from . import DistributedNPCToonAI
 from src.coginvasion.npc import NPCGlobals
 from src.coginvasion.quest.QuestGlobals import NPCDialogue
 

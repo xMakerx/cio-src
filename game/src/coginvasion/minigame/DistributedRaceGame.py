@@ -15,8 +15,8 @@ from direct.fsm.ClassicFSM import ClassicFSM
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.hood import ZoneUtil
 
-import RaceGameMovement
-import DistributedMinigame
+from . import RaceGameMovement
+from . import DistributedMinigame
 
 class DistributedRaceGame(DistributedMinigame.DistributedMinigame):
 

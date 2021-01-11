@@ -13,7 +13,7 @@ from src.coginvasion.hood import ZoneUtil
 from src.coginvasion.distributed.HoodMgr import HoodMgr
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.dna.DNALoader import *
-import GunGameGlobals as GGG
+from . import GunGameGlobals as GGG
 
 hoodMgr = HoodMgr()
 

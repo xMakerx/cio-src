@@ -12,7 +12,7 @@ from direct.fsm.State import State
 from src.coginvasion.minigame.FactorySneakGameToonFPS import FactorySneakGameToonFPS
 from direct.gui.OnscreenText import OnscreenText
 from direct.interval.IntervalGlobal import Sequence, Wait, Func
-from RemoteToonBattleAvatar import RemoteToonBattleAvatar
+from .RemoteToonBattleAvatar import RemoteToonBattleAvatar
 from src.coginvasion.globals import CIGlobals
 import random
 
@@ -54,7 +54,7 @@ class DistributedFactorySneakGame(DistributedToonFPSGame.DistributedToonFPSGame)
         countdownSounds = []
         sfx = 5
         for _ in range(5):
-            print sfx
+            print(sfx)
             countdownSounds.append(base.loadSfx("phase_4/audio/sfx/announcer_begins_%ssec.ogg" % (sfx)))
             sfx -= 1
         text = OnscreenText(text = "", scale = 0.1, pos = (0, 0.5), fg = (1, 1, 1, 1), shadow = (0,0,0,1))
@@ -110,7 +110,7 @@ class DistributedFactorySneakGame(DistributedToonFPSGame.DistributedToonFPSGame)
         return barrel
 
     def load(self):
-        print "Loading the environment."
+        print("Loading the environment.")
         destroy = ['ZONE12', 'ZONE30', 'ZONE31', 'ZONE32', 'ZONE33', 'ZONE34', 'ZONE35', 'ZONE36', 'ZONE37', 'ZONE38', 'ZONE60', 'ZONE61']
         self.environ = loader.loadModel("phase_9/models/cogHQ/SelbotLegFactory.bam")
         for item in destroy:

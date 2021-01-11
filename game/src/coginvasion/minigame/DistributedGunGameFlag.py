@@ -8,7 +8,7 @@ from direct.distributed.DistributedNode import DistributedNode
 from direct.interval.IntervalGlobal import Sequence, LerpScaleInterval
 
 from src.coginvasion.globals import CIGlobals
-import GunGameGlobals as GGG
+from . import GunGameGlobals as GGG
 
 class DistributedGunGameFlag(DistributedNode):
     notify = directNotify.newCategory('DistributedGunGameFlag')

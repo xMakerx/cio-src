@@ -11,7 +11,7 @@ from src.coginvasion.cog.ai.AIGlobal import (BaseNPCAI, STATE_IDLE, STATE_ALERT,
                                              Schedule, STATE_NONE, SCHED_COMPLETE, SCHED_FAILED)
 
 from src.coginvasion.avatar.Activities import ACT_WAKE_ANGRY, ACT_SMALL_FLINCH, ACT_DIE, ACT_GOON_SCAN
-from DistributedEntityAI import DistributedEntityAI
+from .DistributedEntityAI import DistributedEntityAI
 from src.coginvasion.gags import GagGlobals
 
 import random

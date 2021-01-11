@@ -11,14 +11,14 @@ Copyright (c) CIO Team. All rights reserved.
 from direct.gui.DirectGui import DirectFrame, DGG
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
-from BookPage import BookPage
-from AboutCategory import AboutCategory
-from SoundCategory import SoundCategory
-from ControlsCategory import ControlsCategory
-from DisplayCategory import DisplayCategory
-from CategoryTab import CategoryTab
-from GeneralCategory import GeneralCategory
-from AdvancedDisplayCategory import AdvancedDisplayCategory
+from .BookPage import BookPage
+from .AboutCategory import AboutCategory
+from .SoundCategory import SoundCategory
+from .ControlsCategory import ControlsCategory
+from .DisplayCategory import DisplayCategory
+from .CategoryTab import CategoryTab
+from .GeneralCategory import GeneralCategory
+from .AdvancedDisplayCategory import AdvancedDisplayCategory
 
 from collections import OrderedDict
 

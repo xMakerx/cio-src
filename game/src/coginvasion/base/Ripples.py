@@ -1,5 +1,3 @@
-# File: R (Python 2.4)
-
 from panda3d.core import *
 from direct.interval.IntervalGlobal import *
 

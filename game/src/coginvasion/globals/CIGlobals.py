@@ -783,7 +783,7 @@ def areFacingEachOther(obj1, obj2):
 def fixGrayscaleTextures(np):
     for tex in np.findAllTextures():
         if (tex.getFormat() == Texture.F_luminance):
-            print "Fixing grayscale texture", tex.getName()
+            print("Fixing grayscale texture", tex.getName())
             img = PNMImage()
             tex.store(img)
             img.makeRgb()
@@ -857,7 +857,7 @@ FloorMask = FloorGroup | StreetVisGroup
 # For just colliding with the general world.
 WorldGroup = WallGroup | FloorGroup | StreetVisGroup
 
-from libpandabsp import CAMERA_MAIN, CAMERA_SHADOW, CAMERA_REFLECTION, CAMERA_VIEWMODEL, CAMERA_COMPUTE, CAMERA_REFRACTION
+from panda3d.bsp import CAMERA_MAIN, CAMERA_SHADOW, CAMERA_REFLECTION, CAMERA_VIEWMODEL, CAMERA_COMPUTE, CAMERA_REFRACTION
 MainCameraBitmask = BitMask32(CAMERA_MAIN)
 ShadowCameraBitmask = BitMask32(CAMERA_SHADOW)
 ReflectionCameraBitmask = BitMask32(CAMERA_REFLECTION)

@@ -6,9 +6,9 @@ from panda3d.core import CollisionNode, CollisionSphere, BitMask32
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
 from src.coginvasion.globals import CIGlobals
-from DistributedToonFPSGame import DistributedToonFPSGame
-from FactorySneakWorld import FactorySneakWorld
-import CogGuardGlobals as CGG
+from .DistributedToonFPSGame import DistributedToonFPSGame
+from .FactorySneakWorld import FactorySneakWorld
+from . import CogGuardGlobals as CGG
 
 class DistributedFactorySneakGame(DistributedToonFPSGame):
     notify = directNotify.newCategory("DistributedFactorySneakGame")

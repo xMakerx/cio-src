@@ -1,4 +1,4 @@
-from Entity import Entity
+from .Entity import Entity
 
 class LogicCounter(Entity):
 
@@ -17,8 +17,6 @@ class LogicCounter(Entity):
         Entity.cleanup(self)
         
     def CountUp(self):
-        print "CountUp"
-        
         if self.val == self.maxVal:
             return
             
@@ -26,13 +24,10 @@ class LogicCounter(Entity):
         self.val += 1
         if oldVal == self.minVal:
             self.dispatchOutput("OnLoseMin")
-            print "Lost min"
         if self.val == self.maxVal:
             self.dispatchOutput("OnHitMax")
-            print "hit max"
         
     def CountDown(self):
-        print "CountDown"
         
         if self.val == self.minVal:
             return
@@ -41,10 +36,8 @@ class LogicCounter(Entity):
         self.val -= 1
         if oldVal == self.maxVal:
             self.dispatchOutput("OnLoseMax")
-            print "lost max"
         if self.val == self.minVal:
             self.dispatchOutput("OnHitMin")
-            print "hit min"
         
     def load(self):
         self.cEntity = self.bspLoader.getCEntity(self.entnum)
@@ -54,5 +47,3 @@ class LogicCounter(Entity):
         self.minVal = self.getEntityValueInt("minVal")
         
         self.val = self.startVal
-        
-        print "Load logic_counter"

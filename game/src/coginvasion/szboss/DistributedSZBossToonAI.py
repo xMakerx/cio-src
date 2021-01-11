@@ -2,7 +2,7 @@ from direct.directnotify.DirectNotifyGlobal import directNotify
 
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.toon.DistributedToonAI import DistributedToonAI
-from DistributedEntityAI import DistributedEntityAI
+from .DistributedEntityAI import DistributedEntityAI
 from src.coginvasion.npc import NPCGlobals
 from src.coginvasion.cog.ai.BaseNPCAI import BaseNPCAI
 from src.coginvasion.cog.ai.tasks.BaseTaskAI import BaseTaskAI

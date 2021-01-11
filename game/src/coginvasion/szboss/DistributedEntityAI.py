@@ -1,6 +1,6 @@
 from direct.distributed.DistributedObjectAI import DistributedObjectAI
 
-from Entity import Entity
+from .Entity import Entity
 
 class DistributedEntityAI(DistributedObjectAI, Entity):
     

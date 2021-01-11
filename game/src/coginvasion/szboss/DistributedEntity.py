@@ -1,6 +1,6 @@
 from direct.distributed.DistributedObject import DistributedObject
 
-from Entity import Entity
+from .Entity import Entity
 
 class DistributedEntity(DistributedObject, Entity):
     

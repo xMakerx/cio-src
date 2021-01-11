@@ -13,8 +13,8 @@ from direct.directnotify.DirectNotifyGlobal import directNotify
 from src.coginvasion.distributed.DistributedRootAI import DistributedRootAI
 from src.coginvasion.distributed.CogInvasionDoGlobals import *
 from direct.distributed.ParentMgr import ParentMgr
-from LoginToken import LoginToken
-from LoginServerConnection import LoginServerConnection
+from .LoginToken import LoginToken
+from .LoginServerConnection import LoginServerConnection
 
 STORE_LOGIN_TOKEN = 100
 DEFAULT_LOGIN_TOKEN_LIFE = 300

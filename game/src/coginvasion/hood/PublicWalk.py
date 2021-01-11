@@ -13,7 +13,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-import Walk
+from src.coginvasion.hood import Walk
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
 class PublicWalk(Walk.Walk):

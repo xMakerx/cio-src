@@ -11,7 +11,7 @@ from direct.interval.IntervalGlobal import Parallel, LerpPosInterval, LerpQuatIn
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.phys import PhysicsUtils
 from src.coginvasion.npc.NPCWalker import NPCWalkInterval, NPCLookInterval
-import GroupStation
+from . import GroupStation
 
 class DistributedGroupStation(GroupStation.GroupStation, DistributedObject):
     notify = directNotify.newCategory("DistributedGroupStation")

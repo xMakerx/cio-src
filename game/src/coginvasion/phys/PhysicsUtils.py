@@ -1,6 +1,6 @@
 from panda3d.core import Vec3, Point3, TransformState, GeomNode, CollisionNode, NodePath, BitMask32, NodePathCollection
 from panda3d.bullet import BulletBoxShape, BulletRigidBodyNode, BulletTriangleMesh, BulletTriangleMeshShape, BulletGhostNode
-from libpandabsp import BSPFaceAttrib, BSPMaterialAttrib
+from panda3d.bsp import BSPFaceAttrib, BSPMaterialAttrib
 
 from src.coginvasion.globals import CIGlobals
 
@@ -108,9 +108,9 @@ def makeBulletCollFromGeoms(rootNode, exclusions = [], enableNow = True, world =
                 mesh.addGeom(geom, True)
                 surfaceprop = "default"
                 if state.hasAttrib(BSPMaterialAttrib.getClassSlot()):
-					mat = state.getAttrib(BSPMaterialAttrib.getClassSlot()).getMaterial()
-					if mat:
-						surfaceprop = mat.getSurfaceProp()
+                    mat = state.getAttrib(BSPMaterialAttrib.getClassSlot()).getMaterial()
+                    if mat:
+                        surfaceprop = mat.getSurfaceProp()
                 for j in xrange(geom.getNumPrimitives()):
                     prim = geom.getPrimitive(j)
                     prim = prim.decompose()
@@ -245,12 +245,10 @@ def detachBulletNodes(rootNode, world = None):
 
     for rbnode in rootNode.findAllMatches("**/+BulletRigidBodyNode"):
         if isChildOfLA(rbnode):
-            print "Tried to detach body node of local avatar!"
             continue
         world.removeRigidBody(rbnode.node())
     for ghostnode in rootNode.findAllMatches("**/+BulletGhostNode"):
         if isChildOfLA(ghostnode):
-            print "Tried to detach ghost node of local avatar!"
             continue
         world.removeGhost(ghostnode.node())
 
@@ -268,12 +266,10 @@ def removeBulletNodes(rootNode):
         return
     for rbnode in rootNode.findAllMatches("**/+BulletRigidBodyNode"):
         if isChildOfLA(rbnode):
-            print "Tried to remove body node of local avatar!"
             continue
         rbnode.removeNode()
     for ghostnode in rootNode.findAllMatches("**/+BulletGhostNode"):
         if isChildOfLA(ghostnode):
-            print "Tried to remove ghost node of local avatar!"
             continue
         ghostnode.removeNode()
         

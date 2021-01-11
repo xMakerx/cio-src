@@ -8,7 +8,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-import DistributedTreasure
+from . import DistributedTreasure
 
 class DistributedDDTreasure(DistributedTreasure.DistributedTreasure):
 

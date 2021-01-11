@@ -1,6 +1,6 @@
 
-from ScheduleResultsAI import *
-from ConditionsAI import *
+from .ScheduleResultsAI import *
+from .ConditionsAI import *
 
 class Schedule:
     """

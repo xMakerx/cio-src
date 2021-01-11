@@ -18,7 +18,7 @@ from direct.fsm.ClassicFSM import ClassicFSM
 from direct.fsm.State import State
 from direct.interval.IntervalGlobal import LerpPosInterval, LerpColorScaleInterval, Sequence, Parallel, Wait, Func
 
-import ButterflyGlobals
+from . import ButterflyGlobals
 import random
 
 class DistributedButterfly(DistributedNode):

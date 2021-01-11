@@ -748,7 +748,7 @@ def precacheSuits():
     from src.coginvasion.base.Precache import precacheActor
     suit = Suit()
     for suitPlan in totalSuits:
-        print "Precaching", suitPlan.name
+        print("Precaching", suitPlan.name)
         suit.suitPlan = suitPlan
         suit.suit = suitPlan.getSuitType()
         suit.head = suitPlan.getHead()

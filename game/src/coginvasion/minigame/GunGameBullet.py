@@ -5,7 +5,7 @@
 
 """
 
-import Bullet
+from . import Bullet
 
 class GunGameBullet(Bullet.Bullet):
 

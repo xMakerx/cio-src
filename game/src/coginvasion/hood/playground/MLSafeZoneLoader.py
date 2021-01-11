@@ -11,8 +11,8 @@ Copyright (c) CIO Team. All rights reserved.
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
 from src.coginvasion.globals import CIGlobals
-from SafeZoneLoader import SafeZoneLoader
-from MLPlayground import MLPlayground
+from .SafeZoneLoader import SafeZoneLoader
+from .MLPlayground import MLPlayground
 from src.coginvasion.holiday.HolidayManager import HolidayType
 
 class MLSafeZoneLoader(SafeZoneLoader):

@@ -12,7 +12,7 @@ from panda3d.core import Vec4
 from direct.directnotify.DirectNotifyGlobal import directNotify
 from direct.gui.DirectGui import DirectFrame, DirectButton, DGG
 
-import DistributedNPCToon
+from . import DistributedNPCToon
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.quest.Quest import Quest
 from src.coginvasion.quest import Objectives

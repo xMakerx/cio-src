@@ -7,8 +7,8 @@
 
 from src.coginvasion.globals import CIGlobals
 
-from DistributedGroupStationAI import DistributedGroupStationAI
-import MinigameBase
+from .DistributedGroupStationAI import DistributedGroupStationAI
+from . import MinigameBase
 
 class DistributedMinigameStationAI(DistributedGroupStationAI):
 	game2maxPlayers = {CIGlobals.UnoGame: 4,

@@ -14,7 +14,7 @@ from direct.gui.DirectGui import *
 from panda3d.core import TextNode
 from direct.directnotify.DirectNotify import *
 import FileUtility
-from LoadUtility import LoadUtility
+from .LoadUtility import LoadUtility
 import glob
 
 #import ccoginvasion

@@ -4,7 +4,7 @@ from panda3d.core import NodePath
 
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.cog.ai.AIGlobal import RELATIONSHIP_FRIEND
-from TakeDamageInfo import TakeDamageInfo
+from .TakeDamageInfo import TakeDamageInfo
 from src.coginvasion.attack.BaseAttackShared import BaseAttackShared
 from src.coginvasion.phys import PhysicsUtils, Surfaces
 

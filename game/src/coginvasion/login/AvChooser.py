@@ -16,8 +16,8 @@ from src.coginvasion.globals import CIGlobals, ChatGlobals
 from src.coginvasion.hood import ZoneUtil
 from src.coginvasion.holiday.HolidayManager import HolidayType, HolidayGlobals
 from src.coginvasion.gui.WhisperPopup import WhisperPopup
-from AvChoice import AvChoice
-from CharSelection import CharSelection
+from .AvChoice import AvChoice
+from .CharSelection import CharSelection
 
 class AvChooser(StateData):
     notify = directNotify.newCategory("AvChooser")

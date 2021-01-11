@@ -8,7 +8,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-from TreasurePlannerAI import TreasurePlannerAI
+from .TreasurePlannerAI import TreasurePlannerAI
 from direct.directnotify.DirectNotifyGlobal import directNotify
 from direct.task.Task import Task
 import random

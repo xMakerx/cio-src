@@ -9,7 +9,7 @@ Copyright (c) CIO Team. All rights reserved.
 """
 
 from panda3d.bullet import BulletWorld
-from libpandabsp import Py_AI_BSPLoader
+from panda3d.bsp import Py_AI_BSPLoader
 from panda3d.core import Vec3
 
 from direct.directnotify.DirectNotifyGlobal import directNotify
@@ -23,7 +23,7 @@ from src.coginvasion.gags import GagGlobals
 from src.coginvasion.quest.Objectives import DefeatCog, DefeatCogBuilding, RecoverItem
 from src.coginvasion.phys.PhysicsUtils import detachAndRemoveBulletNodes
 
-import BattleGlobals
+from . import BattleGlobals
 import itertools
 
 try:
@@ -460,7 +460,7 @@ class DistributedBattleZoneAI(DistributedObjectAI, AvatarWatcher):
     
     def parseToonData(self):
         blobs = []
-        for avId, data in self.avatarData.iteritems():
+        for avId, data in self.avatarData.items():
             avatar = base.air.doId2do.get(avId, None)
             deadCogData = data[1]
             favGagId = 0 # Make it whole cream pie by default
@@ -474,7 +474,7 @@ class DistributedBattleZoneAI(DistributedObjectAI, AvatarWatcher):
                 for track in avatar.trackExperience.keys():
                     trackIncrements[track] = 0
                 
-                for gagId, uses in data[0].iteritems():
+                for gagId, uses in data[0].items():
                     gagName = self.air.attackMgr.getAttackName(gagId)
                     gagData = GagGlobals.gagData.get(gagName)
                     track = gagData['track']
@@ -490,7 +490,7 @@ class DistributedBattleZoneAI(DistributedObjectAI, AvatarWatcher):
                     
                 rpData.favoriteGag = self.air.attackMgr.getAttackName(favGagId)
                 
-                for track, exp in avatar.trackExperience.iteritems():
+                for track, exp in avatar.trackExperience.items():
                     rpDataTrack = rpData.getTrackByName(track)
                     increment = trackIncrements.get(track)
                     maxExp = GagGlobals.getMaxExperienceValue(exp, track)

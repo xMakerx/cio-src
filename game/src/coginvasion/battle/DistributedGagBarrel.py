@@ -8,7 +8,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-from DistributedRestockBarrel import DistributedRestockBarrel
+from .DistributedRestockBarrel import DistributedRestockBarrel
 
 class DistributedGagBarrel(DistributedRestockBarrel):                 
     

@@ -20,7 +20,7 @@ from src.coginvasion.cog.attacks.HardballAI import HardballAI
 from src.coginvasion.cog.attacks.MarketCrashAI import MarketCrashAI
 from src.coginvasion.cog.attacks.BiteAI import BiteAI
 
-from AttackManagerShared import AttackManagerShared
+from .AttackManagerShared import AttackManagerShared
 
 class AttackManagerAI(AttackManagerShared):
 

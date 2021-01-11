@@ -42,7 +42,7 @@ class DistributedGagShop(DistributedShop):
         gags = {'tart' : {'pos' : (0, 0.65, 1), 'hpr' : (0, 30.26, 0)}, 'tart' : {'pos' : (0, 0, 1.14)},
                 'cps' : {'pos' : (0, -0.56, 1.42), 'hpr' : (323.97, 37.87, 0)}, 'cps' : {'pos' : (0, 0, 1.49)},
                 'cake' : {'pos' : (0, 0.94, 1.40), 'playrate' : 0.3}, 'cake' : {'pos' : (0, -0.1, 1.4), 'scale' : 0.5, 'playrate' : -0.3}}
-        for gag, info in gags.iteritems():
+        for gag, info in gags.items():
             mdl = None
             if gag == 'cake':
                 mdl = Actor('phase_5/models/props/birthday-cake-mod.bam', {'chan' : 'phase_5/models/props/birthday-cake-chan.bam'})

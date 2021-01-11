@@ -20,8 +20,8 @@ from src.coginvasion.base.Lighting import OutdoorLightingConfig
 from panda3d.core import Vec4, AmbientLight, ModelPool, TexturePool, DirectionalLight
 from panda3d.core import Fog, CompassEffect, NodePath, VBase4, Vec3
 
-import ZoneUtil
-from QuietZoneState import QuietZoneState
+from src.coginvasion.hood import ZoneUtil
+from .QuietZoneState import QuietZoneState
 
 import math
 

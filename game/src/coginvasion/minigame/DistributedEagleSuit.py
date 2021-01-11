@@ -15,11 +15,11 @@ from direct.actor.Actor import Actor
 from direct.fsm.State import State
 from direct.interval.IntervalGlobal import LerpPosInterval, Sequence, Wait, Func
 
-from FlightProjectileInterval import FlightProjectileInterval
+from .FlightProjectileInterval import FlightProjectileInterval
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.cog.DistributedSuit import DistributedSuit
 from src.coginvasion.npc.NPCWalker import NPCWalkInterval
-import EagleGameGlobals as EGG
+from . import EagleGameGlobals as EGG
 
 import random
 

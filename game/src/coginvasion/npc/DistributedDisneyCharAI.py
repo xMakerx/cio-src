@@ -10,7 +10,7 @@ from src.coginvasion.avatar.DistributedAvatarAI import DistributedAvatarAI
 from src.coginvasion.avatar.AvatarTypes import *
 from src.coginvasion.cog.ai.RelationshipsAI import *
 
-from DisneyCharGlobals import *
+from .DisneyCharGlobals import *
 
 import random
 

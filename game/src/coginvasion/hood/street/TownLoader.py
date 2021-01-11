@@ -279,7 +279,7 @@ class TownLoader(StateData):
             flatwalls = groupNode.findAllMatches("**/tb*:*_DNARoot;+s")
             for flatwall in flatwalls:
                 if "toon_landmark" in flatwall.getName():
-                    print "Skipping", flatwall.getName()
+                    print("Skipping", flatwall.getName())
                     continue
                 if flatwall.hasTag("DNACode") and flatwall.hasMat():
                     continue

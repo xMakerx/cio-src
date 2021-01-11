@@ -7,7 +7,7 @@ from src.coginvasion.globals import CIGlobals
 from src.coginvasion.battle.DistributedBattleZoneAI import DistributedBattleZoneAI
 from src.coginvasion.battle import BattleGlobals
 from src.coginvasion.cog import SuitBank, Variant
-import DistributedTutorialSuitAI
+from . import DistributedTutorialSuitAI
 
 class DistributedTutorialAI(DistributedBattleZoneAI):
     notify = directNotify.newCategory('DistributedTutorialAI')

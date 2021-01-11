@@ -2,7 +2,7 @@ from panda3d.core import Point3
 
 from direct.fsm.FSM import FSM
 
-from DistributedEntityAI import DistributedEntityAI
+from .DistributedEntityAI import DistributedEntityAI
 
 DOORSTATE_CLOSED = 0
 DOORSTATE_OPENING = 1
@@ -20,7 +20,7 @@ class DistributedFuncDoorAI(DistributedEntityAI, FSM):
         
     def requestOpen(self):
         if self.state == DOORSTATE_CLOSED:
-            print "Got request to open door, doing it!"
+            print("Got request to open door, doing it!")
             self.Open()
         
     def Open(self):

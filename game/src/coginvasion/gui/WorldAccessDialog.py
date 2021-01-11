@@ -15,7 +15,7 @@ from panda3d.core import TextNode
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
 from src.coginvasion.globals import CIGlobals
-import Dialog
+import .Dialog
 
 class WorldAccessDialog(Dialog.GlobalDialog):
     notify = directNotify.newCategory("WorldAccessDialog")

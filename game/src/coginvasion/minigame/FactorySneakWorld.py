@@ -8,10 +8,10 @@ from direct.gui.DirectGui import OnscreenText
 from direct.interval.IntervalGlobal import Sequence, LerpFunc, Wait, Func
 
 from src.coginvasion.globals import CIGlobals
-from FactorySneakJellybeanBarrel import FactorySneakJellybeanBarrel
-from FactorySneakPlayer import FactorySneakPlayer
-from FactorySneakGuardSuit import FactorySneakGuardSuit
-import CogGuardGlobals as CGG
+from .FactorySneakJellybeanBarrel import FactorySneakJellybeanBarrel
+from .FactorySneakPlayer import FactorySneakPlayer
+from .FactorySneakGuardSuit import FactorySneakGuardSuit
+from . import CogGuardGlobals as CGG
 
 class FactorySneakWorld(DirectObject):
     notify = directNotify.newCategory("FactorySneakWorld")

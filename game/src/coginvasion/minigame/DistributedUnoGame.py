@@ -5,9 +5,9 @@
 
 """
 
-import DistributedMinigame
-import UnoGameGlobals as UGG
-import UnoGameCardDeck
+from . import DistributedMinigame
+from . import UnoGameGlobals as UGG
+from . import UnoGameCardDeck
 from src.coginvasion.globals import CIGlobals
 from direct.gui.DirectGui import *
 from direct.interval.IntervalGlobal import *

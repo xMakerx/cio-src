@@ -10,8 +10,8 @@ Copyright (c) CIO Team. All rights reserved.
 
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
-from SafeZoneLoader import SafeZoneLoader
-from DLPlayground import DLPlayground
+from .SafeZoneLoader import SafeZoneLoader
+from .DLPlayground import DLPlayground
 from src.coginvasion.holiday.HolidayManager import HolidayType
 
 from src.coginvasion.globals import CIGlobals

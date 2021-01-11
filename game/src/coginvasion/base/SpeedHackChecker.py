@@ -34,7 +34,7 @@ def __speedHackCheckTask(task):
         elif now - speedHackBeginTime >= speedHackMaxTime:
             # The clock discrepancy has been going on for a bit,
             # they are more than likely speed hacking.
-            print "Detected speed hacks, closing game."
+            print("Detected speed hacks, closing game.")
             sys.exit()
             return task.done
     else:

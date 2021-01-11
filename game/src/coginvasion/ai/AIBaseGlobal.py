@@ -1,4 +1,4 @@
-from AIBase import AIBase
+from .AIBase import AIBase
 from direct.directnotify.DirectNotifyGlobal import directNotify
 from panda3d.core import RescaleNormalAttrib, NodePath, Notify
 

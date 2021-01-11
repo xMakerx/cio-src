@@ -104,7 +104,7 @@ class BaseLocalControls(DirectObject):
         
     def toggleDiagnostic(self):
         self.printFootstepInfo = not self.printFootstepInfo
-        print "Toggled footstep info"
+        print("Toggled footstep info")
 
     def enterOff(self):
         pass
@@ -446,8 +446,8 @@ class BaseLocalControls(DirectObject):
             self.currFootstepSound = sound
             
             if self.printFootstepInfo:
-                print "Playing Footstep"
-                print "Num Footstep Tasks: " + str(len(base.taskMgr.getTasksNamed("LocalControls.handleFootsteps")))
+                print("Playing Footstep")
+                print("Num Footstep Tasks: " + str(len(base.taskMgr.getTasksNamed("LocalControls.handleFootsteps"))))
         self.lastFootstepTime = globalClock.getFrameTime()
         
     def getFootstepIval(self, speed):

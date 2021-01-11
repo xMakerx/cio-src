@@ -9,7 +9,7 @@ Copyright (c) CIO Team. All rights reserved.
 """
 
 from direct.directnotify.DirectNotifyGlobal import directNotify
-import DistributedNPCToonAI
+from . import DistributedNPCToonAI
 
 class DistributedTailorNPCToonAI(DistributedNPCToonAI.DistributedNPCToonAI):
     notify = directNotify.newCategory('DistributedTailorToonAI')

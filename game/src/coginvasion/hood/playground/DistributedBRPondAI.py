@@ -42,7 +42,7 @@ class DistributedBRPondAI(DistributedObjectAI):
     def requestAvatarStates(self):
         """ This message originates from a client and it simply asks the AI to send the state of all frozen toons """
         requesterId = self.air.getAvatarIdFromSender()
-        for avId, stateData in self.lastStates.iteritems():
+        for avId, stateData in self.lastStates.items():
             if stateData[0] != 5:
                 self.sendUpdateToAvatarId(requesterId, 'processStateRequest', [avId, 
                     stateData[0], stateData[0], stateData[1]])

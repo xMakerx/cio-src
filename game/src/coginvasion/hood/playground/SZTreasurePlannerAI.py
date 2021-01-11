@@ -8,7 +8,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-from RegenTreasurePlannerAI import RegenTreasurePlannerAI
+from .RegenTreasurePlannerAI import RegenTreasurePlannerAI
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
 class SZTreasurePlannerAI(RegenTreasurePlannerAI):

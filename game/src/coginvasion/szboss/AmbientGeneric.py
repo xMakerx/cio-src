@@ -1,6 +1,6 @@
 from panda3d.core import NodePath, ModelNode
 
-from Entity import Entity
+from .Entity import Entity
 
 class AmbientGeneric(Entity):
     

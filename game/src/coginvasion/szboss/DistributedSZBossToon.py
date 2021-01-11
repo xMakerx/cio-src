@@ -1,4 +1,4 @@
-from DistributedEntity import DistributedEntity
+from .DistributedEntity import DistributedEntity
 from src.coginvasion.toon.DistributedToon import DistributedToon
 from src.coginvasion.nametag import NametagGlobals
 

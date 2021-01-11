@@ -8,7 +8,7 @@ from direct.directnotify.DirectNotifyGlobal import directNotify
 from direct.distributed.ClockDelta import globalClockDelta
 
 from src.coginvasion.minigame import GunGameGlobals as GGG
-from DistributedMinigame import DistributedMinigame
+from .DistributedMinigame import DistributedMinigame
 
 class DistributedToonFPSGame(DistributedMinigame):
 

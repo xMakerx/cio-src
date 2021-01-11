@@ -22,7 +22,7 @@ from src.coginvasion.nametag import NametagGlobals
 from src.coginvasion.npc.NPCWalker import NPCWalkInterval, NPCLookInterval
 from src.coginvasion.globals import CIGlobals, ChatGlobals
 
-from DisneyCharGlobals import *
+from .DisneyCharGlobals import *
 
 import random
 

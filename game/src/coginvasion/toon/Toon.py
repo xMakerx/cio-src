@@ -27,14 +27,13 @@ from src.coginvasion.toon.activities.Die import Die
 from src.coginvasion.toon.activities.Bow import Bow
 from src.coginvasion.toon.activities.Jump import Jump
 
-import AccessoryGlobals
+from . import AccessoryGlobals
 
 from panda3d.core import VBase3, VBase4, Point3, Vec3, ConfigVariableBool
 from panda3d.core import BitMask32, CollisionHandlerPusher
 from panda3d.core import Material, NodePath, rad2Deg
-import ToonDNA, random, math
-
-import types
+from src.coginvasion.toon import ToonDNA
+import random, math, types
 
 def uniqueName(toon, string):
     return string + "-" + str(id(toon))

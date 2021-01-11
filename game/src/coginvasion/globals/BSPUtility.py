@@ -10,7 +10,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-from libpandabsp import BSPMaterialAttrib, BSPMaterial
+from panda3d.bsp import BSPMaterialAttrib, BSPMaterial
 
 from direct.directnotify.DirectNotifyGlobal import directNotify
 

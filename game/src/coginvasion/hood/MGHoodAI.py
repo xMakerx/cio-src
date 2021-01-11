@@ -8,13 +8,14 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-import HoodAI
 from direct.directnotify.DirectNotifyGlobal import directNotify
+
+from src.coginvasion.hood import ZoneUtil, HoodAI
+
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.minigame.DistributedMinigameStationAI import DistributedMinigameStationAI
 from src.coginvasion.battle.DistributedBattleTrolleyAI import DistributedBattleTrolleyAI
 from src.coginvasion.cog import CogBattleGlobals
-import ZoneUtil
 
 class MGHoodAI(HoodAI.HoodAI):
     notify = directNotify.newCategory("MGHoodAI")

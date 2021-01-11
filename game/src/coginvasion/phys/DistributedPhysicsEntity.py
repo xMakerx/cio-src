@@ -12,7 +12,7 @@ from panda3d.core import ModelRoot
 
 from direct.distributed.DistributedSmoothNode import DistributedSmoothNode
 
-from PhysicsNodePath import PhysicsNodePath
+from .PhysicsNodePath import PhysicsNodePath
 
 class DistributedPhysicsEntity(DistributedSmoothNode, PhysicsNodePath):
 

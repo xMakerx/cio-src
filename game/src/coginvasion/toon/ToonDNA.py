@@ -13,7 +13,6 @@ from panda3d.core import LVecBase4f
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
 import types
-from pprint import _id
 
 from src.coginvasion.npc.NPCGlobals import NPC_DNA
 
@@ -3643,7 +3642,7 @@ class ToonDNA:
 
     def getDNAIDFromColor(self, color):
         dnaID = None
-        for _id, dnaColor in self.colorDNA2color.iteritems():
+        for _id, dnaColor in self.colorDNA2color.items():
             if dnaColor == color:
                 dnaID = _id
         return dnaID

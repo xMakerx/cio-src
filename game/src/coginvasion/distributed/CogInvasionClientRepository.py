@@ -45,12 +45,12 @@ from src.coginvasion.hood import ZoneUtil
 
 from src.coginvasion.holiday.HolidayManager import HolidayType
 
-from CogInvasionDoGlobals import DO_ID_COGINVASION, DO_ID_CLIENT_SERVICES_MANAGER
-from CogInvasionDoGlobals import DO_ID_FRIENDS_MANAGER, DO_ID_HOLIDAY_MANAGER
-from CogInvasionDoGlobals import DO_ID_NAME_SERVICES_MANAGER, DO_ID_UNIQUE_INTEREST_NOTIFIER
-from CogInvasionDoGlobals import DO_ID_STATS_MANAGER
+from .CogInvasionDoGlobals import DO_ID_COGINVASION, DO_ID_CLIENT_SERVICES_MANAGER
+from .CogInvasionDoGlobals import DO_ID_FRIENDS_MANAGER, DO_ID_HOLIDAY_MANAGER
+from .CogInvasionDoGlobals import DO_ID_NAME_SERVICES_MANAGER, DO_ID_UNIQUE_INTEREST_NOTIFIER
+from .CogInvasionDoGlobals import DO_ID_STATS_MANAGER
 
-from CogInvasionErrorCodes import ErrorCode2ErrorMsg, UnknownErrorMsg
+from .CogInvasionErrorCodes import ErrorCode2ErrorMsg, UnknownErrorMsg
 
 import os, sys
 import random
@@ -282,14 +282,14 @@ class CogInvasionClientRepository(AstronClientRepository):
         return self.holidayManager.getHoliday() == HolidayType.CHRISTMAS
 
     def showPlayerIds(self):
-        print "Showing player ids..."
+        print("Showing player ids...")
         self.isShowingPlayerIds = True
         for av in self.doId2do.values():
             if av.__class__.__name__ in ["DistributedPlayerToon", "LocalToon", "DistributedSuit"]:
                 av.showAvId()
 
     def hidePlayerIds(self):
-        print "Hiding player ids..."
+        print("Hiding player ids...")
         self.isShowingPlayerIds = False
         for av in self.doId2do.values():
             if av.__class__.__name__ in ["DistributedPlayerToon", "LocalToon", 'DistributedSuit']:
@@ -608,10 +608,10 @@ class CogInvasionClientRepository(AstronClientRepository):
         self.loginFSM.request('makeAToon', [slot])
 
     def __handleAvChooseDone(self, avChoice):
-        print "------- AvChooseDone -------"
-        print "Toon name: %s" % avChoice.getName()
-        print "Slot:      %s" % avChoice.getSlot()
-        print "DNA:       %s" % avChoice.getDNA()
+        print("------- AvChooseDone -------")
+        print("Toon name: %s" % avChoice.getName())
+        print("Slot:      %s" % avChoice.getSlot())
+        print("DNA:       %s" % avChoice.getDNA())
         self.loginFSM.request("waitForSetAvatarResponse", [avChoice])
 
     def exitAvChoose(self):
@@ -725,7 +725,7 @@ class CogInvasionClientRepository(AstronClientRepository):
         self.loginFSM.request("playingGame")
 
     def __handleSetAvatarResponse(self, avId, di):
-        print "Entering game..."
+        print("Entering game...")
         enterLoad = EnterLoad(self.enterLoadDone)
         dclass = self.dclassesByName['DistributedPlayerToon']
         localAvatar = LocalToon.LocalToon(base.cr)
@@ -779,12 +779,12 @@ class CogInvasionClientRepository(AstronClientRepository):
 
     def uberZoneInterestComplete(self, status):
         self.__gotTimeSync = 0
-        if self.timeManager is None:
-            print "No time manager"
+        if self.timeManager == None:
+            print("No time manager")
             DistributedSmoothNode.globalActivateSmoothing(0, 0)
             self.gotTimeSync(status)
         else:
-            print "Time manager found"
+            print("Time manager found")
             DistributedSmoothNode.globalActivateSmoothing(1, 0)
             #h = HashVal()
             #hashPrcVariables(h)
@@ -956,7 +956,7 @@ class CogInvasionClientRepository(AstronClientRepository):
 
     def handleDatagram(self, di):
         if self.notify.getDebug():
-            print "ClientRepository received datagram:"
+            print("ClientRepository received datagram:")
             #di.getDatagram().dumpHex(ostream)
         msgType = self.getMsgType()
         self.currentSenderId = None

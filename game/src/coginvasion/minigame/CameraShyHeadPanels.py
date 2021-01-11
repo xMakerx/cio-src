@@ -12,7 +12,7 @@ from panda3d.core import Point3, VBase4
 from direct.directnotify.DirectNotifyGlobal import directNotify
 from direct.gui.DirectGui import DirectFrame
 
-from HeadPanels import HeadPanels
+from .HeadPanels import HeadPanels
 from src.coginvasion.toon import ToonGlobals
 
 class CameraShyHeadPanels(HeadPanels):

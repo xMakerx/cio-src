@@ -15,7 +15,7 @@ from direct.directnotify.DirectNotifyGlobal import directNotify
 from direct.interval.IntervalGlobal import Sequence, Wait, Func, SoundInterval
 from direct.interval.IntervalGlobal import Parallel, LerpPosInterval, LerpQuatInterval, LerpHprInterval
 
-from DistributedPlayerToonShared import DistributedPlayerToonShared
+from .DistributedPlayerToonShared import DistributedPlayerToonShared
 from src.coginvasion.toon.DistributedToon import DistributedToon
 from src.coginvasion.gags.backpack.Backpack import Backpack
 from src.coginvasion.gags import GagGlobals

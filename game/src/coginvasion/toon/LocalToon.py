@@ -10,8 +10,8 @@ Copyright (c) CIO Team. All rights reserved.
 from panda3d.core import Point3, ConfigVariableBool
 from src.coginvasion.globals import CIGlobals
 from direct.task import Task
-from DistributedPlayerToon import DistributedPlayerToon
-from SmartCamera import SmartCamera
+from .DistributedPlayerToon import DistributedPlayerToon
+from .SmartCamera import SmartCamera
 from src.coginvasion.gui.ChatInput import ChatInput
 from src.coginvasion.gags import GagGlobals
 from direct.interval.IntervalGlobal import Sequence, Wait, Func, ActorInterval, LerpPosHprInterval
@@ -816,7 +816,6 @@ class LocalToon(DistributedPlayerToon, BaseLocalAvatar):
         DistributedPlayerToon.delete(self)
         del base.localAvatar
         del __builtins__['localAvatar']
-        print "Local avatar finally deleted"
 
     def sewerHeadOff(self, zoneId):
         # TEMPORARY

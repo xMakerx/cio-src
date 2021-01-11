@@ -64,6 +64,6 @@ class ClientServicesManager(DistributedObjectGlobal):
 		messenger.send(self.getSetAvatarEvent())
 		
 	def networkMessage(self, message):
-		print 'I got a network message!'
+		print('I got a network message!')
 		whisper = WhisperPopup('ADMIN: ' + message, CIGlobals.getToonFont(), ChatGlobals.WTSystem)
 		whisper.manage(base.marginManager)

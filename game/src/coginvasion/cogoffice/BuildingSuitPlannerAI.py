@@ -14,8 +14,8 @@ from src.coginvasion.cog import CogBattleGlobals
 from src.coginvasion.cog import Dept, SuitBank, Variant
 from src.coginvasion.hood import ZoneUtil
 
-from DistributedTakeOverSuitAI import DistributedTakeOverSuitAI
-import SuitBuildingGlobals
+from .DistributedTakeOverSuitAI import DistributedTakeOverSuitAI
+from . import SuitBuildingGlobals
 
 import random
 

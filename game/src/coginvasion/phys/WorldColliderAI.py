@@ -1,4 +1,4 @@
-from WorldColliderShared import WorldColliderShared
+from .WorldColliderShared import WorldColliderShared
 
 class WorldColliderAI(WorldColliderShared):
     IsAI = True

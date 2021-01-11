@@ -165,7 +165,7 @@ class Shop(StateData):
         items = self.items
         itemType = None
         values = None
-        for iItem, iValues in items.iteritems():
+        for iItem, iValues in items.items():
             if iItem == item:
                 values = iValues
                 itemType = values.get('type')

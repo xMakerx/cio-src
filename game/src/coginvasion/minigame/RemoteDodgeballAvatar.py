@@ -11,8 +11,8 @@ Copyright (c) CIO Team. All rights reserved.
 from direct.directnotify.DirectNotifyGlobal import directNotify
 from direct.interval.IntervalGlobal import Parallel, Sequence, Func
 
-from RemoteAvatar import RemoteAvatar
-from DistributedDodgeballGame import TEAM_COLOR_BY_ID
+from .RemoteAvatar import RemoteAvatar
+from .DistributedDodgeballGame import TEAM_COLOR_BY_ID
 from src.coginvasion.toon import ToonEffects
 
 class RemoteDodgeballAvatar(RemoteAvatar):

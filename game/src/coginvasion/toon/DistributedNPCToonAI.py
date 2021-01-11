@@ -10,7 +10,7 @@ Copyright (c) Cog Invasion Online. All rights reserved.
 
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
-from DistributedToonAI import DistributedToonAI
+from .DistributedToonAI import DistributedToonAI
 from src.coginvasion.distributed.AvatarWatcher import AvatarWatcher, MONITOR_CRASHED, MONITOR_DELETION, MONITOR_ZONE_CHANGE
 from src.coginvasion.npc import NPCGlobals
 from src.coginvasion.hood import ZoneUtil

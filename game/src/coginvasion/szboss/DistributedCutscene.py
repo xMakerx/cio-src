@@ -1,4 +1,4 @@
-from DistributedEntity import DistributedEntity
+from .DistributedEntity import DistributedEntity
 from src.coginvasion.gui.CutsceneGUI import CutsceneGUI
 
 from direct.interval.IntervalGlobal import Sequence, Wait, Func, Parallel, LerpPosInterval, LerpHprInterval, LerpPosHprInterval, ActorInterval
@@ -109,7 +109,7 @@ class DistributedCutscene(DistributedEntity):
         DistributedEntity.disable(self)
 
     def doCutscene(self, cutsceneId):
-        print "doCutscene:", cutsceneId
+        print("doCutscene:", cutsceneId)
         impl = id2impl.get(cutsceneId, None)
         if not impl:
             return

@@ -11,7 +11,7 @@ Copyright (c) CIO Team. All rights reserved.
 from src.coginvasion.globals import CIGlobals
 from panda3d.core import Point3
 
-from ToonDNA import ToonDNA
+from .ToonDNA import ToonDNA
 
 # First argument is phase, next is type, body part, pant type, and finally model detail.
 # Pant type is either: shorts or skirt.

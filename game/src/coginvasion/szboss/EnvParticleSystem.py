@@ -1,4 +1,4 @@
-from Entity import Entity
+from .Entity import Entity
 
 from src.coginvasion.toon import ParticleLoader
 from src.coginvasion.globals import BSPUtility, CIGlobals

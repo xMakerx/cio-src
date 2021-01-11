@@ -1,10 +1,10 @@
 from panda3d.core import Shader, PTA_LVecBase3f, Vec3
-from libpandabsp import PostProcess, PostProcessPass, PostProcessEffect, bits_PASSTEXTURE_COLOR, HDREffect, BloomEffect, FXAA_Effect
+from panda3d.bsp import PostProcess, PostProcessPass, PostProcessEffect, bits_PASSTEXTURE_COLOR, HDREffect, BloomEffect, FXAA_Effect
 
 class CIPostProcess(PostProcess):
     
     def __init__(self):
-        print "making CIPostProcess"
+        print("Making CIPostProcess")
         PostProcess.__init__(self)
         
         self.hdr = None
@@ -15,7 +15,7 @@ class CIPostProcess(PostProcess):
         self.flashColor = PTA_LVecBase3f.emptyArray(1)
         self.setFlashColor(Vec3(0))
         
-        print "Done"
+        print("Done")
         
     def enableFlash(self, color = Vec3(0)):
         self.flashEnabled = True

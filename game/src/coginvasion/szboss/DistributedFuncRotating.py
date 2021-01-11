@@ -2,7 +2,7 @@ from panda3d.core import Vec3
 
 from direct.interval.IntervalGlobal import LerpHprInterval
 
-from DistributedEntity import DistributedEntity
+from .DistributedEntity import DistributedEntity
 from src.coginvasion.phys import PhysicsUtils
 from direct.fsm.FSM import FSM
 
@@ -65,8 +65,8 @@ class DistributedFuncRotating(DistributedEntity, FSM):
             self.spinTrack = None
         
     def enterRotating(self):
-        print self.__getRot()
-        print "We are rotating"
+        print(self.__getRot())
+        print("We are rotating")
         self.spinTrack = LerpHprInterval(self.cEntity.getModelNp(), 60.0 / self.speed, self.__getRot(), startHpr = (0, 0, 0))
         self.spinTrack.loop()
         

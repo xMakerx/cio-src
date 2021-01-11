@@ -8,9 +8,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-import TownLoader
-import DDStreet
-
+from src.coginvasion.hood.street import TownLoader, DDStreet
 from src.coginvasion.globals import CIGlobals
 
 class DDTownLoader(TownLoader.TownLoader):

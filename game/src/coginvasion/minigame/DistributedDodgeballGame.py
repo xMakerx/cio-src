@@ -25,14 +25,14 @@ from src.coginvasion.toon.ToonDNA import ToonDNA
 if metadata.PROCESS == 'client':
     from src.coginvasion.base import ToontownIntervals
 
-from DistributedMinigame import getAlertText, getAlertPulse
-from DistributedEagleGame import getGameText, getCountdownIval, getRoundIval
-from DistributedToonFPSGame import DistributedToonFPSGame
-from DodgeballFirstPerson import DodgeballFirstPerson
-from Snowball import Snowball
-from TeamMinigame import TeamMinigame
+from .DistributedMinigame import getAlertText, getAlertPulse
+from .DistributedEagleGame import getGameText, getCountdownIval, getRoundIval
+from .DistributedToonFPSGame import DistributedToonFPSGame
+from .DodgeballFirstPerson import DodgeballFirstPerson
+from .Snowball import Snowball
+from .TeamMinigame import TeamMinigame
 
-from DodgeballGlobals import *
+from .DodgeballGlobals import *
 
 import random
 

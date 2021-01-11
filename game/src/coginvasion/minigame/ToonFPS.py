@@ -25,9 +25,9 @@ from panda3d.core import PNMImage, Texture, CollisionTraverser
 from panda3d.core import CollisionRay, CollisionNode, BitMask32
 from panda3d.core import CollisionHandlerQueue
 
-from ToonFPSGui import ToonFPSGui
+from .ToonFPSGui import ToonFPSGui
 from direct.task import Task
-from FirstPerson import FirstPerson
+from .FirstPerson import FirstPerson
 
 class ToonFPS(DirectObject):
     notify = directNotify.newCategory("ToonFPS")

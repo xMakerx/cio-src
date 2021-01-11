@@ -9,7 +9,7 @@ Copyright (c) CIO Team. All rights reserved.
 """
 
 from panda3d.core import Vec3
-from libpandabsp import BSPFaceAttrib
+from panda3d.bsp import BSPFaceAttrib
 
 from direct.directnotify.DirectNotifyGlobal import directNotify
 

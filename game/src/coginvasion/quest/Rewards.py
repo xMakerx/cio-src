@@ -9,7 +9,7 @@ Copyright (c) Cog Invasion Online. All rights reserved.
 """
 
 from src.coginvasion.hood import ZoneUtil
-import QuestGlobals
+from . import QuestGlobals
 
 ###################################
 # Reward types

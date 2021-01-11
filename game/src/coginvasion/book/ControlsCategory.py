@@ -10,10 +10,10 @@ Copyright (c) CIO Team. All rights reserved.
 
 from src.coginvasion.globals import CIGlobals
 
-from OptionsCategory import OptionsCategory
-from SliderWidget import SliderWidget
-from ChoiceWidget import ChoiceWidget
-from ChoiceWidget import MULTICHOICE, INDEX
+from .OptionsCategory import OptionsCategory
+from .SliderWidget import SliderWidget
+from .ChoiceWidget import ChoiceWidget
+from .ChoiceWidget import MULTICHOICE, INDEX
 
 class ControlsCategory(OptionsCategory):
     Name = "Controls"

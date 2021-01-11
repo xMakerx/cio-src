@@ -8,8 +8,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-import TownLoader
-import DGStreet
+from src.coginvasion.hood.street import TownLoader, DGStreet
 
 from src.coginvasion.globals import CIGlobals
 

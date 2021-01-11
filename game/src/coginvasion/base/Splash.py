@@ -1,7 +1,7 @@
 from panda3d.core import *
 from direct.interval.IntervalGlobal import *
 from direct.actor.Actor import Actor
-from Ripples import *
+from .Ripples import *
 from src.coginvasion.toon import ParticleLoader
 
 class Splash(NodePath):
