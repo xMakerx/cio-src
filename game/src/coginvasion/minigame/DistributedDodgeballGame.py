@@ -36,7 +36,7 @@ from .DodgeballGlobals import *
 
 import random
 
-from RemoteDodgeballAvatar import RemoteDodgeballAvatar
+from .RemoteDodgeballAvatar import RemoteDodgeballAvatar
 
 class DistributedDodgeballGame(DistributedToonFPSGame, TeamMinigame):
     """The winter dodgeball minigame (client side)"""

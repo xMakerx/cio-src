@@ -126,7 +126,7 @@ class QuestManagerBase:
             isHQ = NPCGlobals.NPCToonDict[npcId][3] == NPCGlobals.NPC_HQ
             
             for objective in objectives:
-                mustVisitOfficer = objective.assigner is 0
+                mustVisitOfficer = objective.assigner == 0
                 if objective.type == Objectives.VisitNPC:
                     # Make sure the npcIds and zones match.
                     if objective.npcId == npcId and objective.npcZone == zoneId:

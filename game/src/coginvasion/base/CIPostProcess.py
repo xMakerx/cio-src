@@ -41,6 +41,7 @@ class CIPostProcess(PostProcess):
         
     def setup(self):
         self.cleanup()
+        PostProcess.setup(self)
         
         textures = {"sceneColorSampler": self.getSceneColorTexture()}
         

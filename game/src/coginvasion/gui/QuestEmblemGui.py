@@ -46,7 +46,7 @@ class QuestEmblemGui(DirectFrame):
     def setEmblem(self, questAvailable = QUEST_AVAILABLE):
         # Sets the texture of the emblem.
         texture = loader.loadTexture('phase_5/maps/quest_available_emblem.png')
-        if questAvailable is 0:
+        if questAvailable == 0:
             texture = loader.loadTexture('phase_5/maps/quest_scroll_emblem.png')
         self.state = questAvailable
         self.emblem.setImage(texture)

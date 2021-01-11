@@ -16,8 +16,6 @@ from .ElevatorUtils import *
 from .DistributedElevator import DistributedElevator
 from src.coginvasion.szboss.DistributedEntity import DistributedEntity
 
-from ElevatorConstants import LIGHT_ON_COLOR, LIGHT_OFF_COLOR
-
 class Elevator:
 
     BLDG = 0

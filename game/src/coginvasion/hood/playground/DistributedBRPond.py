@@ -91,7 +91,7 @@ class DistributedBRPond(DistributedObject):
         
         # Let's default both of the data to None.
         data = [None, None]
-        if avatar.doId in self.avId2Data.keys():
+        if avatar.doId in list(self.avId2Data.keys()):
             data = self.avId2Data.get(avatar.doId)
         return data[0], data[1]
     
@@ -284,7 +284,7 @@ class DistributedBRPond(DistributedObject):
             return task.done
         elif not enter and z > self.InWaterZ:
             _, ival = self.__fetchAvatarIntervalAndIceCube(base.localAvatar)
-            if ival and ival.getName() is 'FreezeUp':
+            if ival and ival.getName() == 'FreezeUp':
                 self.d_requestState(2)
                 return task.done
         return task.cont

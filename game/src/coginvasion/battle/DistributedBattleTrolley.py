@@ -122,7 +122,7 @@ class DistributedBattleTrolley(DistributedObject):
         for i in range(self.numKeys):
             key = self.keys[i]
             key.setTwoSided(1)
-            ref = self.trolleyCar.attachNewNode('key' + `i` + 'ref')
+            ref = self.trolleyCar.attachNewNode('key{0}ref'.format(str(i)))
             ref.setPosHpr(key, 0, 0, 0, 0, 0, 0)
             self.keyRef.append(ref)
             self.keyInit.append(key.getTransform())
@@ -133,7 +133,7 @@ class DistributedBattleTrolley(DistributedObject):
         self.frontWheelRef = []
         for i in range(self.numFrontWheels):
             wheel = self.frontWheels[i]
-            ref = self.trolleyCar.attachNewNode('frontWheel' + `i` + 'ref')
+            ref = self.trolleyCar.attachNewNode('frontWheel{0}ref'.format(i))
             ref.setPosHpr(wheel, 0, 0, 0, 0, 0, 0)
             self.frontWheelRef.append(ref)
             self.frontWheelInit.append(wheel.getTransform())
@@ -144,7 +144,7 @@ class DistributedBattleTrolley(DistributedObject):
         self.backWheelRef = []
         for i in range(self.numBackWheels):
             wheel = self.backWheels[i]
-            ref = self.trolleyCar.attachNewNode('backWheel' + `i` + 'ref')
+            ref = self.trolleyCar.attachNewNode('backWheel{0}ref'.format(i))
             ref.setPosHpr(wheel, 0, 0, 0, 0, 0, 0)
             self.backWheelRef.append(ref)
             self.backWheelInit.append(wheel.getTransform())

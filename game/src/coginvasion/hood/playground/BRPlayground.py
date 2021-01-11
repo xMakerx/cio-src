@@ -10,7 +10,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
-import Playground
+from . import Playground
 
 class BRPlayground(Playground.Playground):
     notify = directNotify.newCategory("BRPlayground")

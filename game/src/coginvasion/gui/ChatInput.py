@@ -22,10 +22,9 @@ import string
 CHAT_WINDOW_OPENED_EVENT = 'chatWindowOpened'
 CHAT_WINDOW_CLOSED_EVENT = 'chatWindowClosed'
 
-class ChatInput(DirectObject, StateData.StateData):
+class ChatInput(StateData.StateData):
 
     def __init__(self):
-        DirectObject.__init__(self)
         StateData.StateData.__init__(self, 'chatInputDone')
 
         # Keys that can be pressed to trigger the chat input box.

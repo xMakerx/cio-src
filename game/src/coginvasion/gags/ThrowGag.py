@@ -19,8 +19,8 @@ from src.coginvasion.gags.GagType import GagType
 from src.coginvasion.globals import CIGlobals
 from src.coginvasion.phys import PhysicsUtils, WorldCollider
 from direct.actor.Actor import Actor
-import GagGlobals
-from PowerBar import PowerBar
+from . import GagGlobals
+from .PowerBar import PowerBar
 
 import math
 import random

@@ -13,8 +13,7 @@ from direct.directnotify.DirectNotifyGlobal import directNotify
 from src.coginvasion.holiday.HolidayManager import HolidayType
 from src.coginvasion.toon import ParticleLoader
 from src.coginvasion.globals import CIGlobals
-import .SafeZoneLoader
-import .BRPlayground
+from . import SafeZoneLoader, BRPlayground
 
 class BRSafeZoneLoader(SafeZoneLoader.SafeZoneLoader):
     notify = directNotify.newCategory("BRSafeZoneLoader")
