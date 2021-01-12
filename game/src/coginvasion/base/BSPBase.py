@@ -15,11 +15,15 @@ from direct.showbase.ShowBase import ShowBase
 from .CogInvasionLoader import CogInvasionLoader
 from .CIPostProcess import CIPostProcess
 
+from src.coginvasion.core.Utilities import maths, strings
+from src.coginvasion.core.AssetLoader import AssetLoader
+from src.coginvasion.core import Localizer
 from src.coginvasion.settings.Setting import SHOWBASE_PREINIT, SHOWBASE_POSTINIT
 
-from panda3d.core import CullBinManager, NodePath, OmniBoundingVolume, WindowProperties, LightRampAttrib
+from panda3d.core import CullBinManager, NodePath, OmniBoundingVolume, WindowProperties, LightRampAttrib, RescaleNormalAttrib
 from panda3d.core import PandaSystem, loadPrcFile, loadPrcFileData, ConfigVariableString, ConfigVariableDouble
-from libpandabsp import BSPShaderGenerator, VertexLitGenericSpec, LightmappedGenericSpec, UnlitGenericSpec, UnlitNoMatSpec, CSMRenderSpec, SkyBoxSpec, DecalModulateSpec
+
+from libpandabsp import BSPShaderGenerator, BSPRender
 
 import builtins
 
@@ -33,17 +37,25 @@ class BSPBase(ShowBase):
 
     def __init__(self, want_bsp = 1, want_input = 1):
         if hasattr(self, '__created'):
-            self.notify.error('Cannot instantiate two instances of {0}!'.format(self.__name__))
+            self.notify.error('Cannot instantiate two instances of Core!')
             sys.exit(0)
             return
 
         self.__created = 1
+        self.bspLoader = None
+
+        if want_bsp:
+            from src.coginvasion.core.LevelLoader import LevelLoader
+            self.bspLoader = LevelLoader()
+
+
         self.want_bsp = want_bsp
         self.want_input = want_input
 
-        # Let's setup our BSPLoader
-        self.bspLoader = Py_CL_BSPLoader()
-        self.bspLoader.setGlobalPtr(self.bspLoader)
+        # Let's add our helper utility pointers
+        self.math = maths()
+        self.strings = strings()
+        self.language = Localizer
 
         # Let's setup our settings
         from src.coginvasion.settings.SettingsManager import SettingsManager
@@ -61,8 +73,8 @@ class BSPBase(ShowBase):
         builtins.getSetting = self.getSetting
 
         ShowBase.__init__(self)
-
         self._initLoader()
+
         self.makeAllPipes()
 
         self.cam.node().getDisplayRegion(0).setClearDepthActive(1)
@@ -77,7 +89,7 @@ class BSPBase(ShowBase):
         attrRegistry.setSlotSort(ShaderAttrib.getClassSlot(), 1)
         attrRegistry.setSlotSort(TransparencyAttrib.getClassSlot(), 2)
 
-        tickTaskName = '{0}._tick'.format(self.__name__)
+        tickTaskName = 'Core._tick'
         self.taskMgr.add(self._tick, tickTaskName, 100)
 
         # Let's setup our SettingsManager
@@ -103,7 +115,7 @@ class BSPBase(ShowBase):
 
         # Enable shader generation, if supported, on all main scenes.
         if supportsBasicShaders:
-            for scene in range([render, render2d, render2dp]):
+            for scene in [render, render2d, render2dp]:
                 scene.setShaderAuto()
             self.notify.debug('Enabled automatic shaders on all scenes.')
         else:
@@ -190,10 +202,14 @@ class BSPBase(ShowBase):
         NametagGlobals.setClickSound(clickSfx)
 
     def __setattr__(self, name, value):
-        if name == 'hdrToggle':
-            curVal = super(BSPBase, self).__getattribute__(name, None)
+        changed = False
+        curVal = getattr(self, name, 'missingNo')
 
-            if not curVal == value:
+        if (curVal != 'missingNo' and not value == curVal):
+            changed = True
+
+        if name == 'hdrToggle':
+            if changed or curVal == 'missingNo':
                 # Their value changed!
 
                 if value is True:
@@ -202,7 +218,19 @@ class BSPBase(ShowBase):
                 else:
                     render.setAttrib(LightRampAttrib.makeDefault())
 
-        super(BSPBase, self).__setattr__(name, value)
+        super().__setattr__(name, value)
+
+        if hasattr(builtins, 'messenger'):
+            # Propagates an event for when a value changes
+            messenger.send(self.getAttributeChangedEventName(name), [curVal, value])
+
+    def adjustWindowAspectRatio(self, aspectRatio=None):
+        maintainRatio = self.getSetting('maspr')
+        if maintainRatio is not None:
+            aspectRatio = LEGACY_TOONTOWN_RATIO if not maintainRatio.getValue() else aspectRatio
+
+        ShowBase.adjustWindowAspectRatio(self, aspectRatio)
+        #self.credits2d.setScale(1.0 / aspectRatio, 1.0, 1.0)
 
     def _initializeShaders(self):
         if not hasattr(self, 'shaderGenerator') or (hasattr(self, 'shaderGenerator') and self.shaderGenerator is None):
@@ -226,6 +254,8 @@ class BSPBase(ShowBase):
             self.aoToggle = False
 
     def _getEnabledShaders(self):
+        from libpandabsp import VertexLitGenericSpec, LightmappedGenericSpec, UnlitGenericSpec, \
+            UnlitNoMatSpec, CSMRenderSpec, SkyBoxSpec, DecalModulateSpec
         return [
             VertexLitGenericSpec(),
             UnlitGenericSpec(),
@@ -233,7 +263,7 @@ class BSPBase(ShowBase):
             UnlitNoMatSpec(),
             CSMRenderSpec(),
             SkyBoxSpec(),
-            DEcalModulateSpec()
+            DecalModulateSpec()
         ]
 
     def setupRender(self):
@@ -249,11 +279,7 @@ class BSPBase(ShowBase):
         Creates the root of the 3D scene graph which supports BSP levels.
         """
 
-        if BSPLoader.getGlobalPtr() is None:
-            # We need to setup the BSPLoader.
-            pass
-
-        self.render = NodePath(BSPRender('render', BSPLoader.getGlobalPtr()))
+        self.render = NodePath(BSPRender('render', self.bspLoader))
         self.render.setAttrib(RescaleNormalAttrib.makeDefault())
         self.render.setTwoSided(0)
 
@@ -285,11 +311,13 @@ class BSPBase(ShowBase):
         self.win.requestProperties(props)
 
     def _initLoader(self):
-        if not isinstance(self.loader, CogInvasionLoader):
+        if self.loader is not None and not isinstance(self.loader, AssetLoader):
             self.loader.destroy()
-        self.loader = CogInvasionLoader(self)
+        self.loader = AssetLoader(self)
         self.graphicsEngine.setDefaultLoader(self.loader.loader)
         builtins.loader = self.loader
+
+        self.setupRender()
 
     """
     Quickly fetch a setting.
@@ -319,6 +347,8 @@ class BSPBase(ShowBase):
     def getAudioLibrary():
         return self.config.GetString('audio-library-name').replace('p3', '').replace('_audio', '')
 
+    def getAttributeChangedEventName(self, name):
+        return 'BSPBase-{0}-changed'.format(name)
 
 if __name__ == "__main__":
     from src.coginvasion.base.Metadata import Metadata
@@ -361,6 +391,8 @@ if __name__ == "__main__":
         # Something went wrong!
         print('Failed to start the game! Did you install it correctly?')
         sys.exit()
+
+    print(base.language.currentLanguage)
 
     # Enable admin commands
     import src.coginvasion.distributed.AdminCommands

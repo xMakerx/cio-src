@@ -176,10 +176,14 @@ class SettingsManager:
             loadPrcFileData("", "win-size {0} {1}".format(width, height))
         
     def __updateAspectRatio(self, maintainRatio):
-        if not maintainRatio:
-            base.doOldToontownRatio()
+        from src.coginvasion.base.CIBase import CIBase
+        if isinstance(base, CIBase):
+            if not maintainRatio:
+                base.doOldToontownRatio()
+            else:
+                base.doRegularRatio()
         else:
-            base.doRegularRatio()
+            base.adjustWindowAspectRatio()
     
     def __updateFullscreen(self, flag):
         wp = WindowProperties()
@@ -221,7 +225,9 @@ class SettingsManager:
         loadPrcFileData("", "sync-video {0}".format(int(flag)))
         
     def __updateBloom(self, flag):
-        base.setBloom(flag)
+        try: 
+            base.setBloom(flag) 
+        except: pass
         
     def __updateWaterReflections(self, value):
         # Temporary until water is fixed and optimized
@@ -233,7 +239,9 @@ class SettingsManager:
         base.waterReflectionMgr.handleResolutionUpdate(resolution)
         
     def __updateHDR(self, flag):
-        base.setHDR(flag)
+        try:
+            base.setHDR(flag)
+        except: pass
         
     def __updateFPS(self, flag):
         base.setFrameRateMeter(flag)

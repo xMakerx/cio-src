@@ -10,7 +10,7 @@ Copyright (c) CIO Team. All rights reserved.
 
 """
 
-from direct.directNotify.DirectNotifyGlobal import directNotify
+from direct.directnotify.DirectNotifyGlobal import directNotify
 
 from libpandabsp import Py_CL_BSPLoader, BSPLoader, BSPMaterialAttrib, BSPMaterial
 
@@ -22,7 +22,7 @@ GAMMA_LEVEL             =          2.2
 class LevelLoader(Py_CL_BSPLoader):
     notify = directNotify.newCategory('LevelLoader')
 
-    def __init__(self, base, assetLoader):
+    def __init__(self):
         Py_CL_BSPLoader.__init__(self)
         BSPLoader.setGlobalPtr(self)
 

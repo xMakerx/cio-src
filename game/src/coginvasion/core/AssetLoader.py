@@ -11,11 +11,19 @@ Copyright (c) CIO Team. All rights reserved.
 """
 
 from direct.showbase.Loader import Loader
-from direct.notify.DirectNotifyGlobal import directNotify
+from direct.directnotify.DirectNotifyGlobal import directNotify
+
+from panda3d.core import PStatCollector
+
+LoadSfxCollector = PStatCollector('App:Show Code:Load SFX')
 
 class AssetLoader(Loader):
     notify = directNotify.newCategory('AssetLoader')
 
     def __init__(self, base):
         Loader.__init__(self, base)
-        self.bspLoader = None if not base.want_bsp else LevelLoader(base, self)
+
+    def loadSfx(self, *args, **kw):
+        LoadSfxCollector.start()
+        Loader.loadSfx(args, kw)
+        LoadSfxCollector.stop()
