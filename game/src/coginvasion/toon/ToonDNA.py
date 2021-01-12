@@ -12,7 +12,6 @@ from panda3d.core import LVecBase4f
 
 from direct.directnotify.DirectNotifyGlobal import directNotify
 
-import types
 
 from src.coginvasion.npc.NPCGlobals import NPC_DNA
 
@@ -3760,7 +3759,7 @@ class ToonDNA:
     def parseDNAStrand(self, dnaStrand):
         dnaParts = dnaStrand.split('/')
         strandLength = len(dnaParts) * 2
-        isString = type(dnaStrand) is types.StringType
+        isString = isinstance(dnaStrand, str)
         if (strandLength >= self.requiredStrandLength and isString):
             self.gender = self.genderDNA2gender[dnaParts[0]]
             self.animal = self.animalDNA2animal[dnaParts[1]]

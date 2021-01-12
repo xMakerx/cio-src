@@ -17,7 +17,6 @@ from direct.distributed.PyDatagram import PyDatagram
 from direct.distributed.PyDatagramIterator import PyDatagramIterator
 
 from collections import OrderedDict
-import types
 import math
 
 WholeCreamPie = "Whole Cream Pie"
@@ -810,7 +809,7 @@ def trackExperienceToNetString(tracks):
     dg = PyDatagram()
     
     for track, exp in tracks.items():
-        dg.addUint8(TrackNameById.values().index(track))
+        dg.addUint8(list(TrackNameById.values()).index(track))
         dg.addInt16(exp)
     dgi = PyDatagramIterator(dg)
     return dgi.getRemainingBytes()
@@ -846,7 +845,7 @@ def getTrackExperienceFromNetString(netString):
     
     tracks = {}
     
-    for track in TrackNameById.values():
+    for track in list(TrackNameById.values()):
         tracks[track] = 0
     
     while dgi.getRemainingSize() > 0:
@@ -869,7 +868,7 @@ def getTrackName(tId):
     return TrackNameById.get(tId, "not found")
     
 def getTrackOfGag(arg, getId = False, isAI = False):
-    if type(arg) == types.IntType:
+    if isinstance(arg, int):
 
         # This is a gag id.
         for trackName, gagList in TrackGagNamesByTrackName.items():
@@ -883,7 +882,7 @@ def getTrackOfGag(arg, getId = False, isAI = False):
                     # Return the int ID of the track
                     return TrackIdByName[trackName]
 
-    elif type(arg) == types.StringType:
+    elif isinstance(arg, str):
 
         # This is a gag name.
         for trackName, gagList in TrackGagNamesByTrackName.items():

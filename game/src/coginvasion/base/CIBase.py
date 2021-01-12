@@ -668,10 +668,10 @@ class CIBase(ShowBase):
         
         self.waterReflectionMgr.load()
 
-        #self.filters = CIPostProcess()
-        #self.filters.startup(self.win)
-        #self.filters.addCamera(self.cam)
-        #self.filters.setup()
+        self.filters = CIPostProcess()
+        self.filters.startup(self.win)
+        self.filters.addCamera(self.cam)
+        self.filters.setup()
         
         self.hdr = HDR()
         self.setHDR(self.hdrToggle)

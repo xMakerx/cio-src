@@ -92,7 +92,7 @@ class DistributedDisneyCharAI(DistributedAvatarAI):
         if self.charId != SAILOR_DONALD:
             self.startLonelyTask()
             if pickRandomPoint:
-                self.currentPointLetter = random.choice(WALK_POINTS[self.charId].keys())
+                self.currentPointLetter = random.choice(list(WALK_POINTS[self.charId].keys()))
             self.sendUpdate('doNeutral', [self.currentPointLetter])
 
     def startLonelyTask(self):

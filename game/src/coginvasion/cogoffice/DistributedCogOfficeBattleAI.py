@@ -267,7 +267,7 @@ class DistributedCogOfficeBattleAI(DistributedBattleZoneAI):
     def generate(self):
         DistributedBattleZoneAI.generate(self)
 
-        import AIEntities
+        from . import AIEntities
         from src.coginvasion.szboss import (InfoTimer, DistributedFuncDoorAI, DistributedTriggerAI)
         from src.coginvasion.battle import (DistributedHPBarrelAI, DistributedGagBarrelAI)
         self.bspLoader.linkServerEntityToClass("cogoffice_suitspawn",       AIEntities.SuitSpawn)

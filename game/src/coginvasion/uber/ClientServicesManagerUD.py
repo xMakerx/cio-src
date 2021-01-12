@@ -191,7 +191,7 @@ class ClientServicesManagerUD(DistributedObjectGlobalUD):
                     self.air.ourChannel,
                     CLIENTAGENT_EJECT)
         dg.addUint16(EC_MULTIPLE_LOGINS)
-        dg.addString('This account is already logged in.')
+        dg.addString(str('This account is already logged in.'))
         self.air.send(dg)
 
         # Add this connection to the account channel.
@@ -226,7 +226,7 @@ class ClientServicesManagerUD(DistributedObjectGlobalUD):
         dg.addServerHeader(accId,
                 self.air.ourChannel,
                 CLIENTAGENT_ADD_POST_REMOVE)
-        dg.addString(dgc.getMessage())
+        dg.addString(str(dgc.getMessage()))
         self.air.send(dg)
 
         # Activate the avatar on the db stateserver.
@@ -265,7 +265,7 @@ class ClientServicesManagerUD(DistributedObjectGlobalUD):
         cleanupDatagram = self.air.netMessenger.prepare('avatarOffline', [avId])
         dg = PyDatagram()
         dg.addServerHeader(accId, self.air.ourChannel, CLIENTAGENT_ADD_POST_REMOVE)
-        dg.addString(cleanupDatagram.getMessage())
+        dg.addString(str(cleanupDatagram.getMessage()))
         self.air.send(dg)
 
     def __handleToonOnline(self, avId):
