@@ -17,11 +17,19 @@ from .CIPostProcess import CIPostProcess
 
 from src.coginvasion.core.Utilities import maths, strings
 from src.coginvasion.core.AssetLoader import AssetLoader
+from src.coginvasion.core.PostProcessingEffects import PostProcessingEffects
 from src.coginvasion.core import Localizer
+from src.coginvasion.manager.UserInputStorage import UserInputStorage
+from src.coginvasion.globals.CIGlobals import DefaultCameraNear, DefaultCameraFar
 from src.coginvasion.settings.Setting import SHOWBASE_PREINIT, SHOWBASE_POSTINIT
 
 from panda3d.core import CullBinManager, NodePath, OmniBoundingVolume, WindowProperties, LightRampAttrib, RescaleNormalAttrib
 from panda3d.core import PandaSystem, loadPrcFile, loadPrcFileData, ConfigVariableString, ConfigVariableDouble
+
+from panda3d.core import loadPrcFile, NodePath, PGTop, TextPropertiesManager, TextProperties, Vec3, MemoryUsage, MemoryUsagePointers, RescaleNormalAttrib
+from panda3d.core import CollisionHandlerFloor, CollisionHandlerQueue, CollisionHandlerPusher, loadPrcFileData, TexturePool, ModelPool, RenderState, Vec4, Point3
+from panda3d.core import CollisionTraverser, CullBinManager, LightRampAttrib, Camera, OmniBoundingVolume, Texture, GraphicsOutput, PStatCollector, PerspectiveLens, ModelNode, BitMask32, OrthographicLens
+from panda3d.core import FrameBufferProperties, WindowProperties
 
 from libpandabsp import BSPShaderGenerator, BSPRender
 
@@ -33,9 +41,10 @@ PRC_FILE_CLIENT             =        'config_client.prc'
 LEGACY_TOONTOWN_RATIO       =        (4. / 3.) # The legacy stretched Toontown Online aspect ratio
 
 class BSPBase(ShowBase):
-    notify = directNotify.newCategory("BSPBase")
+    notify = directNotify.newCategory('BSPBase')
 
     def __init__(self, want_bsp = 1, want_input = 1):
+        self.notify.setInfo(True)
         if hasattr(self, '__created'):
             self.notify.error('Cannot instantiate two instances of Core!')
             sys.exit(0)
@@ -48,6 +57,11 @@ class BSPBase(ShowBase):
             from src.coginvasion.core.LevelLoader import LevelLoader
             self.bspLoader = LevelLoader()
 
+        if want_input:
+            self.input = UserInputStorage()
+            self.inputStore = self.input
+            builtins.uis = self.input
+            builtins.inputStore = self.input
 
         self.want_bsp = want_bsp
         self.want_input = want_input
@@ -69,7 +83,6 @@ class BSPBase(ShowBase):
             raise e
 
         self.settingsMgr.doSunriseFor(sunrise = SHOWBASE_PREINIT)
-
         builtins.getSetting = self.getSetting
 
         ShowBase.__init__(self)
@@ -78,6 +91,13 @@ class BSPBase(ShowBase):
         self.makeAllPipes()
 
         self.cam.node().getDisplayRegion(0).setClearDepthActive(1)
+        self.camLens.setNearFar(DefaultCameraNear, DefaultCameraFar)
+        self.win.disableClears()
+
+        render.hide()
+        self.bspLoader.setWin(self.win)
+        self.bspLoader.setCamera(self.camera)
+        self.bspLoader.setRender(self.render)
 
         # Let's setup our graphics.
         from panda3d.core import RenderAttribRegistry, ShaderAttrib, \
@@ -91,10 +111,6 @@ class BSPBase(ShowBase):
 
         tickTaskName = 'Core._tick'
         self.taskMgr.add(self._tick, tickTaskName, 100)
-
-        # Let's setup our SettingsManager
-        self.settingsMgr = SettingsManager()
-        builtins.getSetting = self.getSetting
 
         self.shaderGenerator = None
 
@@ -110,7 +126,7 @@ class BSPBase(ShowBase):
         supportsBasicShaders = gsg.getSupportsBasicShaders()
         supportsGlsl = gsg.getSupportsGlsl()
 
-        self.notify.info('Graphics Information:\n\tVendor: {0}\n\tRenderer: {1}\n\tVersion: {2}\n\tSupports Cube Maps: {3}\n\tSupports 3D Textures: {4}\n\tSupports Compute Shaders: {5}\n\tSupports Glsl{6}'
+        self.notify.info('Graphics Information:\n\tVendor: {0}\n\tRenderer: {1}\n\tVersion: {2}\n\tSupports Cube Maps: {3}\n\tSupports 3D Textures: {4}\n\tSupports Compute Shaders: {5}\n\tSupports Glsl: {6}'
                             .format(driverVendor, driverRenderer, driverVersion, supportsCubeMap, supports3dTextures, supportsBasicShaders, supportsGlsl))
 
         # Enable shader generation, if supported, on all main scenes.
@@ -127,9 +143,7 @@ class BSPBase(ShowBase):
                 metadata.NO_FOG = 1
                 self.notify.info("Applied Intel-specific graphical fix.")
 
-            self.win.disableClears()
-
-        if True: __fixPlatformIssues()
+        #if True: __fixPlatformIssues()
 
         # Let's setup our camera bitmasks
         from src.coginvasion.globals.CIGlobals import MainCameraBitmask, ShadowCameraBitmask, DefaultBackgroundColor
@@ -153,13 +167,17 @@ class BSPBase(ShowBase):
         cbm.addBin('gsg-popup', CullBinManager.BTFixed, 70)
 
         self.setBackgroundColor(DefaultBackgroundColor)
-        self.disableMouse()
+        #self.disableMouse()
         self.enableParticles()
 
         self.settingsMgr.doSunriseFor(sunrise = SHOWBASE_POSTINIT)
 
         # Let's initialize our shaders
         try:
+            from panda3d.core import VirtualFileSystem, Filename
+            vfs = VirtualFileSystem.getGlobalPtr()
+            vfs.chdir(Filename('resources'))
+
             self._initializeShaders()
         except Exception as e:
             self.notify.error('Failed to initialize shaders. Exception: {0}'.format(str(e)))
@@ -201,13 +219,150 @@ class BSPBase(ShowBase):
         NametagGlobals.setRolloverSound(rlvrSfx)
         NametagGlobals.setClickSound(clickSfx)
 
+    def makeCamera(self, win, sort = 0, scene = None,
+                   displayRegion = (0, 1, 0, 1), stereo = None,
+                   aspectRatio = None, clearDepth = 0, clearColor = None,
+                   lens = None, camName = 'cam', mask = None,
+                   useCamera = None):
+        """
+        Makes a new 3-d camera associated with the indicated window,
+        and creates a display region in the indicated subrectangle.
+
+        If stereo is True, then a stereo camera is created, with a
+        pair of DisplayRegions.  If stereo is False, then a standard
+        camera is created.  If stereo is None or omitted, a stereo
+        camera is created if the window says it can render in stereo.
+
+        If useCamera is not None, it is a NodePath to be used as the
+        camera to apply to the window, rather than creating a new
+        camera.
+        """
+        # self.camera is the parent node of all cameras: a node that
+        # we can move around to move all cameras as a group.
+        if self.camera == None:
+            # We make it a ModelNode with the PTLocal flag, so that
+            # a wayward flatten operations won't attempt to mangle the
+            # camera.
+            self.camera = self.render.attachNewNode(ModelNode('camera'))
+            self.camera.node().setPreserveTransform(ModelNode.PTLocal)
+            builtins.camera = self.camera
+
+            self.mouse2cam.node().setNode(self.camera.node())
+
+        if useCamera:
+            # Use the existing camera node.
+            cam = useCamera
+            camNode = useCamera.node()
+            assert(isinstance(camNode, Camera))
+            lens = camNode.getLens()
+            cam.reparentTo(self.camera)
+
+        else:
+            # Make a new Camera node.
+            camNode = Camera(camName)
+            if lens == None:
+                lens = PerspectiveLens()
+
+                if aspectRatio == None:
+                    aspectRatio = self.getAspectRatio(win)
+                lens.setAspectRatio(aspectRatio)
+
+            cam = self.camera.attachNewNode(camNode)
+
+        if lens != None:
+            camNode.setLens(lens)
+
+        if scene != None:
+            camNode.setScene(scene)
+
+        if mask != None:
+            if (isinstance(mask, int)):
+                mask = BitMask32(mask)
+            camNode.setCameraMask(mask)
+
+        if self.cam == None:
+            self.cam = cam
+            self.camNode = camNode
+            self.camLens = lens
+
+        self.camList.append(cam)
+
+        # Now, make a DisplayRegion for the camera.
+        if stereo is not None:
+            if stereo:
+                dr = win.makeStereoDisplayRegion(*displayRegion)
+            else:
+                dr = win.makeMonoDisplayRegion(*displayRegion)
+        else:
+            dr = win.makeDisplayRegion(*displayRegion)
+
+        dr.setSort(sort)
+
+        dr.disableClears()
+
+        # By default, we do not clear 3-d display regions (the entire
+        # window will be cleared, which is normally sufficient).  But
+        # we will if clearDepth is specified.
+        if clearDepth:
+            dr.setClearDepthActive(1)
+
+        if clearColor:
+            dr.setClearColorActive(1)
+            dr.setClearColor(clearColor)
+
+        dr.setCamera(cam)
+
+        return cam
+
+    def makeCamera2d(self, win, sort = 10,
+                     displayRegion = (0, 1, 0, 1), coords = (-1, 1, -1, 1),
+                     lens = None, cameraName = None):
+        """
+        Makes a new camera2d associated with the indicated window, and
+        assigns it to render the indicated subrectangle of render2d.
+        """
+        dr = win.makeMonoDisplayRegion(*displayRegion)
+        dr.setSort(sort)
+        dr.disableClears()
+
+        # Make any texture reloads on the gui come up immediately.
+        dr.setIncompleteRender(False)
+
+        left, right, bottom, top = coords
+
+        # Now make a new Camera node.
+        if (cameraName):
+            cam2dNode = Camera('cam2d_' + cameraName)
+        else:
+            cam2dNode = Camera('cam2d')
+
+        if lens == None:
+            lens = OrthographicLens()
+            lens.setFilmSize(right - left, top - bottom)
+            lens.setFilmOffset((right + left) * 0.5, (top + bottom) * 0.5)
+            lens.setNearFar(-1000, 1000)
+        cam2dNode.setLens(lens)
+
+        # self.camera2d is the analog of self.camera, although it's
+        # not as clear how useful it is.
+        if self.camera2d == None:
+            self.camera2d = self.render2d.attachNewNode('camera2d')
+
+        camera2d = self.camera2d.attachNewNode(cam2dNode)
+        dr.setCamera(camera2d)
+
+        if self.cam2d == None:
+            self.cam2d = camera2d
+
+        return camera2d
+
+    """
     def __setattr__(self, name, value):
         changed = False
         curVal = getattr(self, name, 'missingNo')
 
         if (curVal != 'missingNo' and not value == curVal):
             changed = True
-
         if name == 'hdrToggle':
             if changed or curVal == 'missingNo':
                 # Their value changed!
@@ -223,6 +378,7 @@ class BSPBase(ShowBase):
         if hasattr(builtins, 'messenger'):
             # Propagates an event for when a value changes
             messenger.send(self.getAttributeChangedEventName(name), [curVal, value])
+    """
 
     def adjustWindowAspectRatio(self, aspectRatio=None):
         maintainRatio = self.getSetting('maspr')
@@ -233,25 +389,39 @@ class BSPBase(ShowBase):
         #self.credits2d.setScale(1.0 / aspectRatio, 1.0, 1.0)
 
     def _initializeShaders(self):
-        if not hasattr(self, 'shaderGenerator') or (hasattr(self, 'shaderGenerator') and self.shaderGenerator is None):
+        from src.coginvasion.globals.CIGlobals import ComputeCameraBitmask
+        from panda3d.core import OmniBoundingVolume, NodePath
+        if self.shaderGenerator is None:
             gsg = self.win.getGsg()
             self.shaderGenerator = BSPShaderGenerator(self.win, gsg, self.camera, self.render)
-            gsg.setShaderGenerator(self.shaderGenerator)
+
+            self.win.getGsg().setShaderGenerator(self.shaderGenerator)
 
             for shader in self._getEnabledShaders():
                 self.shaderGenerator.addShader(shader)
 
             self.shaderGenerator.setShaderQuality(self.getSetting("shaderquality").getValue())
 
-            self.filters = CIPostProcess()
-            self.filters.startup(self.win)
-            self.filters.addCamera(self.cam)
-            self.filters.setup()
-
             self.bloomToggle = False
             self.hdrToggle = False
             self.fxaaToggle = self.getSetting("aa").getValue() == "FXAA"
             self.aoToggle = False
+
+
+            self.filters = PostProcessingEffects()
+            self.filters.startup(self.win)
+            self.filters.addCamera(self.cam)
+            self.filters.setup()
+
+            self.computeRoot = NodePath('computeRoot')
+            self.computeCam = self.makeCamera(base.win)
+            self.computeCam.node().setCameraMask(ComputeCameraBitmask)
+            self.computeCam.node().setCullBounds(OmniBoundingVolume())
+            self.computeCam.node().setFinal(True)
+            self.computeCam.reparentTo(self.computeRoot)
+
+            self.bspLoader.setShaderGenerator(self.shaderGenerator)
+            self.bspLoader.setWantShadows(metadata.USE_REAL_SHADOWS)
 
     def _getEnabledShaders(self):
         from libpandabsp import VertexLitGenericSpec, LightmappedGenericSpec, UnlitGenericSpec, \
@@ -334,7 +504,7 @@ class BSPBase(ShowBase):
         self.notify.error("SettingsManager isn't defined!")
         return None
 
-    def getGraphicsLibrary():
+    def getGraphicsLibrary(self):
         lib = self.config.GetString('load-display')
 
         if lib == 'pandagl':
@@ -344,7 +514,7 @@ class BSPBase(ShowBase):
         
         return lib
 
-    def getAudioLibrary():
+    def getAudioLibrary(self):
         return self.config.GetString('audio-library-name').replace('p3', '').replace('_audio', '')
 
     def getAttributeChangedEventName(self, name):
@@ -359,11 +529,12 @@ if __name__ == "__main__":
     print('Starting Open Cog Invasion Online {0} with Panda3D version: {1}...'.format(metadata.getBuildInformation(), PandaSystem.getVersionString()))
 
     try:
-        loadPrcFile('config/{0}'.format(PRC_FILE_DEV))
         loadPrcFile('config/Confauto.prc')
+        loadPrcFile('config/{0}'.format(PRC_FILE_DEV))
 
         # Let's mount our resources directly
-        loadPrcFileData('', 'model-path ./resources')
+        loadPrcFileData('', 'model-path resources')
+        loadPrcFileData('', 'default-stereo-camera 1')
 
         metadata.IS_PRODUCTION = 0
         print('Running development environment')
@@ -385,7 +556,7 @@ if __name__ == "__main__":
     metadata.MULTITHREADED_PIPELINE = int(ConfigVariableString('threading-model', '').getValue() == 'Cull/Draw')
 
     base = BSPBase()
-    builtins.base = BSPBase()
+    builtins.base = base
 
     if base.win is None:
         # Something went wrong!
@@ -395,8 +566,13 @@ if __name__ == "__main__":
     print(base.language.currentLanguage)
 
     # Enable admin commands
-    import src.coginvasion.distributed.AdminCommands
+    #import src.coginvasion.distributed.AdminCommands
 
     print('Rendering Engine: {0}, Sound Library: {1}'.format(base.getGraphicsLibrary(), base.getAudioLibrary()))
     base.onSuccessfulStart()
 
+    render.show()
+    loader.loadModel('panda.egg').reparentTo(render)
+    print('DREW PANDA')
+
+    base.run()

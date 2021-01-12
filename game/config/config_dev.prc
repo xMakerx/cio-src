@@ -1,10 +1,10 @@
 # Default window properties...
-window-title Open Cog Invasion Online DEV
+window-title Cog Invasion Online (Alpha II)
 win-origin -1 -1
 win-size 640 480
 #win-fixed-size 1
-load-display pandadx9
-aux-display pandadx9
+load-display pandagl
+aux-display pandagl
 
 #clock-mode limited
 #clock-frame-rate 10

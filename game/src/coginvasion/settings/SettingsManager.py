@@ -133,7 +133,10 @@ class SettingsManager:
         except: pass
                         
     def __updateAO(self, toggle):
-        base.setAmbientOcclusion(toggle)
+        try:
+            base.setAmbientOcclusion(toggle)
+        except:
+            pass
                         
     def __updateShadows(self, shadowIdx):
         csmSizes = [0, 512, 1024, 2048, 4096, 4096]
@@ -236,7 +239,9 @@ class SettingsManager:
             
         qualities = {"Off": 0, "Low": 256, "Medium": 512, "High": 1024, "Very High": 2048}
         resolution = qualities.get(value, 0)
-        base.waterReflectionMgr.handleResolutionUpdate(resolution)
+        try:
+            base.waterReflectionMgr.handleResolutionUpdate(resolution)
+        except: pass
         
     def __updateHDR(self, flag):
         try:
@@ -274,7 +279,9 @@ class SettingsManager:
         base.camLens.setMinFov(value / (4. / 3.))
         
     def __updateResourcePack(self, value):
-        base.loader.mountMultifiles(value)
+        try:
+            base.loader.mountMultifiles(value)
+        except: pass
         
     def __updateModelDetail(self, value):
         pass
