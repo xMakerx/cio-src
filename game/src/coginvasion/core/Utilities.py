@@ -166,3 +166,22 @@ class strings:
     def empty(string):
         """ Returns whether or not a string is empty. """
         return not (string and string.strip())
+
+ANISOTROPIC_FILTERING_TASK_NAME = 'ApplyAnisotropicFiltering'
+
+def __applyAF(task):
+    degree = base.getSetting('af').getValue()
+
+    for tex in render.findAllTextures():
+        if tex.getAnisotropicDegree() != degree:
+            tex.setAnisotropicDegree(degree)
+    return task.done
+
+def enableAntisotropicFiltering():
+    if base.taskMgr.hasTaskNamed(ANISOTROPIC_FILTERING_TASK_NAME):
+        return
+    base.taskMgr.add(__applyAF, ANISOTROPIC_FILTERING_TASK_NAME)
+
+def disableAntisotropicFiltering():
+    if base.taskMgr.hasTaskNamed(ANISOTROPIC_FILTERING_TASK_NAME):
+        base.taskMgr.removeTask(ANISOTROPIC_FILTERING_TASK_NAME)

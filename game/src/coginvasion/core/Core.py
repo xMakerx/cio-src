@@ -2,7 +2,7 @@
 COG INVASION ONLINE
 Copyright (c) CIO Team. All rights reserved.
 
-@file BSPBase.py
+@file Core.py
 @author Maverick Liberty
 @date January 11, 2021
 @desc Derived from Brian's BSPBase in his singleplayer game.
@@ -12,13 +12,11 @@ Copyright (c) CIO Team. All rights reserved.
 from direct.directnotify.DirectNotifyGlobal import directNotify
 from direct.showbase.ShowBase import ShowBase
 
-from .CogInvasionLoader import CogInvasionLoader
-from .CIPostProcess import CIPostProcess
+from . import Localizer
+from .Utilities import maths, strings
+from .AssetLoader import AssetLoader
+from .PostProcessingEffects import PostProcessingEffects
 
-from src.coginvasion.core.Utilities import maths, strings
-from src.coginvasion.core.AssetLoader import AssetLoader
-from src.coginvasion.core.PostProcessingEffects import PostProcessingEffects
-from src.coginvasion.core import Localizer
 from src.coginvasion.manager.UserInputStorage import UserInputStorage
 from src.coginvasion.globals.CIGlobals import DefaultCameraNear, DefaultCameraFar
 from src.coginvasion.settings.Setting import SHOWBASE_PREINIT, SHOWBASE_POSTINIT
@@ -36,12 +34,12 @@ from libpandabsp import BSPShaderGenerator, BSPRender
 import builtins
 
 SETTINGS_FILE_NAME          =        'settings.json'
-PRC_FILE_DEV                =        'config_client.prc'
+PRC_FILE_DEV                =        'config_dev.prc'
 PRC_FILE_CLIENT             =        'config_client.prc'
 LEGACY_TOONTOWN_RATIO       =        (4. / 3.) # The legacy stretched Toontown Online aspect ratio
 
-class BSPBase(ShowBase):
-    notify = directNotify.newCategory('BSPBase')
+class Core(ShowBase):
+    notify = directNotify.newCategory('Core')
 
     def __init__(self, want_bsp = 1, want_input = 1):
         self.notify.setInfo(True)
@@ -51,6 +49,7 @@ class BSPBase(ShowBase):
             return
 
         self.__created = 1
+        self.setup = False
         self.bspLoader = None
 
         if want_bsp:
@@ -92,7 +91,7 @@ class BSPBase(ShowBase):
 
         self.cam.node().getDisplayRegion(0).setClearDepthActive(1)
         self.camLens.setNearFar(DefaultCameraNear, DefaultCameraFar)
-        self.win.disableClears()
+        #self.win.disableClears()
 
         render.hide()
         self.bspLoader.setWin(self.win)
@@ -102,15 +101,18 @@ class BSPBase(ShowBase):
         # Let's setup our graphics.
         from panda3d.core import RenderAttribRegistry, ShaderAttrib, \
             TransparencyAttrib
-        from libpandabsp import BSPMaterialAttrib
 
         attrRegistry = RenderAttribRegistry.getGlobalPtr()
-        if want_bsp: attrRegistry.setSlotSort(BSPMaterialAttrib.getClassSlot(), 0)
+
+        if want_bsp:
+            from libpandabsp import BSPMaterialAttrib
+            attrRegistry.setSlotSort(BSPMaterialAttrib.getClassSlot(), 0)
+
         attrRegistry.setSlotSort(ShaderAttrib.getClassSlot(), 1)
         attrRegistry.setSlotSort(TransparencyAttrib.getClassSlot(), 2)
 
         tickTaskName = 'Core._tick'
-        self.taskMgr.add(self._tick, tickTaskName, 100)
+        self.taskMgr.add(self._tick, tickTaskName, 47)
 
         self.shaderGenerator = None
 
@@ -137,13 +139,6 @@ class BSPBase(ShowBase):
         else:
             self.notify.error('Graphics driver is too out of date to run the game.')
             return
-            
-        def __fixPlatformIssues():
-            if driverVendor == "Intel":
-                metadata.NO_FOG = 1
-                self.notify.info("Applied Intel-specific graphical fix.")
-
-        #if True: __fixPlatformIssues()
 
         # Let's setup our camera bitmasks
         from src.coginvasion.globals.CIGlobals import MainCameraBitmask, ShadowCameraBitmask, DefaultBackgroundColor
@@ -218,6 +213,8 @@ class BSPBase(ShowBase):
                                      chatButtonGui.find('**/CloseBtn_Rllvr'), chatButtonGui.find('**/CloseBtn_UP'))
         NametagGlobals.setRolloverSound(rlvrSfx)
         NametagGlobals.setClickSound(clickSfx)
+
+        self.setup = True
 
     def makeCamera(self, win, sort = 0, scene = None,
                    displayRegion = (0, 1, 0, 1), stereo = None,
@@ -356,8 +353,12 @@ class BSPBase(ShowBase):
 
         return camera2d
 
-    """
     def __setattr__(self, name, value):
+        # This has to be here or ShowBase will get messed up during initialization.
+        if not hasattr(self, 'setup') or (hasattr(self, 'setup') and not self.setup): 
+            super().__setattr__(name, value)
+            return
+
         changed = False
         curVal = getattr(self, name, 'missingNo')
 
@@ -378,7 +379,6 @@ class BSPBase(ShowBase):
         if hasattr(builtins, 'messenger'):
             # Propagates an event for when a value changes
             messenger.send(self.getAttributeChangedEventName(name), [curVal, value])
-    """
 
     def adjustWindowAspectRatio(self, aspectRatio=None):
         maintainRatio = self.getSetting('maspr')
@@ -442,7 +442,7 @@ class BSPBase(ShowBase):
             return
 
         # We don't want BSP
-        super(BSPBase, self).setupRender()
+        super().setupRender()
 
     def setupBSPRender(self):
         """
@@ -464,10 +464,10 @@ class BSPBase(ShowBase):
         for entity in entitiesToTick:
             member = getattr(self, entity, None)
             if hasattr(self, entity) and member is not None:
-                member.update()
-
                 if entity == 'filters':
                     member.windowEvent()
+
+                member.update()
 
         return task.cont
 
@@ -518,7 +518,7 @@ class BSPBase(ShowBase):
         return self.config.GetString('audio-library-name').replace('p3', '').replace('_audio', '')
 
     def getAttributeChangedEventName(self, name):
-        return 'BSPBase-{0}-changed'.format(name)
+        return 'Core-{0}-changed'.format(name)
 
 if __name__ == "__main__":
     from src.coginvasion.base.Metadata import Metadata
@@ -534,12 +534,10 @@ if __name__ == "__main__":
 
         # Let's mount our resources directly
         loadPrcFileData('', 'model-path resources')
-        loadPrcFileData('', 'default-stereo-camera 1')
 
         metadata.IS_PRODUCTION = 0
         print('Running development environment')
 
-        # We could enable some fun stuff or something
     except:
         import aes
         import config
@@ -555,7 +553,7 @@ if __name__ == "__main__":
 
     metadata.MULTITHREADED_PIPELINE = int(ConfigVariableString('threading-model', '').getValue() == 'Cull/Draw')
 
-    base = BSPBase()
+    base = Core()
     builtins.base = base
 
     if base.win is None:
@@ -563,16 +561,7 @@ if __name__ == "__main__":
         print('Failed to start the game! Did you install it correctly?')
         sys.exit()
 
-    print(base.language.currentLanguage)
-
-    # Enable admin commands
-    #import src.coginvasion.distributed.AdminCommands
-
     print('Rendering Engine: {0}, Sound Library: {1}'.format(base.getGraphicsLibrary(), base.getAudioLibrary()))
     base.onSuccessfulStart()
-
-    render.show()
-    loader.loadModel('panda.egg').reparentTo(render)
-    print('DREW PANDA')
 
     base.run()
